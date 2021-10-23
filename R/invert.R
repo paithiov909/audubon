@@ -1,3 +1,6 @@
+#' Invert Kana and Roman vice versa
+#' @param str Character vector.
+#' @returns Character vector.
 #' @export
 invert_kana <- function(str) {
   sapply(stringi::stri_enc_toutf8(str), function(elem) {
