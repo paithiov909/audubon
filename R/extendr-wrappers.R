@@ -8,5 +8,7 @@
 #' @useDynLib audubon, .registration = TRUE
 NULL
 
-convert <- function(input) .Call(wrap__convert, input)
+to_kana <- function(input) .Call(wrap__to_kana, input)
+
+to_roman <- function(input) .Call(wrap__to_roman, input)
 

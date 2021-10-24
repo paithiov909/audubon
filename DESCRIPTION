@@ -4,11 +4,10 @@ Version: 0.0.1.9000
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"),
     person("yumetodo", "", comment = "Author of romaji_kana_cvt_rust", role = "aut"))
-Description: An R package for Japanese Kanji and Roman inversion following
-    JIS X 4063:2000 (deprecated in 2010/01/20),
+Description: An R package for Japanese Hiragana and Roman inversion following
+    JIS X 4063:2000 (deprecated in 2010/01/20).
 License: BSL-1.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-Import:
-    stringi
+SystemRequirements: Cargo (rustc package manager)
