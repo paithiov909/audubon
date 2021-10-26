@@ -22,7 +22,7 @@ strj_katakanize <- function(text) {
   }, USE.NAMES = FALSE)
 }
 
-#' Romanize Japanse Hiragana and Katakana
+#' Romanize Japanese Hiragana and Katakana
 #'
 #' @param text Character vector.
 #' @param config Config used to romanize.

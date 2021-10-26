@@ -2,7 +2,7 @@
 % Please edit documentation in R/strj-japanese.R
 \name{strj_romanize}
 \alias{strj_romanize}
-\title{Romanize Japanse Hiragana and Katakana}
+\title{Romanize Japanese Hiragana and Katakana}
 \usage{
 strj_romanize(
   text,
@@ -18,5 +18,5 @@ strj_romanize(
 Character vector.
 }
 \description{
-Romanize Japanse Hiragana and Katakana
+Romanize Japanese Hiragana and Katakana
 }
