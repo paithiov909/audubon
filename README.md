@@ -1,65 +1,36 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# audubon
+# audubon <a href='https://paithiov909.github.io/audubon'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-> [ローマ字とひらがなを変換するやつ](https://github.com/yumetodo/romaji_kana_cvt_rust)
+audubon is an R package for various Japanese text processing that
+contains:
 
-## Comparisons
+-   wrapper functions of
+    [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
+-   wrapper functions of
+    [yumetodo/romaji\_kana\_cvt\_rust](https://github.com/yumetodo/romaji_kana_cvt_rust)
+    (an Roman and Hiragana inverter following the JIS X 4063:2000)
+-   an R port of
+    [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
+-   and other miscellaneous functions
 
-### To Roman
+## System Requirements
 
-``` r
-zipangu::str_conv_romanhira("でゅららら", "roman")
-#> [1] "de~yurarara"
-audubon::invert_to_roman("でゅららら")
-#>  でゅららら 
-#> "dhurarara"
-zipangu::str_conv_romanhira("ゑぐざゐる", "roman")
-#> [1] "weguzawiru"
-audubon::invert_to_roman("ゑぐざゐる")
-#>     ゑぐざゐる 
-#> "wyeguzawyiru"
-zipangu::str_conv_romanhira("じぇんつーぺんぎん", "roman")
-#> [1] "jents<U+016B>pengin"
-audubon::invert_to_roman("じぇんつーぺんぎん")
-#> じぇんつーぺんぎん 
-#>                 NA
-zipangu::str_conv_romanhira("じぇんつうぺんぎん", "roman")
-#> [1] "jentsuupengin"
-audubon::invert_to_roman("じぇんつうぺんぎん")
-#> じぇんつうぺんぎん 
-#> "zyenntuupennginn"
-```
+-   Cargo
 
-### To Hiragana
+## Installation
 
 ``` r
-zipangu::str_conv_romanhira("dhurarara", "hiragana")
-#> [1] "でへぅららら"
-audubon::invert_to_kana("dhurarara")
-#>    dhurarara 
-#> "でゅららら"
-zipangu::str_conv_romanhira("weguzawyiru", "hiragana")
-#> [1] "ゑぐざういる"
-audubon::invert_to_kana("weguzawyiru")
-#>    weguzawyiru 
-#> "うぇぐざゐる"
-zipangu::str_conv_romanhira("jent'upengin", "hiragana")
-#> [1] "じぇんてうぺんぎん"
-audubon::invert_to_kana("jent'upengin")
-#>         jent'upengin 
-#> "じぇんとぅぺんぎん"
+remotes::install_github("paithio909/audubon")
 ```
-
-### Limitations
-
--   カタカナや「ー」など、マップできない文字があると`NA_character`になる
--   おそらくWindowsではデフォルトエンコーディングの影響で戻り値に「ゔ」が含まれると上手く変換されない
 
 ## License
 
 BLS-1.0
+
+Icons made by [iconixar](https://www.flaticon.com/authors/iconixar) from
+[www.flaticon.com](https://www.flaticon.com/).
