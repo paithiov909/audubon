@@ -30,7 +30,7 @@ remotes::install_github("paithio909/audubon")
 
 ## License
 
-BLS-1.0
+BSL-1.0
 
 Icons made by [iconixar](https://www.flaticon.com/authors/iconixar) from
 [www.flaticon.com](https://www.flaticon.com/).
