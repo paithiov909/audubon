@@ -21,7 +21,7 @@ fill_iter_mark_single <- function(text) {
     purrr::map(~ embed(., 2)[, 2:1]) %>%
     purrr::map(~ as.data.frame(.))
   lapply(textloop, function(df) {
-    df$flags <- stringi::stri_detect_regex(df$V2, "[ヽゝ〃々]")
+    df$flags <- stringi::stri_detect_regex(df$V2, "[\u30fd\u309d\u3003\u3005]")
     df <- df %>%
       dplyr::mutate(
         V3 = dplyr::if_else(
@@ -40,12 +40,12 @@ fill_iter_mark_single2 <- function(text) {
     purrr::map(~ embed(., 2)[, 2:1]) %>%
     purrr::map(~ as.data.frame(.))
   lapply(textloop, function(df) {
-    df$flags <- stringi::stri_detect_regex(df$V2, "[ヾゞ]")
+    df$flags <- stringi::stri_detect_regex(df$V2, "[\u30fe\u309e]")
     df <- df %>%
       dplyr::mutate(
         V3 = dplyr::if_else(
           .data$flags,
-          paste0(V1, "ﾞ"),
+          paste0(V1, enc2utf8("\uff9e")),
           paste0(V2)
         )
       )

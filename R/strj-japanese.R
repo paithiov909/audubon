@@ -49,7 +49,6 @@ strj_romanize <- function(text,
 #' Transcribe Arabic integers to Kansuji.
 #'
 #' @param int Integers.
-#' @param config Config used to romanize.
 #' @returns Character vector.
 #'
 #' @export

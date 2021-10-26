@@ -5,7 +5,7 @@
 ^pkgdown$
 ^\.github$
 ^\.yarnclean
-^CODE_OF_CONDUCT\.md$
+^LICENSE\.md$
 ^README\.Rmd$
 ^srcjs$
 ^node_modules$

@@ -11,6 +11,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 SystemRequirements: Cargo (rustc package manager)
 Imports:
+    dplyr,
     furrr,
     magrittr,
     readr,
@@ -18,4 +19,5 @@ Imports:
     rlang,
     stringi,
     stringr,
+    tokenizers,
     V8

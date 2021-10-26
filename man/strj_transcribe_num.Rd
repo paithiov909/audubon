@@ -8,8 +8,6 @@ strj_transcribe_num(int)
 }
 \arguments{
 \item{int}{Integers.}
-
-\item{config}{Config used to romanize.}
 }
 \value{
 Character vector.
