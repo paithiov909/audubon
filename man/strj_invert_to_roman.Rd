@@ -24,6 +24,6 @@ when the element of vector contains any non-Hiragana strings.
 \section{Limitations}{
 
 In case you use this function under Windows with Japanese locale,
-some romanization would not work porperly due to its default encoding.
+some romanization would not work properly due to its default encoding.
 }
 

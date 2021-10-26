@@ -1,6 +1,6 @@
 #' Fill Japanese iteration marks
 #'
-#' Fill Japanese iteration marks (Odoriji) with their previous chraracters.
+#' Fill Japanese iteration marks (Odoriji) with their previous characters.
 #'
 #' @param text Character vector.
 #' @returns Character vector.

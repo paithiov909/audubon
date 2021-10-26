@@ -21,3 +21,6 @@ Imports:
     stringr,
     tokenizers,
     V8
+Suggests: 
+    spelling
+Language: en-US
