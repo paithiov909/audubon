@@ -1,7 +1,7 @@
 const japanese = require("japanese");
 
 const audubon = {
-  japanese: japanese
+  japanese: japanese,
 };
 
 export default audubon;
