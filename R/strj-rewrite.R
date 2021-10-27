@@ -36,6 +36,6 @@ read_rewrite_def <- function(def_path) {
 apply_rep_all <- function(text, def) {
   pattern <- purrr::map_chr(def, ~ purrr::pluck(., 1))
   rep <- purrr::map_chr(def, ~ purrr::pluck(., 2))
-  res <- stringi::stri_replace_all_fixed(text, pattern = pattern, replace = rep)
+  res <- stringi::stri_replace_all_fixed(text, pattern = pattern, replace = rep, vectorise_all = FALSE)
   return(stringi::stri_trans_nfkc(res))
 }
