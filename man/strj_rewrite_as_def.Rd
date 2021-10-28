@@ -4,15 +4,12 @@
 \alias{strj_rewrite_as_def}
 \title{Rewrite text using rewrite.def}
 \usage{
-strj_rewrite_as_def(
-  text,
-  def_path = system.file("rewrite.def", package = "audubon")
-)
+strj_rewrite_as_def(text, as = read_rewrite_def())
 }
 \arguments{
 \item{text}{Character vector.}
 
-\item{def_path}{Character scalar; path to the rewriting definition file.}
+\item{as}{List.}
 }
 \value{
 Character vector
