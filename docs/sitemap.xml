@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://paithiov909.github.io/audubon/404.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/authors.html</loc>
+  </url>
+  <url>
     <loc>https://paithiov909.github.io/audubon/index.html</loc>
   </url>
   <url>
+    <loc>https://paithiov909.github.io/audubon/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://paithiov909.github.io/audubon/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/read_rewrite_def.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/strj_fill_iter_mark.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/strj_hiranganize.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/strj_invert_to_kana.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/strj_invert_to_roman.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/strj_katakanize.html</loc>

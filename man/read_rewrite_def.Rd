@@ -5,7 +5,7 @@
 \title{Read rewrite.def file}
 \usage{
 read_rewrite_def(
-  def_path = system.file("def/rewrite.def", package = "rjavacmecab")
+  def_path = system.file("def/rewrite.def", package = "audubon")
 )
 }
 \arguments{
