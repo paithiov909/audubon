@@ -7,9 +7,10 @@
 #' @export
 strj_fill_iter_mark <- function(text) {
   text <- text %>%
+    stringi::stri_omit_empty_na() %>%
     stringi::stri_replace_all_regex("(\uff0f\u2033\uff3c)", "\u3034\u3035") %>%
     stringi::stri_replace_all_regex("(\uff0f\uff3c)", "\u3033\u3035")
-  furrr::future_map_chr(text, function(res) {
+  purrr::map_chr(text, function(res) {
     if (nchar(res) > 4) {
       res <- magrittr::freduce(
         res,
@@ -26,7 +27,7 @@ fill_iter_mark_single <- function(text) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
       purrr::map(~ embed(., 2)[, 2:1]) %>%
       purrr::map(~ as.data.frame(.))
-    lapply(textloop, function(df) {
+    purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
           V2 = dplyr::if_else(
@@ -48,7 +49,7 @@ fill_iter_mark_single2 <- function(text) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
       purrr::map(~ embed(., 2)[, 2:1]) %>%
       purrr::map(~ as.data.frame(.))
-    lapply(textloop, function(df) {
+    purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
           V2 = dplyr::if_else(
@@ -70,7 +71,7 @@ fill_iter_mark_double <- function(text) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
       purrr::map(~ embed(., 4)[, 4:1]) %>%
       purrr::map(~ as.data.frame(.))
-    lapply(textloop, function(df) {
+    purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
           V3 = dplyr::if_else(
@@ -80,6 +81,13 @@ fill_iter_mark_double <- function(text) {
           ),
           V4 = dplyr::if_else(
             stringi::stri_detect_regex(V4, "[\u3033]"),
+            V2,
+            V4
+          )
+        ) %>%
+        dplyr::mutate(
+          V4 = dplyr::if_else(
+            stringi::stri_detect_regex(V4, "[\u3035]"),
             V2,
             V4
           )
@@ -97,7 +105,7 @@ fill_iter_mark_double2 <- function(text) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
       purrr::map(~ embed(., 4)[, 4:1]) %>%
       purrr::map(~ as.data.frame(.))
-    lapply(textloop, function(df) {
+    purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
           V3 = dplyr::if_else(

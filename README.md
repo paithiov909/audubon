@@ -11,16 +11,9 @@ contains:
 
 -   wrapper functions of
     [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
--   wrapper functions of
-    [yumetodo/romaji\_kana\_cvt\_rust](https://github.com/yumetodo/romaji_kana_cvt_rust)
-    (an Roman and Hiragana inverter following the JIS X 4063:2000)
 -   an R port of
     [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
 -   and other miscellaneous functions
-
-## System Requirements
-
--   Cargo
 
 ## Installation
 

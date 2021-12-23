@@ -4,7 +4,9 @@
 \alias{read_rewrite_def}
 \title{Read rewrite.def file}
 \usage{
-read_rewrite_def(def_path = system.file("rewrite.def", package = "audubon"))
+read_rewrite_def(
+  def_path = system.file("def/rewrite.def", package = "rjavacmecab")
+)
 }
 \arguments{
 \item{def_path}{Character scalar; path to the rewriting definition file.}
