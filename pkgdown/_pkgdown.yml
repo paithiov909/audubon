@@ -1,2 +1,5 @@
 url: https://paithiov909.github.io/audubon
 
+template:
+  bootstrap: 5
+

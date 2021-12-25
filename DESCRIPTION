@@ -1,10 +1,10 @@
 Package: audubon
 Title: R Package for Various Japanese Text Processing
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"))
 Description: An R package for various Japanese text processing.
-License: BSL-1.0
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
@@ -13,10 +13,12 @@ Imports:
     magrittr,
     memoise,
     purrr,
+    quanteda,
     readr,
-    rlang,
+    rlang (>= 0.4.11),
     stringi,
     V8
 Suggests: 
+    roxygen2,
     spelling
 Language: en-US

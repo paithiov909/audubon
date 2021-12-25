@@ -10,10 +10,34 @@
     <loc>https://paithiov909.github.io/audubon/index.html</loc>
   </url>
   <url>
+    <loc>https://paithiov909.github.io/audubon/LICENSE-text.html</loc>
+  </url>
+  <url>
     <loc>https://paithiov909.github.io/audubon/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://paithiov909.github.io/audubon/reference/gbs_as_tokens.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/gbs_c.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/gbs_dfm.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/gbs_freq.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/gibasa.html</loc>
+  </url>
+  <url>
     <loc>https://paithiov909.github.io/audubon/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/ngram_tokenizer.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/pack.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/pipe.html</loc>
@@ -40,6 +64,12 @@
     <loc>https://paithiov909.github.io/audubon/reference/strj_romanize.html</loc>
   </url>
   <url>
+    <loc>https://paithiov909.github.io/audubon/reference/strj_tokenize.html</loc>
+  </url>
+  <url>
     <loc>https://paithiov909.github.io/audubon/reference/strj_transcribe_num.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/tidyeval.html</loc>
   </url>
 </urlset>
