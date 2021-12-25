@@ -5,7 +5,7 @@
 #'
 #' @seealso \url{https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja}
 #' @param text Character vector.
-#' @returns Character vector.
+#' @return Character vector.
 #' @export
 strj_normalize <- function(text) {
   res <-

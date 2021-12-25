@@ -26,7 +26,7 @@
 #' @param pull Column to be packed into text or ngrams body. Default value is `token`.
 #' @param sep Character scalar internally used as the concatenator of ngrams.
 #' @param .collapse This argument is passed to \code{stringi::stri_join()}.
-#' @returns A data.frame.
+#' @return A data.frame.
 #' @export
 pack <- function(df, n = 1L, pull = "token", sep = "-", .collapse = " ") {
   if (n < 2L) {

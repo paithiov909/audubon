@@ -1,6 +1,6 @@
 {
   "name": "audubon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JS source for audubon R package",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,6 @@
     "format": "prettier --write srcjs/index.js",
     "development": "webpack --config webpack.dev.js",
     "production": "webpack --config webpack.prod.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paithiov909/nanoidr.git"
   },
   "author": "paithiov909",
   "license": "MIT",
@@ -30,6 +26,7 @@
     "webpack-merge": "^5.3.0"
   },
   "dependencies": {
+    "budoux": "^0.0.3",
     "japanese": "^1.2.0"
   }
 }

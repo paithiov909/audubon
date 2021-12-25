@@ -3,7 +3,7 @@
 #' Fill Japanese iteration marks (Odoriji) with their previous characters.
 #'
 #' @param text Character vector.
-#' @returns Character vector.
+#' @return Character vector.
 #' @export
 strj_fill_iter_mark <- function(text) {
   text <- text %>%

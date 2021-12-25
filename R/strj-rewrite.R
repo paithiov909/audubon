@@ -2,7 +2,7 @@
 #'
 #' @param text Character vector.
 #' @param as List.
-#' @returns Character vector
+#' @return Character vector
 #' @export
 strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
   textloop <- stringi::stri_split_boundaries(text, type = "character")
@@ -22,7 +22,7 @@ strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
 #' Read rewrite.def file
 #'
 #' @param def_path Character scalar; path to the rewriting definition file.
-#' @returns List.
+#' @return List.
 #' @export
 read_rewrite_def <- function(def_path = system.file("def/rewrite.def", package = "audubon")) {
   res <-

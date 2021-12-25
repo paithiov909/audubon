@@ -6,7 +6,7 @@
 strj_hiranganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("audubon.japanese.hiraganize", text)
+    ctx$call("audubon.japanese.hiraganize", elem)
   }, USE.NAMES = FALSE)
 }
 
@@ -18,7 +18,7 @@ strj_hiranganize <- function(text) {
 strj_katakanize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("audubon.japanese.katakanize", text)
+    ctx$call("audubon.japanese.katakanize", elem)
   }, USE.NAMES = FALSE)
 }
 
