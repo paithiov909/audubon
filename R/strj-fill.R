@@ -5,6 +5,11 @@
 #' @param text Character vector.
 #' @return Character vector.
 #' @export
+#' @examples
+#' strj_fill_iter_mark(c("\u3042\u3044\u3046\u309d\u3003\u304b\u304d",
+#'                       "\u91d1\u5b50\u307f\u3059\u309e",
+#'                       "\u306e\u305f\u308a\u3033\u3035\u304b\u306a",
+#'                       "\u3057\u308d\uff0f\u2033\uff3c\u3068\u3057\u305f"))
 strj_fill_iter_mark <- function(text) {
   text <- text %>%
     stringi::stri_omit_empty_na() %>%

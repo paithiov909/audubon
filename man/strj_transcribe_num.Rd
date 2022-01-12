@@ -15,3 +15,6 @@ Character vector.
 \description{
 Transcribe Arabic integers to Kansuji.
 }
+\examples{
+strj_transcribe_num(c(10L, 31415L))
+}

@@ -1,6 +1,6 @@
 Package: audubon
 Title: R Package for Various Japanese Text Processing
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"))
 Description: An R package for various Japanese text processing.

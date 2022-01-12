@@ -1,9 +1,11 @@
 #' Hiraganize Japanese characters
 #'
 #' @param text Character vector.
-#' @returns Character vector.
+#' @return Character vector.
 #' @export
-strj_hiranganize <- function(text) {
+#' @examples
+#' strj_hiraganize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+strj_hiraganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
     ctx$call("audubon.japanese.hiraganize", elem)
@@ -13,8 +15,10 @@ strj_hiranganize <- function(text) {
 #' Katakanize Japanese characters
 #'
 #' @param text Character vector.
-#' @returns Character vector.
+#' @return Character vector.
 #' @export
+#' @examples
+#' strj_katakanize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
 strj_katakanize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
@@ -26,9 +30,10 @@ strj_katakanize <- function(text) {
 #'
 #' @param text Character vector.
 #' @param config Config used to romanize.
-#' @returns Character vector.
-#'
+#' @return Character vector.
 #' @export
+#' @examples
+#' strj_romanize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
 strj_romanize <- function(text,
                           config = c(
                             "wikipedia",
@@ -49,9 +54,10 @@ strj_romanize <- function(text,
 #' Transcribe Arabic integers to Kansuji.
 #'
 #' @param int Integers.
-#' @returns Character vector.
-#'
+#' @return Character vector.
 #' @export
+#' @examples
+#' strj_transcribe_num(c(10L, 31415L))
 strj_transcribe_num <- function(int) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(as.integer(int), function(elem) {

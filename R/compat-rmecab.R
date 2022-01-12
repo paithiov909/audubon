@@ -15,7 +15,7 @@ NULL
 #' @param ... Other arguments are passed to \code{dplyr::tally()}.
 #' @param .name_repair Logical:
 #' If true, then rename the column names as RMeCabFreq-compatible style.
-#' @returns A data.frame.
+#' @return A data.frame.
 #' @family gbs
 #' @export
 gbs_freq <- function(df, ..., .name_repair = TRUE) {
@@ -77,7 +77,7 @@ gbs_as_tokens <- function(df, pull = "token", n = 1L, sep = "-", what = "fastest
 #' \code{audubon::gbs_as_tokens()} and then \code{quatenda::dfm()}.
 #'
 #' @inheritParams gbs_as_tokens
-#' @returns A quanteda 'dfm' object.
+#' @return A quanteda 'dfm' object.
 #' @family gbs
 #' @export
 gbs_dfm <- function(df, pull = "token", n = 1L, sep = "-", what = "fastestword", ...) {

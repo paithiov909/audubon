@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,6 +78,59 @@
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"paithio909/audubon"</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="fill-japanese-iteration-marks-踊り字">Fill Japanese iteration marks (踊り字)<a class="anchor" aria-label="anchor" href="#fill-japanese-iteration-marks-%E8%B8%8A%E3%82%8A%E5%AD%97"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 5文字以上あるとき直前の文字を繰り返して踊り字を置換する</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="fu">c</span>(<span class="st">"あいうゝ〃かき"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"金子みすゞ"</span>, <span class="do">## 濁点付きの場合には半角の濁点を付ける</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"のたり〳〵かな"</span>, <span class="do">## 2倍の踊り字（くの字点）まで対応している</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"しろ／″＼とした"</span>)) <span class="do">## 青空文庫の記法も</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あいううゝかき"             "金子みすすﾞ"               </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] "のたり&lt;U+3033&gt;&lt;U+3035&gt;かな" "しろしﾞろとした"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 文字正規化とあわせて使う想定</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="st">"いすゞエルフトラック"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strj_normalize</span>()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "いすずエルフトラック"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="character-class-conversion">Character class conversion<a class="anchor" aria-label="anchor" href="#character-class-conversion"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_hiraganize</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あのいーはとーヴぉのすきとおった風"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_katakanize</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "アノイーハトーヴォノスキトオッタ風"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_romanize</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ano&lt;U+012B&gt;hat&lt;U+014D&gt;vonosukit&lt;U+014D&gt;tta"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="japanese-text-normalization-1">Japanese text normalization (1)<a class="anchor" aria-label="anchor" href="#japanese-text-normalization-1"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Neologd（https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja）の文字正規化</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_normalize</span>(<span class="st">"――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="japanese-text-normalization-2">Japanese text normalization (2)<a class="anchor" aria-label="anchor" href="#japanese-text-normalization-2"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ふつうのNFKC正規化</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stringi<span class="sc">::</span><span class="fu">stri_trans_nfkc</span>(<span class="st">"Ⅹⅳ"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Xiv"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Sudachiの文字正規化（rewrite.defによる文字置換＋NFKC正規化の部分）を移植したもの</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Sudachiのrewrite.defではローマ数字などはNFKC正規化されない</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"Ⅹⅳ"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ⅹⅳ"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## tolowerはしない</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"謎のヒロインX"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "謎のヒロインX"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 旧字を新字体に寄せる</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"惡と假面のルール"</span>, <span class="fu">read_rewrite_def</span>(<span class="fu">system.file</span>(<span class="st">"def/kyuji.def"</span>, <span class="at">package =</span> <span class="st">"audubon"</span>)))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "悪と仮面のルール"</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>

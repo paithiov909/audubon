@@ -60,9 +60,7 @@ pack <- function(df, n = 1L, pull = "token", sep = "-", .collapse = " ") {
 #' @param n Integer.
 #' @param skip_word_none Logical.
 #' @param locale Character scalar. Pass a `NULL` or an empty string for default locale.
-#'
 #' @return ngram tokenizer function
-#'
 #' @export
 ngram_tokenizer <- function(n = 1L, skip_word_none = FALSE, locale = NULL) {
   stopifnot(is.numeric(n), is.finite(n), n > 0)
