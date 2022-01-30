@@ -5,9 +5,9 @@ Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"))
 Description: An R package for various Japanese text processing.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)
+LazyData: true
 Imports:
     dplyr,
     magrittr,
@@ -21,8 +21,8 @@ Suggests:
     testthat (>= 3.0.0),
     roxygen2,
     spelling
+Encoding: UTF-8
 Language: en-US
-Depends: 
-    R (>= 2.10)
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
 Config/testthat/edition: 3

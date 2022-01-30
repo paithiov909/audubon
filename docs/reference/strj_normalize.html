@@ -64,7 +64,15 @@ basing on rules that is recommended by the Neologism dictionary for MeCab.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">strj_normalize</span><span class="op">(</span><span class="st">"\u2015\u2015\u5357\u30a2\u30eb\u30d7\u30b9\u306e\u3000\u5929\u7136\u6c34-\u3000\uff33\uff50\uff41\uff52\uff4b\uff49\uff4e\uff47*\u3000\uff2c\uff45\uff4d\uff4f\uff4e+\u3000\u30ec\u30e2\u30f3\u4e00\u7d5e\u308a"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">strj_normalize</span><span class="op">(</span></span>
+<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span class="r-in">    <span class="st">"\u2015\u2015\u5357\u30a2\u30eb\u30d7\u30b9"</span>,</span>
+<span class="r-in">    <span class="st">"\u306e\u3000\u5929\u7136\u6c34-\u3000\uff33"</span>,</span>
+<span class="r-in">    <span class="st">"\uff50\uff41\uff52\uff4b\uff49\uff4e\uff47*"</span>,</span>
+<span class="r-in">    <span class="st">"\u3000\uff2c\uff45\uff4d\uff4f\uff4e+"</span>,</span>
+<span class="r-in">    <span class="st">"\u3000\u30ec\u30e2\u30f3\u4e00\u7d5e\u308a"</span></span>
+<span class="r-in">  <span class="op">)</span></span>
+<span class="r-in"><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span>
 </code></pre></div>
     </div>

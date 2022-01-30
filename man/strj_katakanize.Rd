@@ -16,5 +16,11 @@ Character vector.
 Katakanize Japanese characters
 }
 \examples{
-strj_katakanize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+strj_katakanize(
+  paste0(
+    "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+    "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+    "\u3068\u304a\u3063\u305f\u98a8"
+  )
+)
 }

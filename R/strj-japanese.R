@@ -4,7 +4,13 @@
 #' @return Character vector.
 #' @export
 #' @examples
-#' strj_hiraganize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+#' strj_hiraganize(
+#'   paste0(
+#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   )
+#' )
 strj_hiraganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
@@ -18,7 +24,13 @@ strj_hiraganize <- function(text) {
 #' @return Character vector.
 #' @export
 #' @examples
-#' strj_katakanize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+#' strj_katakanize(
+#'   paste0(
+#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   )
+#' )
 strj_katakanize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
@@ -29,11 +41,17 @@ strj_katakanize <- function(text) {
 #' Romanize Japanese Hiragana and Katakana
 #'
 #' @param text Character vector.
-#' @param config Config used to romanize.
+#' @param config Configuration used to romanize.
 #' @return Character vector.
 #' @export
 #' @examples
-#' strj_romanize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+#' strj_romanize(
+#'   paste0(
+#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   )
+#' )
 strj_romanize <- function(text,
                           config = c(
                             "wikipedia",

@@ -11,7 +11,21 @@
 #' @return List or data.frame.
 #' @export
 #' @examples
-#' strj_tokenize("\u3042\u306e\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9\u306e\u3059\u304d\u3068\u304a\u3063\u305f\u98a8")
+#' strj_tokenize(
+#'   paste0(
+#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   )
+#' )
+#' strj_tokenize(
+#'   paste0(
+#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   ),
+#'   format = "data.frame"
+#' )
 strj_tokenize <- function(text, format = c("list", "data.frame"), split = FALSE) {
   format <- rlang::arg_match(format)
 
