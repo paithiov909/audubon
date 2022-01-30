@@ -1,6 +1,6 @@
 Package: audubon
 Title: R Package for Various Japanese Text Processing
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: c(
     person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"))
 Description: An R package for various Japanese text processing.
@@ -13,12 +13,16 @@ Imports:
     magrittr,
     memoise,
     purrr,
-    quanteda,
     readr,
     rlang (>= 0.4.11),
     stringi,
     V8
 Suggests: 
+    testthat (>= 3.0.0),
     roxygen2,
     spelling
 Language: en-US
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Config/testthat/edition: 3

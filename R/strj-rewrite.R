@@ -27,6 +27,8 @@ strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
 #' @param def_path Character scalar; path to the rewriting definition file.
 #' @return List.
 #' @export
+#' @examples
+#' str(read_rewrite_def())
 read_rewrite_def <- function(def_path = system.file("def/rewrite.def", package = "audubon")) {
   res <-
     rlang::env_get(.pkgenv, "read_def", default = read_rewrite_def_impl())(def_path)

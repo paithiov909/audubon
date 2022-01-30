@@ -17,3 +17,6 @@ List.
 \description{
 Read rewrite.def file
 }
+\examples{
+str(read_rewrite_def())
+}

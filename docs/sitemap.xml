@@ -16,19 +16,7 @@
     <loc>https://paithiov909.github.io/audubon/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://paithiov909.github.io/audubon/reference/gbs_as_tokens.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/gbs_c.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/gbs_dfm.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/gbs_freq.html</loc>
-  </url>
-  <url>
-    <loc>https://paithiov909.github.io/audubon/reference/gibasa.html</loc>
+    <loc>https://paithiov909.github.io/audubon/reference/audubon-package.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/index.html</loc>
@@ -41,6 +29,9 @@
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://paithiov909.github.io/audubon/reference/polano.html</loc>
   </url>
   <url>
     <loc>https://paithiov909.github.io/audubon/reference/read_rewrite_def.html</loc>

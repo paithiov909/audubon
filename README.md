@@ -11,6 +11,7 @@ contains:
 
 -   wrapper functions of
     [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
+    and [google/budoux](https://github.com/google/budoux)
 -   an R port of
     [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
 -   and other miscellaneous functions

@@ -4,13 +4,19 @@
 \alias{strj_tokenize}
 \title{Simply tokenize sentence}
 \usage{
-strj_tokenize(sentence)
+strj_tokenize(text, format = c("list", "data.frame"), split = FALSE)
 }
 \arguments{
-\item{sentence}{Character vector to be tokenized.}
+\item{text}{Character vector to be tokenized.}
+
+\item{format}{Output format. Choose \code{list} or \code{data.frame}.}
+
+\item{split}{Logical. If true, the function splits vectors
+into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
+before tokenizing.}
 }
 \value{
-data.frame.
+List or data.frame.
 }
 \description{
 Split the given sentence into tokens

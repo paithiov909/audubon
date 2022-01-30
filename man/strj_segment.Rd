@@ -4,13 +4,19 @@
 \alias{strj_segment}
 \title{Segment text into phrases}
 \usage{
-strj_segment(text)
+strj_segment(text, format = c("list", "data.frame"), split = FALSE)
 }
 \arguments{
-\item{text}{Character vector.}
+\item{text}{Character vector to be tokenized.}
+
+\item{format}{Output format. Choose \code{list} or \code{data.frame}.}
+
+\item{split}{Logical. If true, the function splits vectors
+into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
+before tokenizing.}
 }
 \value{
-List.
+List or data.frame.
 }
 \description{
 Segment Japanese text into several phrases
