@@ -17,6 +17,10 @@ audubon is Japanese text processing tools for:
     morphological analyzer and the ‘NEologd’ (Neologism dictionary for
     ‘MeCab’).
 
+Some features above are not implemented in ‘ICU’ (i.e., the stringi
+package), and the goal of the audubon package is to provide these
+additional features.
+
 ## Installation
 
 ``` r
@@ -25,23 +29,29 @@ remotes::install_github("paithio909/audubon")
 
 ## Usage
 
-### Fill Japanese iteration marks (踊り字)
+### Fill Japanese iteration marks (Odori-ji)
+
+`strj_fill_iter_mark` repeats the previous character and replace the
+iteration marks if there are more than 5 characters. You can use this
+feature with `strj_normalize` or `strj_rewrite_as_def`.
 
 ``` r
-## 5文字以上あるとき直前の文字を繰り返して踊り字を置換する
 strj_fill_iter_mark(c("あいうゝ〃かき",
-                      "金子みすゞ", ## 濁点付きの場合には半角の濁点を付ける
-                      "のたり〳〵かな", ## 2倍の踊り字（くの字点）まで対応している
-                      "しろ／″＼とした")) ## 青空文庫の記法も
+                      "金子みすゞ",
+                      "のたり〳〵かな",
+                      "しろ／″＼とした"))
 #> [1] "あいううゝかき"             "金子みすすﾞ"               
 #> [3] "のたり<U+3033><U+3035>かな" "しろしﾞろとした"
-## 文字正規化とあわせて使う想定
+
 strj_fill_iter_mark("いすゞエルフトラック") %>%
   strj_normalize()
 #> [1] "いすずエルフトラック"
 ```
 
 ### Character class conversion
+
+Character class conversion uses
+[hakatashi/japanese.js](https://github.com/hakatashi/japanese.js).
 
 ``` r
 strj_hiraganize("あのイーハトーヴォのすきとおった風")
@@ -52,28 +62,44 @@ strj_romanize("あのイーハトーヴォのすきとおった風")
 #> [1] "ano<U+012B>hat<U+014D>vonosukit<U+014D>tta"
 ```
 
-### Japanese text normalization (1)
+### Segmentation by phrase
+
+`strj_segment` splits Japanese text into some phrases using
+[google/budoux](https://github.com/google/budoux).
 
 ``` r
-## Neologd（https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja）の文字正規化
+strj_segment("あのイーハトーヴォのすきとおった風")
+#> $`1`
+#> [1] "あのイーハトーヴォの" "すきと"               "おった"              
+#> [4] "風"
+```
+
+### Japanese text normalization
+
+`strj_normalize` normalizes text following the rule based on
+[NEologd](https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja)
+sytle.
+
+``` r
 strj_normalize("――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り")
 #> [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"
 ```
 
-### Japanese text normalization (2)
+`strj_rewrite_as_def` is an R port of
+[‘SudachiCharNormalizer’](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
+that typically normalizes characters only when they never appear in the
+‘rewrite.def’ file.
+
+This functionality is more powerful than `stringi::stri_trans_*` so that
+it rewrites characters only specified in ‘rewrite.def’. For instance,
+this function can be used to convert *kyuji-tai* characters to
+*shinji-tai* characters.
 
 ``` r
-## ふつうのNFKC正規化
 stringi::stri_trans_nfkc("Ⅹⅳ")
 #> [1] "Xiv"
-## Sudachiの文字正規化（rewrite.defによる文字置換＋NFKC正規化の部分）を移植したもの
-## Sudachiのrewrite.defではローマ数字などはNFKC正規化されない
 strj_rewrite_as_def("Ⅹⅳ")
 #> [1] "Ⅹⅳ"
-## tolowerはしない
-strj_rewrite_as_def("謎のヒロインX")
-#> [1] "謎のヒロインX"
-## 旧字を新字体に寄せる
 strj_rewrite_as_def("惡と假面のルール", read_rewrite_def(system.file("def/kyuji.def", package = "audubon")))
 #> [1] "悪と仮面のルール"
 ```

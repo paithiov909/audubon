@@ -1,0 +1,5 @@
+The audubon package as a whole is distributed under the Apache License, Version 2.0.
+
+This package includes other open source works
+that is licensed under the Apache License, Version 2.0 (google/budoux library)
+and the MIT license (hakatashi/japanese.js library).

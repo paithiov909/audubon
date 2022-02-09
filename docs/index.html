@@ -5,12 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="A collection of Japanese text processing tools
-    for filling Japanese iteration marks, hiraganization, katakanization, romanization,
-    segmentation by phrase, and text normalization which is based on rules
-    for the Sudachi morphological analyzer and the NEologd (Neologism dictionary for MeCab).
-    These features are specific to Japanese
-    and are not implemented in ICU (International Components for Unicode).">
+<meta name="description" content="A collection of Japanese text processing tools for filling
+    Japanese iteration marks, hiraganization, katakanization,
+    romanization, segmentation by phrase, and text normalization which is
+    based on rules for the Sudachi morphological analyzer and the
+    NEologd (Neologism dictionary for MeCab).  These features are
+    specific to Japanese and are not implemented in ICU (International
+    Components for Unicode).">
 <title>Japanese Text Processing Tools • audubon</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -23,12 +24,13 @@
 <script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Japanese Text Processing Tools">
-<meta property="og:description" content="A collection of Japanese text processing tools
-    for filling Japanese iteration marks, hiraganization, katakanization, romanization,
-    segmentation by phrase, and text normalization which is based on rules
-    for the Sudachi morphological analyzer and the NEologd (Neologism dictionary for MeCab).
-    These features are specific to Japanese
-    and are not implemented in ICU (International Components for Unicode).">
+<meta property="og:description" content="A collection of Japanese text processing tools for filling
+    Japanese iteration marks, hiraganization, katakanization,
+    romanization, segmentation by phrase, and text normalization which is
+    based on rules for the Sudachi morphological analyzer and the
+    NEologd (Neologism dictionary for MeCab).  These features are
+    specific to Japanese and are not implemented in ICU (International
+    Components for Unicode).">
 <meta property="og:image" content="https://paithiov909.github.io/audubon/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -94,6 +96,7 @@
 </li>
 <li>text normalization which is based on rules for the ‘Sudachi’ morphological analyzer and the ‘NEologd’ (Neologism dictionary for ‘MeCab’).</li>
 </ul>
+<p>Some features above are not implemented in ‘ICU’ (i.e., the stringi package), and the goal of the audubon package is to provide these additional features.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -104,23 +107,24 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="section level3">
-<h3 id="fill-japanese-iteration-marks-踊り字">Fill Japanese iteration marks (踊り字)<a class="anchor" aria-label="anchor" href="#fill-japanese-iteration-marks-%E8%B8%8A%E3%82%8A%E5%AD%97"></a>
+<h3 id="fill-japanese-iteration-marks-odori-ji">Fill Japanese iteration marks (Odori-ji)<a class="anchor" aria-label="anchor" href="#fill-japanese-iteration-marks-odori-ji"></a>
 </h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 5文字以上あるとき直前の文字を繰り返して踊り字を置換する</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="fu">c</span>(<span class="st">"あいうゝ〃かき"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"金子みすゞ"</span>, <span class="do">## 濁点付きの場合には半角の濁点を付ける</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"のたり〳〵かな"</span>, <span class="do">## 2倍の踊り字（くの字点）まで対応している</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"しろ／″＼とした"</span>)) <span class="do">## 青空文庫の記法も</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あいううゝかき"             "金子みすすﾞ"               </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] "のたり&lt;U+3033&gt;&lt;U+3035&gt;かな" "しろしﾞろとした"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 文字正規化とあわせて使う想定</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="st">"いすゞエルフトラック"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strj_normalize</span>()</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "いすずエルフトラック"</span></span></code></pre></div>
+<p><code>strj_fill_iter_mark</code> repeats the previous character and replace the iteration marks if there are more than 5 characters. You can use this feature with <code>strj_normalize</code> or <code>strj_rewrite_as_def</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="fu">c</span>(<span class="st">"あいうゝ〃かき"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"金子みすゞ"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"のたり〳〵かな"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"しろ／″＼とした"</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あいううゝかき"             "金子みすすﾞ"               </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] "のたり&lt;U+3033&gt;&lt;U+3035&gt;かな" "しろしﾞろとした"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="st">"いすゞエルフトラック"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strj_normalize</span>()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "いすずエルフトラック"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="character-class-conversion">Character class conversion<a class="anchor" aria-label="anchor" href="#character-class-conversion"></a>
 </h3>
+<p>Character class conversion uses <a href="https://github.com/hakatashi/japanese.js" class="external-link">hakatashi/japanese.js</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_hiraganize</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あのいーはとーヴぉのすきとおった風"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_katakanize</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
@@ -129,28 +133,28 @@
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ano&lt;U+012B&gt;hat&lt;U+014D&gt;vonosukit&lt;U+014D&gt;tta"</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="japanese-text-normalization-1">Japanese text normalization (1)<a class="anchor" aria-label="anchor" href="#japanese-text-normalization-1"></a>
+<h3 id="segmentation-by-phrase">Segmentation by phrase<a class="anchor" aria-label="anchor" href="#segmentation-by-phrase"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Neologd（https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja）の文字正規化</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_normalize</span>(<span class="st">"――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span></span></code></pre></div>
+<p><code>strj_segment</code> splits Japanese text into some phrases using <a href="https://github.com/google/budoux" class="external-link">google/budoux</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_segment</span>(<span class="st">"あのイーハトーヴォのすきとおった風"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $`1`</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "あのイーハトーヴォの" "すきと"               "おった"              </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4] "風"</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="japanese-text-normalization-2">Japanese text normalization (2)<a class="anchor" aria-label="anchor" href="#japanese-text-normalization-2"></a>
+<h3 id="japanese-text-normalization">Japanese text normalization<a class="anchor" aria-label="anchor" href="#japanese-text-normalization"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ふつうのNFKC正規化</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stringi<span class="sc">::</span><span class="fu">stri_trans_nfkc</span>(<span class="st">"Ⅹⅳ"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Xiv"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Sudachiの文字正規化（rewrite.defによる文字置換＋NFKC正規化の部分）を移植したもの</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Sudachiのrewrite.defではローマ数字などはNFKC正規化されない</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"Ⅹⅳ"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ⅹⅳ"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## tolowerはしない</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"謎のヒロインX"</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "謎のヒロインX"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 旧字を新字体に寄せる</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"惡と假面のルール"</span>, <span class="fu">read_rewrite_def</span>(<span class="fu">system.file</span>(<span class="st">"def/kyuji.def"</span>, <span class="at">package =</span> <span class="st">"audubon"</span>)))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "悪と仮面のルール"</span></span></code></pre></div>
+<p><code>strj_normalize</code> normalizes text following the rule based on <a href="https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja" class="external-link">NEologd</a> sytle.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_normalize</span>(<span class="st">"――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span></span></code></pre></div>
+<p><code>strj_rewrite_as_def</code> is an R port of <a href="https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770" class="external-link">‘SudachiCharNormalizer’</a> that typically normalizes characters only when they never appear in the ‘rewrite.def’ file.</p>
+<p>This functionality is more powerful than <code>stringi::stri_trans_*</code> so that it rewrites characters only specified in ‘rewrite.def’. For instance, this function can be used to convert <em>kyuji-tai</em> characters to <em>shinji-tai</em> characters.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stringi<span class="sc">::</span><span class="fu">stri_trans_nfkc</span>(<span class="st">"Ⅹⅳ"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Xiv"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"Ⅹⅳ"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ⅹⅳ"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_rewrite_as_def</span>(<span class="st">"惡と假面のルール"</span>, <span class="fu">read_rewrite_def</span>(<span class="fu">system.file</span>(<span class="st">"def/kyuji.def"</span>, <span class="at">package =</span> <span class="st">"audubon"</span>)))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "悪と仮面のルール"</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -172,7 +176,8 @@
 <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>Apache License (&gt;= 2)</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small>Apache License (&gt;= 2)</small></li>
 </ul>
 </div>
 

@@ -7,7 +7,7 @@
 strj_rewrite_as_def(text, as = read_rewrite_def())
 }
 \arguments{
-\item{text}{Character vector.}
+\item{text}{Character vector to be normalized.}
 
 \item{as}{List.}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/strj-rewrite.R
 \name{read_rewrite_def}
 \alias{read_rewrite_def}
-\title{Read rewrite.def file}
+\title{Read a rewrite.def file}
 \usage{
 read_rewrite_def(
   def_path = system.file("def/rewrite.def", package = "audubon")
@@ -15,7 +15,7 @@ read_rewrite_def(
 List.
 }
 \description{
-Read rewrite.def file
+Read a rewrite.def file
 }
 \examples{
 str(read_rewrite_def())

@@ -13,7 +13,7 @@ strj_fill_iter_mark(text)
 Character vector.
 }
 \description{
-Fill Japanese iteration marks (Odoriji) with their previous characters.
+Fill Japanese iteration marks (Odori-ji) with their previous characters.
 }
 \examples{
 strj_fill_iter_mark(c(

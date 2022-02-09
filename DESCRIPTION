@@ -2,22 +2,25 @@ Package: audubon
 Title: Japanese Text Processing Tools
 Version: 0.0.6
 Authors@R: c(
-    person("Akiru", "Kato", email = "paithiov909@gmail.com", role = c("cre", "aut")),
-    person("Koki", "Takahashi", role = "cph", comment = "Author of japanese.js"),
-    person("Shuhei", "Iitsuka", role = "cph", comment = "Author of budoux"))
-Description: A collection of Japanese text processing tools
-    for filling Japanese iteration marks, hiraganization, katakanization, romanization,
-    segmentation by phrase, and text normalization which is based on rules
-    for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism dictionary for 'MeCab').
-    These features are specific to Japanese
-    and are not implemented in 'ICU' (International Components for Unicode).
+    person("Akiru", "Kato", , "paithiov909@gmail.com", role = c("cre", "aut")),
+    person("Koki", "Takahashi", role = "cph",
+           comment = "Author of japanese.js"),
+    person("Shuhei", "Iitsuka", role = "cph",
+           comment = "Author of budoux")
+  )
+Description: A collection of Japanese text processing tools for filling
+    Japanese iteration marks, hiraganization, katakanization,
+    romanization, segmentation by phrase, and text normalization which is
+    based on rules for the 'Sudachi' morphological analyzer and the
+    'NEologd' (Neologism dictionary for 'MeCab').  These features are
+    specific to Japanese and are not implemented in 'ICU' (International
+    Components for Unicode).
 License: Apache License (>= 2)
-Depends: 
-    R (>= 2.10)
-LazyData: true
 URL: https://github.com/paithiov909/audubon,
     https://paithiov909.github.io/audubon/
 BugReports: https://github.com/paithiov909/audubon/issues
+Depends: 
+    R (>= 2.10)
 Imports:
     dplyr,
     magrittr,
@@ -28,11 +31,12 @@ Imports:
     stringi,
     V8
 Suggests: 
-    testthat (>= 3.0.0),
     roxygen2,
-    spelling
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-Config/testthat/edition: 3

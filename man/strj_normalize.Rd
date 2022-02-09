@@ -7,14 +7,14 @@
 strj_normalize(text)
 }
 \arguments{
-\item{text}{Character vector.}
+\item{text}{Character vector to be normalized.}
 }
 \value{
 Character vector.
 }
 \description{
 Convert characters into normalized style
-basing on rules that is recommended by the Neologism dictionary for MeCab.
+following the rule that is recommended by the Neologism dictionary for 'MeCab'.
 }
 \examples{
 strj_normalize(
