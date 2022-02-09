@@ -4,14 +4,29 @@
 \name{audubon-package}
 \alias{audubon}
 \alias{audubon-package}
-\title{audubon:  R Package for Various Japanese Text Processing}
+\title{audubon: Japanese Text Processing Tools}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-An R package for various Japanese text processing.
+A collection of Japanese text processing tools for filling Japanese iteration marks, hiraganization, katakanization, romanization, segmentation by phrase, and text normalization which is based on rules for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism dictionary for 'MeCab'). These features are specific to Japanese and are not implemented in 'ICU' (International Components for Unicode).
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/paithiov909/audubon}
+  \item \url{https://paithiov909.github.io/audubon/}
+  \item Report bugs at \url{https://github.com/paithiov909/audubon/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Akiru Kato \email{paithiov909@gmail.com}
+
+Other contributors:
+\itemize{
+  \item Koki Takahashi (Author of japanese.js) [copyright holder]
+  \item Shuhei Iitsuka (Author of budoux) [copyright holder]
+}
 
 }
 \keyword{internal}

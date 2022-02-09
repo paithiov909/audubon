@@ -1,13 +1,23 @@
 Package: audubon
-Title: R Package for Various Japanese Text Processing
-Version: 0.0.5
+Title: Japanese Text Processing Tools
+Version: 0.0.6
 Authors@R: c(
-    person("Akiru", "Kato", email = "paithiov909@gmail.com", role = "cre"))
-Description: An R package for various Japanese text processing.
-License: MIT + file LICENSE
+    person("Akiru", "Kato", email = "paithiov909@gmail.com", role = c("cre", "aut")),
+    person("Koki", "Takahashi", role = "cph", comment = "Author of japanese.js"),
+    person("Shuhei", "Iitsuka", role = "cph", comment = "Author of budoux"))
+Description: A collection of Japanese text processing tools
+    for filling Japanese iteration marks, hiraganization, katakanization, romanization,
+    segmentation by phrase, and text normalization which is based on rules
+    for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism dictionary for 'MeCab').
+    These features are specific to Japanese
+    and are not implemented in 'ICU' (International Components for Unicode).
+License: Apache License (>= 2)
 Depends: 
     R (>= 2.10)
 LazyData: true
+URL: https://github.com/paithiov909/audubon,
+    https://paithiov909.github.io/audubon/
+BugReports: https://github.com/paithiov909/audubon/issues
 Imports:
     dplyr,
     magrittr,

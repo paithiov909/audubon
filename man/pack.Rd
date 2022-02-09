@@ -44,6 +44,9 @@ of each text and several feature columns of each tokens.
 The feature columns must contain at least \code{token} itself.
 }
 
+\examples{
+pack(strj_tokenize(polano[1:5], format = "data.frame"))
+}
 \seealso{
 \url{https://github.com/ropensci/tif}
 }

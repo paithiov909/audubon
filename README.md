@@ -6,15 +6,16 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-audubon is an R package for various Japanese text processing that
-contains:
+audubon is Japanese text processing tools for:
 
--   wrapper functions of
+-   filling Japanese iteration marks
+-   hiraganization, katakanization and romanization using
     [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
-    and [google/budoux](https://github.com/google/budoux)
--   an R port of
-    [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
--   and other miscellaneous functions
+-   segmentation by phrase using
+    [google/budoux](https://github.com/google/budoux)
+-   text normalization which is based on rules for the ‘Sudachi’
+    morphological analyzer and the ‘NEologd’ (Neologism dictionary for
+    ‘MeCab’).
 
 ## Installation
 
@@ -79,7 +80,10 @@ strj_rewrite_as_def("惡と假面のルール", read_rewrite_def(system.file("de
 
 ## License
 
-MIT license.
+© 2022 Akiru Kato
+
+Licensed under the [Apache License, Version
+2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
 
 Icons made by [iconixar](https://www.flaticon.com/authors/iconixar) from
 [www.flaticon.com](https://www.flaticon.com/).

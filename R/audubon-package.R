@@ -1,4 +1,4 @@
-#' audubon:  R Package for Various Japanese Text Processing
+#' audubon: Japanese Text Processing Tools
 #' @docType package
 #' @keywords internal
 "_PACKAGE"

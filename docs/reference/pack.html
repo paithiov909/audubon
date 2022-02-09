@@ -12,7 +12,7 @@ which is compatible with the Text Interchange Formats."><meta property="og:image
     
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,19 @@ which is compatible with the Text Interchange Formats."><meta property="og:image
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/paithiov909/audubon/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -34,7 +43,7 @@ which is compatible with the Text Interchange Formats."><meta property="og:image
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Pack prettified data.frame of tokens</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/paithiov909/audubon/blob/HEAD/R/pack.R" class="external-link"><code>R/pack.R</code></a></small>
       <div class="d-none name"><code>pack.Rd</code></div>
     </div>
 
@@ -91,6 +100,23 @@ The feature columns must contain at least <code>token</code> itself.</p>
     <div class="dont-index"><p><a href="https://github.com/ropensci/tif" class="external-link">https://github.com/ropensci/tif</a></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">pack</span><span class="op">(</span><span class="fu"><a href="strj_tokenize.html">strj_tokenize</a></span><span class="op">(</span><span class="va">polano</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, format <span class="op">=</span> <span class="st">"data.frame"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   doc_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                          text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                            ポラーノ の 広場</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                   宮沢 賢治</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  前 十七 等 官 レ オー ノ ・ キュー スト 誌</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                              宮沢 賢治 訳述</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 その ころ わたくし は 、 モリーオ 市 の 博物 局 に 勤め て 居 り ま した 。</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
