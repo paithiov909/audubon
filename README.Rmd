@@ -38,7 +38,7 @@ remotes::install_github("paithio909/audubon")
 
 ### Fill Japanese iteration marks (Odori-ji)
 
-`strj_fill_iter_mark` repeats the previous character and replace the iteration marks if there are more than 5 characters.
+`strj_fill_iter_mark` repeats the previous character and replace the iteration marks if the element has more than 5 characters.
 You can use this feature with `strj_normalize` or `strj_rewrite_as_def`.
 
 ```{r fill_iter_mark}
@@ -77,7 +77,7 @@ strj_segment("あのイーハトーヴォのすきとおった風")
 strj_normalize("――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り")
 ```
 
-`strj_rewrite_as_def` is an R port of ['SudachiCharNormalizer'](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770) that typically normalizes characters only when they never appear in the 'rewrite.def' file.
+`strj_rewrite_as_def` is an R port of [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770) that typically normalizes characters only when they never appear in the 'rewrite.def' file.
 
 This functionality is more powerful than `stringi::stri_trans_*` so that it rewrites characters only specified in 'rewrite.def'. For instance, this function can be used to convert _kyuji-tai_ characters to _shinji-tai_ characters.
 

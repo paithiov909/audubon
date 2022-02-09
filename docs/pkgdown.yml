@@ -2,7 +2,7 @@ pandoc: 2.16.2
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-02-09T19:34Z
+last_built: 2022-02-09T19:47Z
 urls:
   reference: https://paithiov909.github.io/audubon/reference
   article: https://paithiov909.github.io/audubon/articles

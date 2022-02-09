@@ -109,7 +109,7 @@
 <div class="section level3">
 <h3 id="fill-japanese-iteration-marks-odori-ji">Fill Japanese iteration marks (Odori-ji)<a class="anchor" aria-label="anchor" href="#fill-japanese-iteration-marks-odori-ji"></a>
 </h3>
-<p><code>strj_fill_iter_mark</code> repeats the previous character and replace the iteration marks if there are more than 5 characters. You can use this feature with <code>strj_normalize</code> or <code>strj_rewrite_as_def</code>.</p>
+<p><code>strj_fill_iter_mark</code> repeats the previous character and replace the iteration marks if the element has more than 5 characters. You can use this feature with <code>strj_normalize</code> or <code>strj_rewrite_as_def</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_fill_iter_mark</span>(<span class="fu">c</span>(<span class="st">"あいうゝ〃かき"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"金子みすゞ"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"のたり〳〵かな"</span>,</span>
@@ -147,7 +147,7 @@
 <p><code>strj_normalize</code> normalizes text following the rule based on <a href="https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja" class="external-link">NEologd</a> sytle.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strj_normalize</span>(<span class="st">"――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span></span></code></pre></div>
-<p><code>strj_rewrite_as_def</code> is an R port of <a href="https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770" class="external-link">‘SudachiCharNormalizer’</a> that typically normalizes characters only when they never appear in the ‘rewrite.def’ file.</p>
+<p><code>strj_rewrite_as_def</code> is an R port of <a href="https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770" class="external-link">SudachiCharNormalizer</a> that typically normalizes characters only when they never appear in the ‘rewrite.def’ file.</p>
 <p>This functionality is more powerful than <code>stringi::stri_trans_*</code> so that it rewrites characters only specified in ‘rewrite.def’. For instance, this function can be used to convert <em>kyuji-tai</em> characters to <em>shinji-tai</em> characters.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stringi<span class="sc">::</span><span class="fu">stri_trans_nfkc</span>(<span class="st">"Ⅹⅳ"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Xiv"</span></span>
