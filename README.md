@@ -31,7 +31,7 @@ remotes::install_github("paithio909/audubon")
 
 ### Fill Japanese iteration marks (Odori-ji)
 
-`strj_fill_iter_mark` repeats the previous character and replace the
+`strj_fill_iter_mark` repeats the previous character and replaces the
 iteration marks if the element has more than 5 characters. You can use
 this feature with `strj_normalize` or `strj_rewrite_as_def`.
 
