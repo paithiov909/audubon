@@ -17,6 +17,7 @@ pkgload::load_all()
 # audubon <a href='https://paithiov909.github.io/audubon'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/paithiov909/audubon/workflows/R-CMD-check/badge.svg)](https://github.com/paithiov909/audubon/actions)
 <!-- badges: end -->
 
 audubon is Japanese text processing tools for:
