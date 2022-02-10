@@ -52,7 +52,7 @@ pack <- function(df, n = 1L, pull = "token", sep = "-", .collapse = " ") {
       purrr::flatten_chr() %>%
       purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
   }
-  return(res)
+  return(dplyr::mutate_if(res, is.character, ~ dplyr::na_if(., "*")))
 }
 
 #' Ngrams tokenizer

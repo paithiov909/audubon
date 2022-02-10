@@ -27,6 +27,8 @@
 #'   format = "data.frame"
 #' )
 strj_tokenize <- function(text, format = c("list", "data.frame"), split = FALSE) {
+  stopifnot(!is.null(text))
+
   format <- rlang::arg_match(format)
 
   # keep names
@@ -34,7 +36,7 @@ strj_tokenize <- function(text, format = c("list", "data.frame"), split = FALSE)
   if (identical(nm, NULL)) {
     nm <- seq_along(text)
   }
-  text <- enc2utf8(text) %>%
+  text <- stringi::stri_enc_toutf8(text) %>%
     purrr::set_names(nm)
 
   if (identical(format, "list")) {
