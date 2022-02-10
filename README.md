@@ -5,7 +5,10 @@
 
 <!-- badges: start -->
 
+[![audubon status
+badge](https://paithiov909.r-universe.dev/badges/audubon)](https://paithiov909.r-universe.dev)
 [![R-CMD-check](https://github.com/paithiov909/audubon/workflows/R-CMD-check/badge.svg)](https://github.com/paithiov909/audubon/actions)
+[![codecov](https://codecov.io/gh/paithiov909/audubon/branch/master/graph/badge.svg?token=LWH2AFDEMY)](https://codecov.io/gh/paithiov909/audubon)
 <!-- badges: end -->
 
 audubon is Japanese text processing tools for:
