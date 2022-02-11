@@ -1,6 +1,6 @@
 #' Hiraganize Japanese characters
 #'
-#' Convert Japanese katakana to hirgana.
+#' Convert Japanese katakana to hiragana.
 #' It is almost similar to \code{stringi::stri_trans_general(text, "kana-hira")},
 #' however, this implementation can also handle some additional symbols
 #' such as Japanese kana ligature (aka. goryaku-gana).
