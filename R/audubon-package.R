@@ -8,5 +8,5 @@
 #' from Aozora Bunko
 #' @source \url{https://www.aozora.gr.jp/cards/000081/files/1935_ruby_19924.zip}
 #' @examples
-#' polano
+#' head(polano)
 "polano"
