@@ -16,4 +16,4 @@
 ^webpack\.prod\.js$
 ^webpack\.common\.js$
 ^data-raw$
-^lastMiKTeXException$
+^cran-comments\.md$
