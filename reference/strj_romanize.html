@@ -60,13 +60,28 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>text</dt>
-<dd><p>Character vector.</p></dd>
+<dd><p>Character vector.
+If elements are composed of except but hiragana and katakana letters,
+those letters are dropped from the return value.</p></dd>
 <dt>config</dt>
-<dd><p>Configuration used to romanize.</p></dd>
+<dd><p>Configuration used to romanize. Default is <code>wikipedia</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Character vector.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>There are several ways to romanize Japanese.
+Using this implementation, you can convert hiragana and katakana as 5 different styles;
+the <code>wikipedia</code> style, the <code>traditional hepburn</code> style, the <code>modified hepburn</code> style,
+the <code>kunrei</code> style, and the <code>nihon</code> style.</p>
+<p>Note that all of these styles return a slightly different form of
+<code>stringi::stri_trans_general(text, "Any-latn")</code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><a href="https://github.com/hakatashi/japanese.js#japaneseromanizetext-config" class="external-link">https://github.com/hakatashi/japanese.js#japaneseromanizetext-config</a></p></div>
     </div>
 
     <div class="section level2">
