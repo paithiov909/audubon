@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# audubon <a href='https://paithiov909.github.io/audubon'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# audubon <a href='https://paithiov909.github.io/audubon/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
 [![audubon status
 badge](https://paithiov909.r-universe.dev/badges/audubon)](https://paithiov909.r-universe.dev)
 [![R-CMD-check](https://github.com/paithiov909/audubon/workflows/R-CMD-check/badge.svg)](https://github.com/paithiov909/audubon/actions)
-[![codecov](https://codecov.io/gh/paithiov909/audubon/branch/master/graph/badge.svg?token=LWH2AFDEMY)](https://codecov.io/gh/paithiov909/audubon)
+[![codecov](https://codecov.io/gh/paithiov909/audubon/branch/master/graph/badge.svg?token=LWH2AFDEMY)](https://app.codecov.io/gh/paithiov909/audubon)
 <!-- badges: end -->
 
 audubon is Japanese text processing tools for:
@@ -114,7 +114,7 @@ strj_rewrite_as_def("惡と假面のルール", read_rewrite_def(system.file("de
 © 2022 Akiru Kato
 
 Licensed under the [Apache License, Version
-2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
 
 Icons made by [iconixar](https://www.flaticon.com/authors/iconixar) from
 [www.flaticon.com](https://www.flaticon.com/).

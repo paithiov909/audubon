@@ -13,14 +13,17 @@ strj_hiraganize(text)
 Character vector.
 }
 \description{
-Hiraganize Japanese characters
+Convert Japanese katakana to hirgana.
+It is almost similar to \code{stringi::stri_trans_general(text, "kana-hira")},
+however, this implementation can also handle some additional symbols
+such as Japanese kana ligature (aka. goryaku-gana).
 }
 \examples{
 strj_hiraganize(
-  paste0(
+  c(paste0(
     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
     "\u3068\u304a\u3063\u305f\u98a8"
-  )
+  ), "\u677f\u57a3\u6b7b\u30b9\U0002a708")
 )
 }

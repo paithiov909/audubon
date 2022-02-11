@@ -10,15 +10,26 @@ strj_romanize(
 )
 }
 \arguments{
-\item{text}{Character vector.}
+\item{text}{Character vector.
+If elements are composed of except but hiragana and katakana letters,
+those letters are dropped from the return value.}
 
-\item{config}{Configuration used to romanize.}
+\item{config}{Configuration used to romanize. Default is \code{wikipedia}.}
 }
 \value{
 Character vector.
 }
 \description{
 Romanize Japanese Hiragana and Katakana
+}
+\details{
+There are several ways to romanize Japanese.
+Using this implementation, you can convert hiragana and katakana as 5 different styles;
+the \code{wikipedia} style, the \verb{traditional hepburn} style, the \verb{modified hepburn} style,
+the \code{kunrei} style, and the \code{nihon} style.
+
+Note that all of these styles return a slightly different form of
+\code{stringi::stri_trans_general(text, "Any-latn")}.
 }
 \examples{
 strj_romanize(
@@ -28,4 +39,7 @@ strj_romanize(
     "\u3068\u304a\u3063\u305f\u98a8"
   )
 )
+}
+\seealso{
+\url{https://github.com/hakatashi/japanese.js#japaneseromanizetext-config}
 }

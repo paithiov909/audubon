@@ -13,7 +13,12 @@ strj_transcribe_num(int)
 Character vector.
 }
 \description{
-Transcribe Arabic integers to Kansuji.
+Transcribe Arabic integers to Kansuji with auxiliary numerals.
+}
+\details{
+As its implementation is limited, this function can only transcribe
+numbers up to trillions.
+In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
 }
 \examples{
 strj_transcribe_num(c(10L, 31415L))

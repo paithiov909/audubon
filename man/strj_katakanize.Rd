@@ -13,14 +13,20 @@ strj_katakanize(text)
 Character vector.
 }
 \description{
-Katakanize Japanese characters
+Convert Japanese hiragana to katakana.
+It is almost similar to \code{stringi::stri_trans_general(text, "hira-kana")},
+however, this implementation can also handle some additional symbols
+such as Japanese kana ligature (aka. goryaku-gana).
 }
 \examples{
 strj_katakanize(
-  paste0(
-    "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-    "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-    "\u3068\u304a\u3063\u305f\u98a8"
+  c(
+    paste0(
+      "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+      "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+      "\u3068\u304a\u3063\u305f\u98a8"
+    ),
+    "\u672c\u65e5\u309f\u304b\u304d\u6c37\u89e3\u7981"
   )
 )
 }

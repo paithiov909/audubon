@@ -1,15 +1,20 @@
 #' Hiraganize Japanese characters
 #'
+#' Convert Japanese katakana to hirgana.
+#' It is almost similar to \code{stringi::stri_trans_general(text, "kana-hira")},
+#' however, this implementation can also handle some additional symbols
+#' such as Japanese kana ligature (aka. goryaku-gana).
+#'
 #' @param text Character vector.
 #' @return Character vector.
 #' @export
 #' @examples
 #' strj_hiraganize(
-#'   paste0(
+#'   c(paste0(
 #'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
 #'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
 #'     "\u3068\u304a\u3063\u305f\u98a8"
-#'   )
+#'   ), "\u677f\u57a3\u6b7b\u30b9\U0002a708")
 #' )
 strj_hiraganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
@@ -20,15 +25,23 @@ strj_hiraganize <- function(text) {
 
 #' Katakanize Japanese characters
 #'
+#' Convert Japanese hiragana to katakana.
+#' It is almost similar to \code{stringi::stri_trans_general(text, "hira-kana")},
+#' however, this implementation can also handle some additional symbols
+#' such as Japanese kana ligature (aka. goryaku-gana).
+#'
 #' @param text Character vector.
 #' @return Character vector.
 #' @export
 #' @examples
 #' strj_katakanize(
-#'   paste0(
-#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-#'     "\u3068\u304a\u3063\u305f\u98a8"
+#'   c(
+#'     paste0(
+#'       "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
+#'       "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
+#'       "\u3068\u304a\u3063\u305f\u98a8"
+#'     ),
+#'     "\u672c\u65e5\u309f\u304b\u304d\u6c37\u89e3\u7981"
 #'   )
 #' )
 strj_katakanize <- function(text) {
@@ -40,8 +53,21 @@ strj_katakanize <- function(text) {
 
 #' Romanize Japanese Hiragana and Katakana
 #'
+#' @details
+#' There are several ways to romanize Japanese.
+#' Using this implementation, you can convert hiragana and katakana as 5 different styles;
+#' the `wikipedia` style, the `traditional hepburn` style, the `modified hepburn` style,
+#' the `kunrei` style, and the `nihon` style.
+#'
+#' Note that all of these styles return a slightly different form of
+#' \code{stringi::stri_trans_general(text, "Any-latn")}.
+#'
+#' @seealso \url{https://github.com/hakatashi/japanese.js#japaneseromanizetext-config}
+#'
 #' @param text Character vector.
-#' @param config Configuration used to romanize.
+#' If elements are composed of except but hiragana and katakana letters,
+#' those letters are dropped from the return value.
+#' @param config Configuration used to romanize. Default is `wikipedia`.
 #' @return Character vector.
 #' @export
 #' @examples
@@ -69,7 +95,11 @@ strj_romanize <- function(text,
 
 #' Transcribe Arabic to Kansuji
 #'
-#' Transcribe Arabic integers to Kansuji.
+#' Transcribe Arabic integers to Kansuji with auxiliary numerals.
+#'
+#' As its implementation is limited, this function can only transcribe
+#' numbers up to trillions.
+#' In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
 #'
 #' @param int Integers.
 #' @return Character vector.

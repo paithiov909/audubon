@@ -18,4 +18,7 @@ polano
 Whole text of 'Porano no Hiroba' written by Miyazawa Kenji
 from Aozora Bunko
 }
+\examples{
+polano
+}
 \keyword{datasets}
