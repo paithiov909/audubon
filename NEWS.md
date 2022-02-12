@@ -1,3 +1,7 @@
+# audubon 0.1.1
+
+* Update documentation.
+
 # audubon 0.1.0
 
 * Relicense as Apache License, Version 2.0.

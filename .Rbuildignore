@@ -17,3 +17,4 @@
 ^webpack\.common\.js$
 ^data-raw$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
