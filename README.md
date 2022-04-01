@@ -50,7 +50,7 @@ strj_fill_iter_mark(c("あいうゝ〃かき",
 #> [1] "あいううゝかき"             "金子みすすﾞ"               
 #> [3] "のたり<U+3033><U+3035>かな" "しろしﾞろとした"
 
-strj_fill_iter_mark("いすゞエルフトラック") %>%
+strj_fill_iter_mark("いすゞエルフトラック") |> 
   strj_normalize()
 #> [1] "いすずエルフトラック"
 ```
@@ -94,11 +94,25 @@ strj_normalize("――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ
 
 `strj_rewrite_as_def` is an R port of
 [SudachiCharNormalizer](https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770)
-that typically normalizes characters only when they never appear in the
-‘rewrite.def’ file.
+that typically normalizes characters following a ’\*.def’ file.
 
-This functionality is more powerful than `stringi::stri_trans_*` so that
-it rewrites characters only specified in ‘rewrite.def’. For instance,
+audubon package contains several ’\*.def’ files, so you can use them or
+write a ‘rewrite.def’ file by yourself as follows.
+
+    # single characters will **never** normalized.
+    …
+    # if two characters are separated with a tab,
+    # left side forms are always rewritten to right side forms
+    # before normalized.
+    斎   斉
+    齋   斉
+    齊   斉
+    # supports rewriting a single character to a single character,
+    # i.e., this cannot work.
+    ｱｯ  ア
+
+This feature is more powerful than `stringi::stri_trans_*` because it
+allows users to control which characters are normalized. For instance,
 this function can be used to convert *kyuji-tai* characters to
 *shinji-tai* characters.
 
