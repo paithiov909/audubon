@@ -1,5 +1,6 @@
 #' audubon: Japanese Text Processing Tools
 #' @docType package
+#' @importFrom dplyr %>%
 #' @importFrom rlang enquo enquos .data := as_name as_label
 #' @keywords internal
 "_PACKAGE"

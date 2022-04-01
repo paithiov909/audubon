@@ -20,19 +20,20 @@
 #'
 #' @seealso \url{https://github.com/ropensci/tif}
 #'
-#' @param df A prettified data.frame of tokens.
+#' @param tbl A prettified data.frame of tokens.
+#' @param pull Column to be packed into text or ngrams body. Default value is `token`.
 #' @param n Integer internally passed to ngrams tokenizer function
 #' created of \code{audubon::ngram_tokenizer()}
-#' @param pull Column to be packed into text or ngrams body. Default value is `token`.
 #' @param sep Character scalar internally used as the concatenator of ngrams.
 #' @param .collapse This argument is passed to \code{stringi::stri_join()}.
 #' @return A data.frame.
 #' @export
 #' @examples
 #' pack(strj_tokenize(polano[1:5], format = "data.frame"))
-pack <- function(df, n = 1L, pull = "token", sep = "-", .collapse = " ") {
+pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
+  pull <- rlang::enquo(pull)
   if (n < 2L) {
-    res <- df %>%
+    res <- tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
         ~ dplyr::pull(.x, {{ pull }}) %>%
@@ -42,10 +43,11 @@ pack <- function(df, n = 1L, pull = "token", sep = "-", .collapse = " ") {
       purrr::flatten_chr() %>%
       purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
   } else {
-    res <- df %>%
+    make_ngram <- ngram_tokenizer(n)
+    res <- tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
-        ~ ngram_tokenizer(n)(dplyr::pull(.x, {{ pull }}), sep = sep) %>%
+        ~ make_ngram(dplyr::pull(.x, {{ pull }}), sep = sep) %>%
           stringi::stri_join(collapse = .collapse) %>%
           purrr::set_names(.y$doc_id)
       ) %>%
@@ -76,13 +78,13 @@ ngram_tokenizer <- function(n = 1L, skip_word_none = FALSE, locale = NULL) {
   func <- function(x, sep = " ") {
     stopifnot(is.character(x))
 
-    # Split into word tokens
+    ## Split into word tokens
     tokens <- unlist(stringi::stri_split_boundaries(x, opts_brkiter = options))
     len <- length(tokens)
 
     if (all(is.na(tokens)) || len < n) {
-      # If we didn't detect any words or number of tokens
-      # is less than n return empty vector
+      ## If we didn't detect any words or number of tokens
+      ## is less than n return empty vector
       character(0)
     } else {
       sapply(1:max(1, len - n + 1), function(i) {

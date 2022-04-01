@@ -1,8 +1,14 @@
+# audubon 0.1.2
+
+* Updated `pack` function.
+  * Switched arguments order of `pack` function. `pack` now accepts `pull` as its second argument and `n` as its third argument.
+  * `pull` now can accept a symbol.
+
 # audubon 0.1.1
 
-* Update documentation.
+* Updated documentation.
 
 # audubon 0.1.0
 
-* Relicense as Apache License, Version 2.0.
+* Relicensed as Apache License, Version 2.0.
 * Added a `NEWS.md` file to track changes to the package.
