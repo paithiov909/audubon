@@ -99,7 +99,7 @@ that typically normalizes characters following a ’\*.def’ file.
 audubon package contains several ’\*.def’ files, so you can use them or
 write a ‘rewrite.def’ file by yourself as follows.
 
-    # single characters will **never** normalized.
+    # single characters will **never** be normalized.
     …
     # if two characters are separated with a tab,
     # left side forms are always rewritten to right side forms

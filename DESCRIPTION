@@ -10,11 +10,10 @@ Authors@R: c(
   )
 Description: A collection of Japanese text processing tools for filling
     Japanese iteration marks, Japanese character type conversions,
-    segmentation by phrase, and text normalization which is
-    based on rules for the 'Sudachi' morphological analyzer and the
-    'NEologd' (Neologism dictionary for 'MeCab').  These features are
-    specific to Japanese and are not implemented in 'ICU' (International
-    Components for Unicode).
+    segmentation by phrase, and text normalization which is based on rules
+    for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism
+    dictionary for 'MeCab').  These features are specific to Japanese and
+    are not implemented in 'ICU' (International Components for Unicode).
 License: Apache License (>= 2)
 URL: https://github.com/paithiov909/audubon,
     https://paithiov909.github.io/audubon/
@@ -23,6 +22,7 @@ Depends:
     R (>= 2.10)
 Imports:
     dplyr,
+    magrittr,
     memoise,
     purrr,
     readr,
