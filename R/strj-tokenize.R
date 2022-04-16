@@ -58,8 +58,6 @@ strj_tokenize <- function(text, format = c("list", "data.frame"), split = FALSE)
         token = unlist(stringi::stri_split_boundaries(vec, type = "word"))
       )
     }) %>%
-      dplyr::mutate(
-        doc_id = as.factor(.data$doc_id)
-      )
+      dplyr::mutate(doc_id = as.factor(.data$doc_id))
   }
 }

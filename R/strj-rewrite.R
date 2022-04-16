@@ -66,5 +66,5 @@ read_rewrite_def_impl <- function() {
 #' @noRd
 apply_rep_all <- function(text, pattern, rep) {
   res <- stringi::stri_replace_all_fixed(text, pattern = pattern, replace = rep, vectorise_all = FALSE)
-  return(stringi::stri_trans_nfkc(res))
+  stringi::stri_trans_nfkc(res)
 }

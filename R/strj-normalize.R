@@ -18,8 +18,8 @@
 #'   )
 #' )
 strj_normalize <- function(text) {
-  res <-
-    stringi::stri_trans_nfkc(text) %>%
+  text %>%
+    stringi::stri_trans_nfkc() %>%
     stringi::stri_replace_all_regex("\u2019", "\'") %>%
     stringi::stri_replace_all_regex("\u201d", "\"") %>%
     stringi::stri_replace_all_regex(
@@ -42,5 +42,4 @@ strj_normalize <- function(text) {
     stringi::stri_replace_all_regex("[~\u223c\u223e\u301c\u3030\uff5e]+", "") %>%
     stringi::stri_trim() %>%
     stringi::stri_replace_all_regex("[[:cntrl:]]+", "")
-  return(res)
 }

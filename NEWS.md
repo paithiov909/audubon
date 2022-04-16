@@ -1,3 +1,7 @@
+# audubon (development version)
+
+* Updated `ngram_tokenizer` function.
+
 # audubon 0.1.2
 
 * Updated `pack` function.

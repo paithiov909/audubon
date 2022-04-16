@@ -70,8 +70,6 @@ strj_segment <- function(text, format = c("list", "data.frame"), split = FALSE) 
         }))
       )
     }) %>%
-      dplyr::mutate(
-        doc_id = as.factor(.data$doc_id)
-      )
+      dplyr::mutate(doc_id = as.factor(.data$doc_id))
   }
 }

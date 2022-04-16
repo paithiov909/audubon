@@ -25,7 +25,7 @@ strj_fill_iter_mark <- function(text) {
         list(fill_iter_mark_double2, fill_iter_mark_double, fill_iter_mark_single2, fill_iter_mark_single)
       )
     }
-    return(unlist(res))
+    unlist(res)
   })
 }
 
