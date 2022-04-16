@@ -33,7 +33,7 @@
 pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
   pull <- rlang::enquo(pull)
   if (n < 2L) {
-    res <- tbl %>%
+    tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
         ~ dplyr::pull(.x, {{ pull }}) %>%
@@ -44,7 +44,7 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
       purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
   } else {
     make_ngram <- ngram_tokenizer(n)
-    res <- tbl %>%
+    tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
         ~ make_ngram(dplyr::pull(.x, {{ pull }}), sep = sep) %>%
@@ -54,7 +54,6 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
       purrr::flatten_chr() %>%
       purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
   }
-  return(dplyr::mutate_if(res, is.character, ~ dplyr::na_if(., "*")))
 }
 
 #' Ngrams tokenizer
@@ -62,29 +61,14 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
 #' Make an ngram tokenizer function.
 #'
 #' @param n Integer.
-#' @param skip_word_none Logical.
-#' @param locale Character scalar. Pass a `NULL` or an empty string for default locale.
 #' @return ngram tokenizer function
 #' @export
-ngram_tokenizer <- function(n = 1L, skip_word_none = FALSE, locale = NULL) {
+ngram_tokenizer <- function(n = 1L) {
   stopifnot(is.numeric(n), is.finite(n), n > 0)
-
-  options <- stringi::stri_opts_brkiter(
-    type = "word",
-    locale = locale,
-    skip_word_none = skip_word_none
-  )
-
-  func <- function(x, sep = " ") {
-    stopifnot(is.character(x))
-
-    ## Split into word tokens
-    tokens <- unlist(stringi::stri_split_boundaries(x, opts_brkiter = options))
+  function(tokens, sep = " ") {
+    stopifnot(is.character(tokens))
     len <- length(tokens)
-
     if (all(is.na(tokens)) || len < n) {
-      ## If we didn't detect any words or number of tokens
-      ## is less than n return empty vector
       character(0)
     } else {
       sapply(1:max(1, len - n + 1), function(i) {
@@ -92,5 +76,4 @@ ngram_tokenizer <- function(n = 1L, skip_word_none = FALSE, locale = NULL) {
       })
     }
   }
-  return(func)
 }

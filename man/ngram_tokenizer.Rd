@@ -4,14 +4,10 @@
 \alias{ngram_tokenizer}
 \title{Ngrams tokenizer}
 \usage{
-ngram_tokenizer(n = 1L, skip_word_none = FALSE, locale = NULL)
+ngram_tokenizer(n = 1L)
 }
 \arguments{
 \item{n}{Integer.}
-
-\item{skip_word_none}{Logical.}
-
-\item{locale}{Character scalar. Pass a \code{NULL} or an empty string for default locale.}
 }
 \value{
 ngram tokenizer function
