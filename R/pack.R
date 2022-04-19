@@ -37,6 +37,7 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
         ~ dplyr::pull(.x, {{ pull }}) %>%
+          stringi::stri_omit_empty_na() %>%
           stringi::stri_join(collapse = .collapse) %>%
           purrr::set_names(.y$doc_id)
       ) %>%
@@ -47,7 +48,9 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
     tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
-        ~ make_ngram(dplyr::pull(.x, {{ pull }}), sep = sep) %>%
+        ~ dplyr::pull(.x, {{ pull }}) %>%
+          stringi::stri_remove_empty_na() %>%
+          make_ngram(sep = sep) %>%
           stringi::stri_join(collapse = .collapse) %>%
           purrr::set_names(.y$doc_id)
       ) %>%
