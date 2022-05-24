@@ -6,7 +6,7 @@
 \alias{audubon-package}
 \title{audubon: Japanese Text Processing Tools}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 A collection of Japanese text processing tools for filling Japanese iteration marks, Japanese character type conversions, segmentation by phrase, and text normalization which is based on rules for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism dictionary for 'MeCab'). These features are specific to Japanese and are not implemented in 'ICU' (International Components for Unicode).
 }
@@ -26,6 +26,7 @@ Other contributors:
 \itemize{
   \item Koki Takahashi (Author of japanese.js) [copyright holder]
   \item Shuhei Iitsuka (Author of budoux) [copyright holder]
+  \item Taku Kudo (Author of TinySegmenter) [copyright holder]
 }
 
 }

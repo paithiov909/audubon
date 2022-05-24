@@ -1,12 +1,14 @@
 Package: audubon
 Title: Japanese Text Processing Tools
-Version: 0.1.2.9000
+Version: 0.1.2.9001
 Authors@R: c(
     person("Akiru", "Kato", , "paithiov909@gmail.com", role = c("cre", "aut")),
     person("Koki", "Takahashi", role = "cph",
            comment = "Author of japanese.js"),
     person("Shuhei", "Iitsuka", role = "cph",
-           comment = "Author of budoux")
+           comment = "Author of budoux"),
+    person("Taku", "Kudo", role = "cph",
+           comment = "Author of TinySegmenter")
   )
 Description: A collection of Japanese text processing tools for filling
     Japanese iteration marks, Japanese character type conversions,
@@ -38,4 +40,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0

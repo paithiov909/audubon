@@ -16,3 +16,8 @@ test_that("segment works", {
   li <- unname(strj_segment(str))
   expect_equal(li[[1]][4], enc2utf8("\u98a8"))
 })
+
+test_that("tinyseg works", {
+  li <- unname(strj_tinyseg(str))
+  expect_equal(li[[1]][3], enc2utf8("\u30a4\u30fc\u30cf\u30c8\u30fc\u30f4\u30a9"))
+})
