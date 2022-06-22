@@ -35,7 +35,7 @@ Some features above are not implemented in 'ICU' (i.e., the stringi package), an
 ## Installation
 
 ```r
-remotes::install_github("paithio909/audubon")
+remotes::install_github("paithiov909/audubon")
 ```
 
 ## Usage
