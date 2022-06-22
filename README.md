@@ -31,7 +31,7 @@ additional features.
 ## Installation
 
 ``` r
-remotes::install_github("paithio909/audubon")
+remotes::install_github("paithiov909/audubon")
 ```
 
 ## Usage
