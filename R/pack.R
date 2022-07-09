@@ -1,6 +1,6 @@
 #' Pack prettified data.frame of tokens
 #'
-#' Pack a prettified data.frame of tokens into a new data.frame of corpus,
+#' Packs a prettified data.frame of tokens into a new data.frame of corpus,
 #' which is compatible with the Text Interchange Formats.
 #'
 #' @section Text Interchange Formats (TIF):
