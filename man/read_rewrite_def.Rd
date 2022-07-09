@@ -12,7 +12,7 @@ read_rewrite_def(
 \item{def_path}{Character scalar; path to the rewriting definition file.}
 }
 \value{
-List.
+A list.
 }
 \description{
 Read a rewrite.def file

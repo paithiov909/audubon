@@ -10,10 +10,10 @@ strj_normalize(text)
 \item{text}{Character vector to be normalized.}
 }
 \value{
-Character vector.
+A character vector.
 }
 \description{
-Convert characters into normalized style
+Converts characters into normalized style
 following the rule that is recommended by the Neologism dictionary for 'MeCab'.
 }
 \examples{

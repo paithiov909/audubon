@@ -10,10 +10,10 @@ strj_katakanize(text)
 \item{text}{Character vector.}
 }
 \value{
-Character vector.
+A character vector.
 }
 \description{
-Convert Japanese hiragana to katakana.
+Converts Japanese hiragana to katakana.
 It is almost similar to \code{stringi::stri_trans_general(text, "hira-kana")},
 however, this implementation can also handle some additional symbols
 such as Japanese kana ligature (aka. goryaku-gana).

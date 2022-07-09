@@ -10,10 +10,10 @@ strj_transcribe_num(int)
 \item{int}{Integers.}
 }
 \value{
-Character vector.
+A character vector.
 }
 \description{
-Transcribe Arabic integers to Kansuji with auxiliary numerals.
+Transcribes Arabic integers to Kansuji with auxiliary numerals.
 }
 \details{
 As its implementation is limited, this function can only transcribe

@@ -10,10 +10,10 @@ strj_fill_iter_mark(text)
 \item{text}{Character vector.}
 }
 \value{
-Character vector.
+A character vector.
 }
 \description{
-Fill Japanese iteration marks (Odori-ji) with their previous characters
+Fills Japanese iteration marks (Odori-ji) with their previous characters
 if the element has more than 5 characters.
 }
 \examples{

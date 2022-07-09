@@ -27,7 +27,7 @@ audubon is Japanese text processing tools for:
 
 - filling Japanese iteration marks
 - hiraganization, katakanization and romanization using [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
-- segmentation by phrase using [google/budoux](https://github.com/google/budoux) and TinySegmenter.js
+- segmentation by phrase using [google/budoux](https://github.com/google/budoux) and 'TinySegmenter.js'
 - text normalization which is based on rules for the 'Sudachi' morphological analyzer and the 'NEologd' (Neologism dictionary for 'MeCab').
 
 Some features above are not implemented in 'ICU' (i.e., the stringi package), and the goal of the audubon package is to provide these additional features.
@@ -75,7 +75,7 @@ strj_segment("あのイーハトーヴォのすきとおった風")
 
 ### Japanese text normalization
 
-`strj_normalize` normalizes text following the rule based on [NEologd](https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja) sytle.
+`strj_normalize` normalizes text following the rule based on [NEologd](https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja) style.
 
 ```{r normalize}
 strj_normalize("――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り")

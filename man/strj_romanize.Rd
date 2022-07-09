@@ -17,7 +17,7 @@ those letters are dropped from the return value.}
 \item{config}{Configuration used to romanize. Default is \code{wikipedia}.}
 }
 \value{
-Character vector.
+A character vector.
 }
 \description{
 Romanize Japanese Hiragana and Katakana

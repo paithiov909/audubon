@@ -6,7 +6,7 @@
 #' @param text Character vector to be tokenized.
 #' @param format Output format. Choose `list` or `data.frame`.
 #' @param engine Splitting engine to be used.
-#' @param split Logical. If true, the function splits vectors
+#' @param split Logical. If true, the function splits the vector
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
 #' @return List or data.frame.

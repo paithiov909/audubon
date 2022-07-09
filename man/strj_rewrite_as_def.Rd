@@ -12,7 +12,7 @@ strj_rewrite_as_def(text, as = read_rewrite_def())
 \item{as}{List.}
 }
 \value{
-Character vector
+A character vector.
 }
 \description{
 Rewrite text using rewrite.def

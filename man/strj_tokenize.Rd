@@ -2,25 +2,39 @@
 % Please edit documentation in R/strj-tokenize.R
 \name{strj_tokenize}
 \alias{strj_tokenize}
-\title{Simply tokenize sentence}
+\title{Split text into tokens}
 \usage{
-strj_tokenize(text, format = c("list", "data.frame"), split = FALSE)
+strj_tokenize(
+  text,
+  format = c("list", "data.frame"),
+  engine = c("stringi", "mecab", "sudachipy"),
+  rcpath = NULL,
+  mode = c("C", "B", "A"),
+  split = FALSE
+)
 }
 \arguments{
 \item{text}{Character vector to be tokenized.}
 
 \item{format}{Output format. Choose \code{list} or \code{data.frame}.}
 
-\item{split}{Logical. If true, the function splits vectors
+\item{engine}{Tokenizer name. Choose one of 'stringi', 'mecab', or 'sudachipy'.
+Note that the specified tokenizer is installed and available when you use
+'mecab' or 'sudachipy'.}
+
+\item{rcpath}{Path to a setting file for 'MeCab' or 'sudachipy' if any.}
+
+\item{mode}{Splitting mode for 'sudachipy'.}
+
+\item{split}{Logical. If true, the function splits the vector
 into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 before tokenizing.}
 }
 \value{
-List or data.frame.
+A list or data.frame.
 }
 \description{
-Split the given sentence into tokens
-using \code{stringi::stri_split_boundaries(type = "word")}.
+Splits text into several tokens using specified tokenizer.
 }
 \examples{
 strj_tokenize(
