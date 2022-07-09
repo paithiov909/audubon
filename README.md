@@ -47,8 +47,7 @@ strj_fill_iter_mark(c("あいうゝ〃かき",
                       "金子みすゞ",
                       "のたり〳〵かな",
                       "しろ／″＼とした"))
-#> [1] "あいううゝかき"             "金子みすすﾞ"               
-#> [3] "のたり<U+3033><U+3035>かな" "しろしﾞろとした"
+#> [1] "あいうううかき"  "金子みすすﾞ"     "のたりたりかな"  "しろしﾞろとした"
 
 strj_fill_iter_mark("いすゞエルフトラック") |> 
   strj_normalize()
@@ -62,11 +61,11 @@ Character class conversion uses
 
 ``` r
 strj_hiraganize("あのイーハトーヴォのすきとおった風")
-#> [1] "あのいーはとーヴぉのすきとおった風"
+#> [1] "あのいーはとーゔぉのすきとおった風"
 strj_katakanize("あのイーハトーヴォのすきとおった風")
 #> [1] "アノイーハトーヴォノスキトオッタ風"
 strj_romanize("あのイーハトーヴォのすきとおった風")
-#> [1] "ano<U+012B>hat<U+014D>vonosukit<U+014D>tta"
+#> [1] "anoīhatōvonosukitōtta"
 ```
 
 ### Segmentation by phrase

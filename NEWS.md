@@ -1,3 +1,8 @@
+# audubon 0.2.0.9000 (developmental)
+
+* Updated `strj_fill_iter_mark` function.
+  * `strj_fill_iter_mark` now replaces a sequence of iteration marks recursively.
+
 # audubon 0.2.0
 
 * Updated `ngram_tokenizer` function.

@@ -1,11 +1,11 @@
 #' Convert text following the rules of 'NEologd'
 #'
-#' Convert characters into normalized style
+#' Converts characters into normalized style
 #' following the rule that is recommended by the Neologism dictionary for 'MeCab'.
 #'
 #' @seealso \url{https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja}
 #' @param text Character vector to be normalized.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_normalize(

@@ -1,10 +1,10 @@
 #' Fill Japanese iteration marks
 #'
-#' Fill Japanese iteration marks (Odori-ji) with their previous characters
+#' Fills Japanese iteration marks (Odori-ji) with their previous characters
 #' if the element has more than 5 characters.
 #'
 #' @param text Character vector.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_fill_iter_mark(c(
@@ -20,10 +20,12 @@ strj_fill_iter_mark <- function(text) {
     stringi::stri_replace_all_regex("(\uff0f\uff3c)", "\u3033\u3035")
   purrr::map_chr(text, function(res) {
     if (nchar(res) > 4) {
-      res <- magrittr::freduce(
-        res,
-        list(fill_iter_mark_double2, fill_iter_mark_double, fill_iter_mark_single2, fill_iter_mark_single)
-      )
+      while (stringi::stri_detect_regex(res, "[\u30fd\u309d\u3003\u30fe\u309e\u3033\u3034\u3035]")) {
+        res <- magrittr::freduce(
+          res,
+          list(fill_iter_mark_double2, fill_iter_mark_double, fill_iter_mark_single2, fill_iter_mark_single)
+        )
+      }
     }
     unlist(res)
   })

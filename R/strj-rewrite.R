@@ -2,7 +2,7 @@
 #'
 #' @param text Character vector to be normalized.
 #' @param as List.
-#' @return Character vector
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_rewrite_as_def(
@@ -37,7 +37,7 @@ strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
 #' Read a rewrite.def file
 #'
 #' @param def_path Character scalar; path to the rewriting definition file.
-#' @return List.
+#' @return A list.
 #' @export
 #' @examples
 #' str(read_rewrite_def())

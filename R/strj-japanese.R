@@ -1,12 +1,12 @@
 #' Hiraganize Japanese characters
 #'
-#' Convert Japanese katakana to hiragana.
+#' Converts Japanese katakana to hiragana.
 #' It is almost similar to \code{stringi::stri_trans_general(text, "kana-hira")},
 #' however, this implementation can also handle some additional symbols
 #' such as Japanese kana ligature (aka. goryaku-gana).
 #'
 #' @param text Character vector.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_hiraganize(
@@ -28,13 +28,13 @@ strj_hiraganize <- function(text) {
 
 #' Katakanize Japanese characters
 #'
-#' Convert Japanese hiragana to katakana.
+#' Converts Japanese hiragana to katakana.
 #' It is almost similar to \code{stringi::stri_trans_general(text, "hira-kana")},
 #' however, this implementation can also handle some additional symbols
 #' such as Japanese kana ligature (aka. goryaku-gana).
 #'
 #' @param text Character vector.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_katakanize(
@@ -71,7 +71,7 @@ strj_katakanize <- function(text) {
 #' If elements are composed of except but hiragana and katakana letters,
 #' those letters are dropped from the return value.
 #' @param config Configuration used to romanize. Default is `wikipedia`.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_romanize(
@@ -98,14 +98,14 @@ strj_romanize <- function(text,
 
 #' Transcribe Arabic to Kansuji
 #'
-#' Transcribe Arabic integers to Kansuji with auxiliary numerals.
+#' Transcribes Arabic integers to Kansuji with auxiliary numerals.
 #'
 #' As its implementation is limited, this function can only transcribe
 #' numbers up to trillions.
 #' In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
 #'
 #' @param int Integers.
-#' @return Character vector.
+#' @return A character vector.
 #' @export
 #' @examples
 #' strj_transcribe_num(c(10L, 31415L))
