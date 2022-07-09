@@ -25,9 +25,9 @@ prettify <- function(df,
       c(
         stringi::stri_c(into, collapse = ","),
         dplyr::pull(df, "feature")
-      ) |>
-      stringi::stri_c(collapse = "\n") |>
-      I() |>
+      ) %>%
+      stringi::stri_c(collapse = "\n") %>%
+      I() %>%
       readr::read_csv(
         col_types = stringi::stri_c(rep("c", length(into)), collapse = ""),
         col_select = tidyselect::all_of(col_select),

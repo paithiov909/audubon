@@ -51,9 +51,10 @@ strj_tokenize <- function(text,
 
   res <-
     switch(engine,
-           stringi = tokenize_stringi(text, split),
-           mecab = tokenize_mecab(text, split, rcpath),
-           sudachipy = tokenize_sudachipy(text, split, rcpath, mode))
+      stringi = tokenize_stringi(text, split),
+      mecab = tokenize_mecab(text, split, rcpath),
+      sudachipy = tokenize_sudachipy(text, split, rcpath, mode)
+    )
 
   if (identical(format, "data.frame")) {
     return(res)
@@ -85,7 +86,7 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
     purrr::imap_chr(text, function(elem, doc_id) {
       out <- tempfile(fileext = ".txt")
       if (split) {
-        elem <- stringi::stri_split_boundaries(elem, type = "sentence") |>
+        elem <- stringi::stri_split_boundaries(elem, type = "sentence") %>%
           unlist()
       }
       readr::write_lines(elem, tmp_file_txt, append = FALSE)
@@ -115,8 +116,8 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
   purrr::imap_dfr(files, function(path, doc_id) {
     data.frame(
       doc_id = doc_id,
-      readr::read_lines(path) |>
-        purrr::discard(~ .x == "EOS") |>
+      readr::read_lines(path) %>%
+        purrr::discard(~ .x == "EOS") %>%
         I() |>
         readr::read_tsv(
           col_names = c("token", "feature"),
@@ -124,7 +125,7 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
           show_col_types = FALSE
         )
     )
-  }) |>
+  }) %>%
     dplyr::relocate("doc_id", "token", "feature")
 }
 
@@ -135,7 +136,7 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
     purrr::imap_chr(text, function(elem, doc_id) {
       out <- tempfile(fileext = ".txt")
       if (split) {
-        elem <- stringi::stri_split_boundaries(elem, type = "sentence") |>
+        elem <- stringi::stri_split_boundaries(elem, type = "sentence") %>%
           unlist()
       }
       readr::write_lines(elem, tmp_file_txt, append = FALSE)
@@ -169,8 +170,8 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
   purrr::imap_dfr(files, function(path, doc_id) {
     data.frame(
       doc_id = doc_id,
-      readr::read_lines(path) |>
-        purrr::discard(~ .x == "EOS") |>
+      readr::read_lines(path) %>%
+        purrr::discard(~ .x == "EOS") %>%
         I() |>
         readr::read_tsv(
           col_names = c("token", "feature", "normalized"),
@@ -178,6 +179,6 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
           show_col_types = FALSE
         )
     )
-  }) |>
+  }) %>%
     dplyr::relocate("doc_id", "token", "normalized", "feature")
 }
