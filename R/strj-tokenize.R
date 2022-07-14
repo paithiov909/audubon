@@ -126,6 +126,7 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
         )
     )
   }) %>%
+    dplyr::mutate(doc_id = as.factor(.data$doc_id)) %>%
     dplyr::relocate("doc_id", "token", "feature")
 }
 
@@ -180,5 +181,6 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
         )
     )
   }) %>%
+    dplyr::mutate(doc_id = as.factor(.data$doc_id)) %>%
     dplyr::relocate("doc_id", "token", "normalized", "feature")
 }
