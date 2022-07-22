@@ -1,4 +1,4 @@
-# audubon 0.2.0.9000
+# audubon 0.3.0
 
 * Updated `strj_fill_iter_mark` function.
   * `strj_fill_iter_mark` now replaces a sequence of iteration marks recursively.
@@ -13,8 +13,8 @@
 # audubon 0.1.2
 
 * Updated `pack` function.
-  * Switched arguments order of `pack` function. `pack` now retrives `pull` as its second argument and `n` as its third argument.
-  * `pull` now can retrieve a symbol.
+  * Switched arguments order of `pack` function. `pack` now accepts `pull` as its second argument and `n` as its third argument.
+  * `pull` now can accept a symbol.
 
 # audubon 0.1.1
 

@@ -27,7 +27,6 @@ get_dict_features("ipa")
 }
 \seealso{
 See also
-\href{https://ccd.ninjal.ac.jp/unidic/}{'UniDic'},
 \href{https://github.com/ueda-keisuke/CC-CEDICT-MeCab}{'CC-CEDICT-MeCab'},
 and \href{https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/}{'mecab-ko-dic'}.
 }
