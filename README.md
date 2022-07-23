@@ -71,11 +71,12 @@ strj_romanize("あのイーハトーヴォのすきとおった風")
 
 ### Segmentation by phrase
 
-`strj_segment` splits Japanese text into some phrases using
-[google/budoux](https://github.com/google/budoux) and TinySegmenter.
+`strj_tokenize` splits Japanese text into some phrases using
+[google/budoux](https://github.com/google/budoux), TinySegmenter, or
+other tokenizers.
 
 ``` r
-strj_segment("あのイーハトーヴォのすきとおった風")
+strj_tokenize("あのイーハトーヴォのすきとおった風", engine = "budoux")
 #> $`1`
 #> [1] "あのイーハトーヴォの" "すきと"               "おった"              
 #> [4] "風"
