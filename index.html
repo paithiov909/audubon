@@ -43,7 +43,7 @@
     
     <a class="navbar-brand me-2" href="index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,9 +132,9 @@
 <div class="section level3">
 <h3 id="segmentation-by-phrase">Segmentation by phrase<a class="anchor" aria-label="anchor" href="#segmentation-by-phrase"></a>
 </h3>
-<p><code>strj_segment</code> splits Japanese text into some phrases using <a href="https://github.com/google/budoux" class="external-link">google/budoux</a> and TinySegmenter.</p>
+<p><code>strj_tokenize</code> splits Japanese text into some phrases using <a href="https://github.com/google/budoux" class="external-link">google/budoux</a>, TinySegmenter, or other tokenizers.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/strj_segment.html">strj_segment</a></span><span class="op">(</span><span class="st">"あのイーハトーヴォのすきとおった風"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/strj_tokenize.html">strj_tokenize</a></span><span class="op">(</span><span class="st">"あのイーハトーヴォのすきとおった風"</span>, engine <span class="op">=</span> <span class="st">"budoux"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $`1`</span></span>
 <span><span class="co">#&gt; [1] "あのイーハトーヴォの" "すきと"               "おった"              </span></span>
 <span><span class="co">#&gt; [4] "風"</span></span></code></pre></div>
