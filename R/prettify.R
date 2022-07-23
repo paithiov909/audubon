@@ -1,16 +1,29 @@
 #' Prettify tokenized output
 #'
+#' Turns a single character column into features
+#' separating with delimiter.
+#'
 #' @param df A data.frame that has feature column to be prettified.
+#' @param col Column name where to be prettified.
 #' @param into Character vector that is used as column names of
 #' features.
 #' @param col_select Character or integer vector that will be kept
-#' in prettified result.
-#'
+#' in prettified features.
+#' @param delim Character scalar used to separate fields within a feature.
 #' @return A data.frame.
 #' @export
+#' @examples
+#' prettify(
+#'   data.frame(x = c("x,y", "y,z", "z,x")),
+#'   col = "x",
+#'   into = c("a", "b"),
+#'   col_select = "b"
+#' )
 prettify <- function(df,
+                     col = "feature",
                      into = get_dict_features("ipa"),
-                     col_select = seq_along(into)) {
+                     col_select = seq_along(into),
+                     delim = ",") {
   if (is.numeric(col_select) && max(col_select) <= length(into)) {
     col_select <- which(seq_along(into) %in% col_select, arr.ind = TRUE)
   } else {
@@ -24,19 +37,20 @@ prettify <- function(df,
     features <-
       c(
         stringi::stri_c(into, collapse = ","),
-        dplyr::pull(df, "feature")
+        dplyr::pull(df, !!rlang::enquo(col))
       ) %>%
       stringi::stri_c(collapse = "\n") %>%
       I() %>%
-      readr::read_csv(
+      readr::read_delim(
+        delim = delim,
         col_types = stringi::stri_c(rep("c", length(into)), collapse = ""),
         col_select = tidyselect::all_of(col_select),
-        na = c("*"),
+        na = c("*", "NA"),
         progress = FALSE,
         show_col_types = FALSE
       )
   })
-  dplyr::bind_cols(dplyr::select(df, !.data$feature), features)
+  dplyr::bind_cols(dplyr::select(df, -!!rlang::enquo(col)), features)
 }
 
 #' Get dictionary's features

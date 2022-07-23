@@ -18,7 +18,6 @@ Sudachi
 TIF
 TinySegmenter
 Tokenizer
-UniDic
 arabic
 budoux
 cedict
@@ -41,6 +40,7 @@ src
 stringi
 sudachi
 sudachipy
+tinyseg
 tokenized
 tokenizer
 tokenizing
