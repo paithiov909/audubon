@@ -7,7 +7,7 @@
 strj_tokenize(
   text,
   format = c("list", "data.frame"),
-  engine = c("stringi", "mecab", "sudachipy"),
+  engine = c("stringi", "budoux", "tinyseg", "mecab", "sudachipy"),
   rcpath = NULL,
   mode = c("C", "B", "A"),
   split = FALSE
@@ -18,7 +18,8 @@ strj_tokenize(
 
 \item{format}{Output format. Choose \code{list} or \code{data.frame}.}
 
-\item{engine}{Tokenizer name. Choose one of 'stringi', 'mecab', or 'sudachipy'.
+\item{engine}{Tokenizer name. Choose one of 'stringi', 'budoux',
+'tinyseg', 'mecab', or 'sudachipy'.
 Note that the specified tokenizer is installed and available when you use
 'mecab' or 'sudachipy'.}
 
