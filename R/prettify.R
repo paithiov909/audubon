@@ -45,7 +45,7 @@ prettify <- function(df,
         delim = delim,
         col_types = stringi::stri_c(rep("c", length(into)), collapse = ""),
         col_select = tidyselect::all_of(col_select),
-        na = c("*", "NA"),
+        na = c("*", "NA", ""),
         progress = FALSE,
         show_col_types = FALSE
       )
