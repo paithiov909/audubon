@@ -10,7 +10,7 @@ tokenize_stringi <- function(text, split) {
       token = unlist(stringi::stri_split_boundaries(vec, type = "word"))
     )
   }) %>%
-    dplyr::mutate(doc_id = as.factor(.data$doc_id))
+    dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
 }
 
 #' @keywords internal
@@ -31,7 +31,7 @@ tokenize_budoux <- function(text, split) {
       }))
     )
   }) %>%
-    dplyr::mutate(doc_id = as.factor(.data$doc_id))
+    dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
 }
 
 tokenize_tinyseg <- function(text, split) {
@@ -51,7 +51,7 @@ tokenize_tinyseg <- function(text, split) {
       }))
     )
   }) %>%
-    dplyr::mutate(doc_id = as.factor(.data$doc_id))
+    dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
 }
 
 #' @keywords internal
@@ -101,7 +101,7 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
         )
     )
   }) %>%
-    dplyr::mutate(doc_id = as.factor(.data$doc_id)) %>%
+    dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id))) %>%
     dplyr::relocate("doc_id", "token", "feature")
 }
 
@@ -156,6 +156,6 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
         )
     )
   }) %>%
-    dplyr::mutate(doc_id = as.factor(.data$doc_id)) %>%
+    dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id))) %>%
     dplyr::relocate("doc_id", "token", "normalized", "feature")
 }

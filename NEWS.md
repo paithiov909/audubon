@@ -1,5 +1,8 @@
 # audubon (development version)
 
+* `strj_tokenize` now preserves the original order of text names.
+* `prettify` now can get `delim` argument.
+
 # audubon 0.3.0
 
 * Updated `strj_fill_iter_mark` function.
