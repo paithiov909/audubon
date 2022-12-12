@@ -43,7 +43,7 @@
     
     <a class="navbar-brand me-2" href="index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9004</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,6 +84,7 @@
 </h1>
 </div>
 <!-- badges: start -->
+
 <p>audubon is Japanese text processing tools for:</p>
 <ul>
 <li>filling Japanese iteration marks</li>
@@ -148,17 +149,17 @@
 <span><span class="co">#&gt; [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"</span></span></code></pre></div>
 <p><code>strj_rewrite_as_def</code> is an R port of <a href="https://gist.github.com/sorami/bde9d441a147e0fc2e6e5fdd83f4f770" class="external-link">SudachiCharNormalizer</a> that typically normalizes characters following a ’*.def’ file.</p>
 <p>audubon package contains several ’*.def’ files, so you can use them or write a ‘rewrite.def’ file by yourself as follows.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># single characters will **never** be normalized.</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>…</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># if two characters are separated with a tab,</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># left side forms are always rewritten to right side forms</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># before normalized.</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>斎   斉</span>
-<span id="cb6-7"><a href="#cb6-7"></a>齋   斉</span>
-<span id="cb6-8"><a href="#cb6-8"></a>齊   斉</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co"># supports rewriting a single character to a single character,</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># i.e., this cannot work.</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>ｱｯ  ア</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># single characters will **never** be normalized.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>…</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># if two characters are separated with a tab,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># left side forms are always rewritten to right side forms</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># before normalized.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>斎   斉</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>齋   斉</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>齊   斉</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># supports rewriting a single character to a single character,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># i.e., this cannot work.</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ｱｯ  ア</span></code></pre></div>
 <p>This feature is more powerful than <code>stringi::stri_trans_*</code> because it allows users to control which characters are normalized. For instance, this function can be used to convert <em>kyuji-tai</em> characters to <em>shinji-tai</em> characters.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">stringi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stringi/man/stri_trans_nf.html" class="external-link">stri_trans_nfkc</a></span><span class="op">(</span><span class="st">"Ⅹⅳ"</span><span class="op">)</span></span>
