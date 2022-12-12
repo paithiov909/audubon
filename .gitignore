@@ -37,6 +37,7 @@ rsconnect/
 
 *.log
 
+.yarn
 inst/doc
 node_modules
 docs

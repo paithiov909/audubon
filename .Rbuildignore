@@ -13,6 +13,8 @@
 ^package\.json$
 ^package-lock\.json$
 ^yarn\.lock
+\.yarn$
+\.yarnrc\.yml$
 ^webpack\.dev\.js$
 ^webpack\.prod\.js$
 ^webpack\.common\.js$
