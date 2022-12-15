@@ -3,6 +3,7 @@ Bunko
 CEDICT
 Hiraganize
 Hiroba
+IDF
 Kansuji
 Katakanize
 Kenji
@@ -13,8 +14,10 @@ NEologd
 Ngrams
 Odori
 Porano
+RMeCab
 Romanize
 Sudachi
+TF
 TIF
 TinySegmenter
 Tokenizer
@@ -31,6 +34,7 @@ ji
 js
 kansuji
 ko
+logarithmizing
 mecab
 naist
 ngram

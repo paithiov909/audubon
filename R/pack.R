@@ -18,7 +18,7 @@
 #' of each text and several feature columns of each tokens.
 #' The feature columns must contain at least `token` itself.
 #'
-#' @seealso \url{https://github.com/ropensci/tif}
+#' @seealso \url{https://github.com/ropenscilabs/tif}
 #'
 #' @param tbl A prettified data.frame of tokens.
 #' @param pull Column to be packed into text or ngrams body. Default value is `token`.

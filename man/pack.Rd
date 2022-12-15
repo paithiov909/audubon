@@ -48,5 +48,5 @@ The feature columns must contain at least \code{token} itself.
 pack(strj_tokenize(polano[1:5], format = "data.frame"))
 }
 \seealso{
-\url{https://github.com/ropensci/tif}
+\url{https://github.com/ropenscilabs/tif}
 }

@@ -15,15 +15,15 @@ badge](https://cranlogs.r-pkg.org/badges/audubon)](https://cran.r-project.org/pa
 
 audubon is Japanese text processing tools for:
 
--   filling Japanese iteration marks
--   hiraganization, katakanization and romanization using
-    [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
--   segmentation by phrase using
-    [google/budoux](https://github.com/google/budoux) and
-    ‘TinySegmenter.js’
--   text normalization which is based on rules for the ‘Sudachi’
-    morphological analyzer and the ‘NEologd’ (Neologism dictionary for
-    ‘MeCab’).
+- filling Japanese iteration marks
+- hiraganization, katakanization and romanization using
+  [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
+- segmentation by phrase using
+  [google/budoux](https://github.com/google/budoux) and
+  ‘TinySegmenter.js’
+- text normalization which is based on rules for the ‘Sudachi’
+  morphological analyzer and the ‘NEologd’ (Neologism dictionary for
+  ‘MeCab’).
 
 Some features above are not implemented in ‘ICU’ (i.e., the stringi
 package), and the goal of the audubon package is to provide these
@@ -44,13 +44,15 @@ iteration marks if the element has more than 5 characters. You can use
 this feature with `strj_normalize` or `strj_rewrite_as_def`.
 
 ``` r
-strj_fill_iter_mark(c("あいうゝ〃かき",
-                      "金子みすゞ",
-                      "のたり〳〵かな",
-                      "しろ／″＼とした"))
+strj_fill_iter_mark(c(
+  "あいうゝ〃かき",
+  "金子みすゞ",
+  "のたり〳〵かな",
+  "しろ／″＼とした"
+))
 #> [1] "あいうううかき"  "金子みすすﾞ"     "のたりたりかな"  "しろしﾞろとした"
 
-strj_fill_iter_mark("いすゞエルフトラック") |> 
+strj_fill_iter_mark("いすゞエルフトラック") |>
   strj_normalize()
 #> [1] "いすずエルフトラック"
 ```

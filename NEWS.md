@@ -1,5 +1,8 @@
-# audubon (development version)
+# audubon 0.4.0
 
+* Added some new functions.
+  * `bind_tf_idf2` can calculate and bind the term frequency, inverse document frequency, and tf-idf of the tidy text dataset.
+  * `collapse_tokens` and `mute_tokens`, and `lexical_density` can be used for handling a tidy text dataset of tokens.
 * `strj_tokenize` now preserves the original order of text names.
 * `prettify` now can get `delim` argument.
 

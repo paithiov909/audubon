@@ -46,12 +46,14 @@ remotes::install_github("paithiov909/audubon")
 You can use this feature with `strj_normalize` or `strj_rewrite_as_def`.
 
 ```{r fill_iter_mark}
-strj_fill_iter_mark(c("あいうゝ〃かき",
-                      "金子みすゞ",
-                      "のたり〳〵かな",
-                      "しろ／″＼とした"))
+strj_fill_iter_mark(c(
+  "あいうゝ〃かき",
+  "金子みすゞ",
+  "のたり〳〵かな",
+  "しろ／″＼とした"
+))
 
-strj_fill_iter_mark("いすゞエルフトラック") |> 
+strj_fill_iter_mark("いすゞエルフトラック") |>
   strj_normalize()
 ```
 
