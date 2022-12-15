@@ -27,7 +27,6 @@ jobs:
         with:
           cache-version: 2
           extra-packages: pkgdown
-          needs: website
 
       - name: Deploy package
         run: |
