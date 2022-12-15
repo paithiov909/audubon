@@ -1,8 +1,3 @@
-## Test environments
-
-- R-hub ubuntu-gcc-devel (r-devel)
-- R-hub windows-x86_64-release (r-release)
-
 # R CMD check results
 
 ## Test environments
