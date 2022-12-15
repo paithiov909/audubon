@@ -15,7 +15,8 @@
 #' @return numeric vector.
 #' @export
 #' @examples
-#' prettify(hiroba, col_select = "POS1") |>
+#' head(hiroba) |>
+#'   prettify(col_select = "POS1") |>
 #'   dplyr::group_by(doc_id) |>
 #'   dplyr::summarise(
 #'     noun_ratio = lex_density(POS1,

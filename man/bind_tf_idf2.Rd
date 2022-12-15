@@ -65,8 +65,10 @@ Types of inverse document frequencies can be switched with \code{idf} argument:
 }
 }
 \examples{
+\dontrun{
 df <- dplyr::group_by(hiroba, doc_id) |>
   dplyr::count(token) |>
   dplyr::ungroup()
 bind_tf_idf2(df)
+}
 }

@@ -26,6 +26,6 @@ and columns for grouping sequences. So, the returned data.frame
 has only 'doc_id', 'sentence_id', 'token_id', and 'token' columns.
 }
 \examples{
-df <- prettify(hiroba, col_select = "POS1")
+df <- prettify(head(hiroba), col_select = "POS1")
 collapse_tokens(df, POS1 == "\u540d\u8a5e")
 }

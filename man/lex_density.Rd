@@ -28,7 +28,8 @@ in documents. This function is a simple helper for calculating
 the lexical density of given datasets.
 }
 \examples{
-prettify(hiroba, col_select = "POS1") |>
+head(hiroba) |>
+  prettify(col_select = "POS1") |>
   dplyr::group_by(doc_id) |>
   dplyr::summarise(
     noun_ratio = lex_density(POS1,

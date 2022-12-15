@@ -23,6 +23,6 @@ Permutes tokens in the tidy text dataset with a string scalar
 only if they are matched to an expression.
 }
 \examples{
-df <- prettify(hiroba, col_select = "POS1")
+df <- prettify(head(hiroba), col_select = "POS1")
 mute_tokens(df, POS1 \%in\% c("\u52a9\u8a5e", "\u52a9\u52d5\u8a5e"))
 }

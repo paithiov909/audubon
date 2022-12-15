@@ -13,7 +13,7 @@
 #' @return data.frame.
 #' @export
 #' @examples
-#' df <- prettify(hiroba, col_select = "POS1")
+#' df <- prettify(head(hiroba), col_select = "POS1")
 #' collapse_tokens(df, POS1 == "\u540d\u8a5e")
 collapse_tokens <- function(tbl,
                             condition,

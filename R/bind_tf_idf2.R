@@ -114,10 +114,12 @@ global_entropy <- function(sp) {
 #' @return data.frame.
 #' @export
 #' @examples
+#' \dontrun{
 #' df <- dplyr::group_by(hiroba, doc_id) |>
 #'   dplyr::count(token) |>
 #'   dplyr::ungroup()
 #' bind_tf_idf2(df)
+#' }
 bind_tf_idf2 <- function(tbl,
                          term = "token",
                          document = "doc_id",
