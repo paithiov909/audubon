@@ -1,3 +1,16 @@
+### strj_rewrite ----
+test_that("strj_rewrite works", {
+  expect_equal(
+    strj_rewrite_as_def(c(NA_character_, "\u2160\u2161\u2162", "123")),
+    c(
+      "NA", ## this is expected behavior.
+      "\u2160\u2161\u2162",
+      "123"
+    )
+  )
+})
+
+### strj_normalize
 test_that("strj_noramalize works", {
   expect_equal(
     strj_normalize("\uff5e\uff5e\uff5e\u30b9\u30fc\u30d1\u30fc\u30fc\u30fc\u30fc"),

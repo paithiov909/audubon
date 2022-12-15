@@ -1,6 +1,6 @@
 Package: audubon
 Title: Japanese Text Processing Tools
-Version: 0.3.0.9004
+Version: 0.3.0.9005
 Authors@R: c(
     person("Akiru", "Kato", , "paithiov909@gmail.com", role = c("cre", "aut")),
     person("Koki", "Takahashi", role = "cph",
@@ -25,6 +25,7 @@ Depends:
 Imports:
     dplyr,
     magrittr,
+    Matrix,
     memoise,
     purrr,
     readr,
@@ -40,4 +41,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3

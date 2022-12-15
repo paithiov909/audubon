@@ -1,7 +1,7 @@
 #' audubon: Japanese Text Processing Tools
 #' @docType package
 #' @importFrom magrittr %>%
-#' @importFrom rlang enquo enquos .data := as_name as_label
+#' @importFrom rlang enquo enquos ensym sym .data := as_name as_label
 #' @keywords internal
 "_PACKAGE"
 
@@ -19,3 +19,12 @@
 #' @examples
 #' head(polano)
 "polano"
+
+#' Whole tokens of 'Porano no Hiroba' written by Miyazawa Kenji
+#' from Aozora Bunko
+#'
+#' A tidy text data of \code{audubon::polano} that tokenized with 'MeCab'.
+#'
+#' @examples
+#' head(hiroba)
+"hiroba"

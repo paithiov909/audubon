@@ -1,3 +1,4 @@
+### strj_hiraganize, katakanize, romanize, and transcribe_num ----
 test_that("strj-japanese works", {
   expect_true(
     !stringi::stri_detect_charclass(strj_hiraganize("\u30a2\u30a2"), "[:Katakana:]")
