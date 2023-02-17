@@ -8,7 +8,7 @@
 #' @param .as String with which tokens are replaced
 #' when they are matched to condition.
 #' The default value is `NA_character`.
-#' @return data.frame.
+#' @return A data.frame.
 #' @export
 #' @examples
 #' df <- prettify(head(hiroba), col_select = "POS1")

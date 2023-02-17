@@ -5,7 +5,7 @@
 \title{Prettify tokenized output}
 \usage{
 prettify(
-  df,
+  tbl,
   col = "feature",
   into = get_dict_features("ipa"),
   col_select = seq_along(into),
@@ -13,7 +13,7 @@ prettify(
 )
 }
 \arguments{
-\item{df}{A data.frame that has feature column to be prettified.}
+\item{tbl}{A data.frame that has feature column to be prettified.}
 
 \item{col}{Column name where to be prettified.}
 

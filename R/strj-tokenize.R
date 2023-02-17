@@ -10,10 +10,10 @@
 #' 'mecab' or 'sudachipy'.
 #' @param rcpath Path to a setting file for 'MeCab' or 'sudachipy' if any.
 #' @param mode Splitting mode for 'sudachipy'.
-#' @param split Logical. If true, the function splits the vector
+#' @param split Logical. If passed as `TRUE`, the function splits the vector
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return A list or data.frame.
+#' @return A list or a data.frame.
 #' @export
 #' @examples
 #' strj_tokenize(
@@ -37,7 +37,7 @@ strj_tokenize <- function(text,
                           rcpath = NULL,
                           mode = c("C", "B", "A"),
                           split = FALSE) {
-  stopifnot(!is.null(text))
+  stopifnot(is.character(text))
   format <- rlang::arg_match(format)
   engine <- rlang::arg_match(
     engine,
@@ -76,10 +76,10 @@ strj_tokenize <- function(text,
 #'
 #' @param text Character vector to be tokenized.
 #' @param format Output format. Choose `list` or `data.frame`.
-#' @param split Logical. If true, the function splits the vector
+#' @param split Logical. If passed as, the function splits the vector
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return List or data.frame.
+#' @return A List or a data.frame.
 #' @export
 #' @examples
 #' strj_segment(
@@ -110,10 +110,10 @@ strj_segment <- function(text,
 #'
 #' @param text Character vector to be tokenized.
 #' @param format Output format. Choose `list` or `data.frame`.
-#' @param split Logical. If true, the function splits vectors
+#' @param split Logical. If passed as `TRUE`, the function splits vectors
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return A list or data.frame.
+#' @return A list or a data.frame.
 #' @export
 #' @examples
 #' strj_tinyseg(

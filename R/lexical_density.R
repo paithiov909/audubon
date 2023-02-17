@@ -10,9 +10,9 @@
 #' @param targets A character vector with which
 #' the denominator of lexical density is filtered before computing values.
 #' @param negate A logical vector of which length is 2.
-#' If supplied `TRUE`, then respectively negates the predicate functions
+#' If passed as `TRUE`, then respectively negates the predicate functions
 #' for counting contents words or targets.
-#' @return numeric vector.
+#' @return A numeric vector.
 #' @export
 #' @examples
 #' head(hiroba) |>
@@ -53,6 +53,5 @@ lex_density <- function(vec,
   }
   num_of_totals <- length(vec)
 
-  # FIXME: this result may produce NaN (for instance, when 0 / 0).
   num_of_contents / num_of_totals
 }

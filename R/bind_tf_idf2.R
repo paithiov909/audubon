@@ -104,14 +104,14 @@ global_entropy <- function(sp) {
 #' @param n Column containing document-term counts as string or symbol.
 #' @param tf Method for computing term frequency.
 #' @param idf Method for computing inverse document frequency.
-#' @param norm Logical; If supplied `TRUE`, the raw term counts are normalized
+#' @param norm Logical; If passed as `TRUE`, the raw term counts are normalized
 #' being divided with L2 norms before computing IDF values.
-#' @param rmecab_compat Logical; If supplied `TRUE`, computes values while
+#' @param rmecab_compat Logical; If passed as `TRUE`, computes values while
 #' taking care of compatibility with 'RMeCab'.
 #' Note that 'RMeCab' always computes IDF values using term frequency
 #' rather than raw term counts, and thus TF-IDF values may be
 #' doubly affected by term frequency.
-#' @return data.frame.
+#' @return A data.frame.
 #' @export
 #' @examples
 #' \dontrun{

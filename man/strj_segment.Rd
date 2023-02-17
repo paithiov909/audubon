@@ -11,12 +11,12 @@ strj_segment(text, format = c("list", "data.frame"), split = FALSE)
 
 \item{format}{Output format. Choose \code{list} or \code{data.frame}.}
 
-\item{split}{Logical. If true, the function splits the vector
+\item{split}{Logical. If passed as, the function splits the vector
 into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 before tokenizing.}
 }
 \value{
-List or data.frame.
+A List or a data.frame.
 }
 \description{
 An alias of \code{strj_tokenize(engine = "budoux")}.

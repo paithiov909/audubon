@@ -1,6 +1,6 @@
-#' Pack prettified data.frame of tokens
+#' Pack a data.frame of tokens
 #'
-#' Packs a prettified data.frame of tokens into a new data.frame of corpus,
+#' Packs a data.frame of tokens into a new data.frame of corpus,
 #' which is compatible with the Text Interchange Formats.
 #'
 #' @section Text Interchange Formats (TIF):
@@ -11,7 +11,7 @@
 #'
 #' @section Valid data.frame of tokens:
 #'
-#' The prettified data.frame of tokens here is a data.frame object
+#' The data.frame of tokens here is a data.frame object
 #' compatible with the TIF.
 #'
 #' A TIF valid data.frame of tokens are expected to have one unique key column (named `doc_id`)
@@ -20,13 +20,13 @@
 #'
 #' @seealso \url{https://github.com/ropenscilabs/tif}
 #'
-#' @param tbl A prettified data.frame of tokens.
+#' @param tbl A data.frame of tokens.
 #' @param pull Column to be packed into text or ngrams body. Default value is `token`.
 #' @param n Integer internally passed to ngrams tokenizer function
 #' created of \code{audubon::ngram_tokenizer()}
 #' @param sep Character scalar internally used as the concatenator of ngrams.
 #' @param .collapse This argument is passed to \code{stringi::stri_join()}.
-#' @return A data.frame.
+#' @return A tibble.
 #' @export
 #' @examples
 #' pack(strj_tokenize(polano[1:5], format = "data.frame"))
@@ -36,26 +36,38 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
     tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
-        ~ dplyr::pull(.x, {{ pull }}) %>%
-          stringi::stri_omit_empty_na() %>%
-          stringi::stri_join(collapse = .collapse) %>%
-          purrr::set_names(.y$doc_id)
+        function(x, y) {
+          dplyr::pull(x, {{ pull }}) %>%
+            stringi::stri_omit_empty_na() %>%
+            stringi::stri_join(collapse = .collapse) %>%
+            purrr::set_names(y$doc_id)
+        }
       ) %>%
       purrr::flatten_chr() %>%
-      purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
+      purrr::imap(function(x, y) {
+        data.frame(doc_id = y, text = x)
+      }) %>%
+      purrr::list_rbind() %>%
+      dplyr::as_tibble()
   } else {
     make_ngram <- ngram_tokenizer(n)
     tbl %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::group_map(
-        ~ dplyr::pull(.x, {{ pull }}) %>%
-          stringi::stri_remove_empty_na() %>%
-          make_ngram(sep = sep) %>%
-          stringi::stri_join(collapse = .collapse) %>%
-          purrr::set_names(.y$doc_id)
+        function(x, y) {
+          dplyr::pull(x, {{ pull }}) %>%
+            stringi::stri_remove_empty_na() %>%
+            make_ngram(sep = sep) %>%
+            stringi::stri_join(collapse = .collapse) %>%
+            purrr::set_names(y$doc_id)
+        }
       ) %>%
       purrr::flatten_chr() %>%
-      purrr::imap_dfr(~ data.frame(doc_id = .y, text = .x))
+      purrr::imap(function(x, y) {
+        data.frame(doc_id = y, text = x)
+      }) %>%
+      purrr::list_rbind() %>%
+      dplyr::as_tibble()
   }
 }
 

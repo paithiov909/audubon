@@ -3,7 +3,7 @@
 #' Turns a single character column into features
 #' separating with delimiter.
 #'
-#' @param df A data.frame that has feature column to be prettified.
+#' @param tbl A data.frame that has feature column to be prettified.
 #' @param col Column name where to be prettified.
 #' @param into Character vector that is used as column names of
 #' features.
@@ -19,7 +19,7 @@
 #'   into = c("a", "b"),
 #'   col_select = "b"
 #' )
-prettify <- function(df,
+prettify <- function(tbl,
                      col = "feature",
                      into = get_dict_features("ipa"),
                      col_select = seq_along(into),
@@ -37,7 +37,7 @@ prettify <- function(df,
     features <-
       c(
         stringi::stri_c(into, collapse = ","),
-        dplyr::pull(df, !!rlang::enquo(col))
+        dplyr::pull(tbl, !!rlang::enquo(col))
       ) %>%
       stringi::stri_c(collapse = "\n") %>%
       I() %>%
@@ -50,7 +50,7 @@ prettify <- function(df,
         show_col_types = FALSE
       )
   })
-  dplyr::bind_cols(dplyr::select(df, -!!rlang::enquo(col)), features)
+  dplyr::bind_cols(dplyr::select(tbl, -!!rlang::enquo(col)), features)
 }
 
 #' Get dictionary's features
@@ -110,7 +110,7 @@ get_dict_features <- function(dict = c(
       "POS1", "POS2", "POS3", "POS4", "X5StageUse1", "X5StageUse2", "Original", "Yomi1", "Yomi2", "Info", "Misc"
     )),
     dict == "sudachi" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "X5StageUse1", "X5StageUse2"
+      "POS1", "POS2", "POS3", "POS4", "cType", "cForm"
     )),
     TRUE ~ list(c("POS1", "POS2", "POS3", "POS4", "X5StageUse1", "X5StageUse2", "Original", "Yomi1", "Yomi2"))
   )

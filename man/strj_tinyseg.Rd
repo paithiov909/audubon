@@ -11,12 +11,12 @@ strj_tinyseg(text, format = c("list", "data.frame"), split = FALSE)
 
 \item{format}{Output format. Choose \code{list} or \code{data.frame}.}
 
-\item{split}{Logical. If true, the function splits vectors
+\item{split}{Logical. If passed as \code{TRUE}, the function splits vectors
 into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 before tokenizing.}
 }
 \value{
-A list or data.frame.
+A list or a data.frame.
 }
 \description{
 An alias of \code{strj_tokenize(engine = "tinyseg")}.

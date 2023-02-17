@@ -46,7 +46,7 @@ fill_iter_mark_single <- function(text) {
             .data$V2
           )
         )
-      paste0(c(df[1, 1], df$V2), collapse = "")
+      stringi::stri_join(c(df[1, 1], df$V2), collapse = "")
     })
   } else {
     text
@@ -68,7 +68,7 @@ fill_iter_mark_single2 <- function(text) {
             .data$V2
           )
         )
-      paste0(c(df[1, 1], df$V2), collapse = "")
+      stringi::stri_join(c(df[1, 1], df$V2), collapse = "")
     })
   } else {
     text
@@ -79,8 +79,12 @@ fill_iter_mark_single2 <- function(text) {
 fill_iter_mark_double <- function(text) {
   if (stringi::stri_detect_regex(text, "(\u3033\u3035)")) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
-      purrr::map(~ embed(., 4)[, 4:1]) %>%
-      purrr::map(~ as.data.frame(.))
+      purrr::map(function(x) {
+        embed(x, 4)[, 4:1]
+      }) %>%
+      purrr::map(function(x) {
+        as.data.frame(x)
+      })
     purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
@@ -102,7 +106,7 @@ fill_iter_mark_double <- function(text) {
             .data$V4
           )
         )
-      paste0(c(df[1, 1:3], df$V4), collapse = "")
+      stringi::stri_join(c(df[1, 1:3], df$V4), collapse = "")
     })
   } else {
     text
@@ -113,8 +117,12 @@ fill_iter_mark_double <- function(text) {
 fill_iter_mark_double2 <- function(text) {
   if (stringi::stri_detect_regex(text, "(\u3034\u3035)")) {
     textloop <- stringi::stri_split_boundaries(text, type = "character") %>%
-      purrr::map(~ embed(., 4)[, 4:1]) %>%
-      purrr::map(~ as.data.frame(.))
+      purrr::map(function(x) {
+        embed(x, 4)[, 4:1]
+      }) %>%
+      purrr::map(function(x) {
+        as.data.frame(x)
+      })
     purrr::map(textloop, function(df) {
       df <- df %>%
         dplyr::mutate(
@@ -136,7 +144,7 @@ fill_iter_mark_double2 <- function(text) {
             .data$V4
           )
         )
-      paste0(c(df[1, 1:3], df$V4), collapse = "")
+      stringi::stri_join(c(df[1, 1:3], df$V4), collapse = "")
     })
   } else {
     text

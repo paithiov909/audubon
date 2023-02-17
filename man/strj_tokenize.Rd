@@ -27,12 +27,12 @@ Note that the specified tokenizer is installed and available when you use
 
 \item{mode}{Splitting mode for 'sudachipy'.}
 
-\item{split}{Logical. If true, the function splits the vector
+\item{split}{Logical. If passed as \code{TRUE}, the function splits the vector
 into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 before tokenizing.}
 }
 \value{
-A list or data.frame.
+A list or a data.frame.
 }
 \description{
 Splits text into several tokens using specified tokenizer.

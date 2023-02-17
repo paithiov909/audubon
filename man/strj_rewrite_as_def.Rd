@@ -15,7 +15,7 @@ strj_rewrite_as_def(text, as = read_rewrite_def())
 A character vector.
 }
 \description{
-Rewrite text using rewrite.def
+Rewrites text using a 'rewrite.def' file.
 }
 \examples{
 strj_rewrite_as_def(

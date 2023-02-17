@@ -1,5 +1,7 @@
 #' Rewrite text using rewrite.def
 #'
+#' Rewrites text using a 'rewrite.def' file.
+#'
 #' @param text Character vector to be normalized.
 #' @param as List.
 #' @return A character vector.
@@ -26,7 +28,7 @@ strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
   purrr::map_chr(textloop, function(chr) {
     flags <- chr %in% as$ignore
     purrr::reduce2(chr, flags, function(pre, nxt, is_ignored) {
-      paste0(
+      stringi::stri_join(
         pre,
         ifelse(is_ignored, nxt, apply_rep_all(nxt, pattern, rep))
       )
