@@ -130,7 +130,7 @@ strj_rewrite_as_def("惡と假面のルール", read_rewrite_def(system.file("de
 
 ## License
 
-© 2022 Akiru Kato
+© 2023 Akiru Kato
 
 Licensed under the [Apache License, Version
 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
