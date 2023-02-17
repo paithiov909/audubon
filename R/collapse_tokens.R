@@ -10,7 +10,7 @@
 #' @param tbl A tidy text dataset.
 #' @param condition A logical expression.
 #' @param .collapse String with which tokens are concatenated.
-#' @return data.frame.
+#' @return A data.frame.
 #' @export
 #' @examples
 #' df <- prettify(head(hiroba), col_select = "POS1")
@@ -26,11 +26,10 @@ collapse_tokens <- function(tbl,
       token_id = with(rle(.data$gbs_flag), rep(seq_along(values), lengths))
     ) %>%
     dplyr::group_by(.data$doc_id, .data$sentence_id, .data$token_id) %>%
-    dplyr::summarise(
+    dplyr::reframe(
       token = .data$token %>%
         stringi::stri_remove_empty_na() %>%
-        stringi::stri_c(collapse = .collapse),
-      .groups = "drop"
+        stringi::stri_c(collapse = .collapse)
     ) %>%
     dplyr::mutate(token = dplyr::na_if(.data$token, ""))
 }
