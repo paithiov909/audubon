@@ -2,7 +2,7 @@
 % Please edit documentation in R/bind_tf_idf2.R
 \name{bind_tf_idf2}
 \alias{bind_tf_idf2}
-\title{Bind the term frequency and inverse document frequency}
+\title{Bind term frequency and inverse document frequency}
 \usage{
 bind_tf_idf2(
   tbl,
@@ -66,9 +66,7 @@ Types of inverse document frequencies can be switched with \code{idf} argument:
 }
 \examples{
 \dontrun{
-df <- dplyr::group_by(hiroba, doc_id) |>
-  dplyr::count(token) |>
-  dplyr::ungroup()
+df <- dplyr::add_count(hiroba, doc_id, token)
 bind_tf_idf2(df)
 }
 }

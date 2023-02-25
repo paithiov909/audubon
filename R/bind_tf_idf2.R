@@ -6,8 +6,9 @@ cast_sparse <- function(data, row, column, value, ...) {
   if (rlang::quo_is_missing(value_col)) {
     value_col <- 1
   }
-  data <- dplyr::ungroup(data)
-  data <- dplyr::distinct(data, !!sym(row_col), !!sym(column_col), .keep_all = TRUE)
+  data <-
+    dplyr::ungroup(data) %>%
+    dplyr::distinct(!!sym(row_col), !!sym(column_col), .keep_all = TRUE)
   row_names <- dplyr::pull(data, row_col)
   col_names <- dplyr::pull(data, column_col)
   if (is.numeric(value_col)) {
@@ -77,7 +78,7 @@ global_entropy <- function(sp) {
   1 + (Matrix::rowSums((pj * log(pj)), na.rm = TRUE) / log(ndocs))
 }
 
-#' Bind the term frequency and inverse document frequency
+#' Bind term frequency and inverse document frequency
 #'
 #' Calculates and binds the term frequency, inverse document frequency,
 #' and TF-IDF of the dataset.
@@ -115,9 +116,7 @@ global_entropy <- function(sp) {
 #' @export
 #' @examples
 #' \dontrun{
-#' df <- dplyr::group_by(hiroba, doc_id) |>
-#'   dplyr::count(token) |>
-#'   dplyr::ungroup()
+#' df <- dplyr::add_count(hiroba, doc_id, token)
 #' bind_tf_idf2(df)
 #' }
 bind_tf_idf2 <- function(tbl,

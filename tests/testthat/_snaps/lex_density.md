@@ -3,11 +3,6 @@
     {
       "type": "list",
       "attributes": {
-        "class": {
-          "type": "character",
-          "attributes": {},
-          "value": ["tbl_df", "tbl", "data.frame"]
-        },
         "row.names": {
           "type": "integer",
           "attributes": {},
@@ -17,6 +12,11 @@
           "type": "character",
           "attributes": {},
           "value": ["doc_id", "noun_ratio"]
+        },
+        "class": {
+          "type": "character",
+          "attributes": {},
+          "value": ["data.frame"]
         }
       },
       "value": [
