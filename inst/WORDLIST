@@ -8,12 +8,14 @@ Kansuji
 Katakanize
 Kenji
 Kenji's
+LDN
 MeCab
 Miyazawa
 NEologd
 Ngrams
 Odori
 Porano
+RDN
 RMeCab
 Romanize
 Sudachi
@@ -22,9 +24,12 @@ TIF
 TinySegmenter
 Tokenizer
 arabic
+bigram
+bigrams
 budoux
 cedict
 concatenator
+concatnation
 dic
 gana
 goryaku
@@ -44,6 +49,7 @@ src
 stringi
 sudachi
 sudachipy
+tibble
 tinyseg
 tokenized
 tokenizer

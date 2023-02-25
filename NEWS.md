@@ -1,5 +1,6 @@
-# audubon 0.4.1
+# audubon 0.5.0
 
+* Added `bind_lr` function which can calculate the 'LR' value of bigrams.
 * `pack` now always returns a tibble, not a data.frame.
 
 # audubon 0.4.0
