@@ -3,13 +3,10 @@
 #' Calculates and binds the importance of bigrams and their synergistic average.
 #'
 #' @details
-#' In \href{https://doi.org/10.5715/jnlp.10.27}{this paper},
-#' a scoring method for term extraction that based on
-#' term occurrence and concatnation frequency is proposed.
-#'
-#' The 'LR' value is the score proposed in that paper,
-#' which is the synergistic average of bigram importance
+#' The 'LR' value is the synergistic average of bigram importance
 #' that based on the words and their positions (left or right side).
+#'
+#' @seealso \doi{10.5715/jnlp.10.27}
 #'
 #' @param tbl A tidy text dataset.
 #' @param term Column containing terms as string or symbol.
