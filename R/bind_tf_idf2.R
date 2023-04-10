@@ -1,4 +1,3 @@
-### partial port from juliasilge/tidytext ---
 cast_sparse <- function(data, row, column, value, ...) {
   row_col <- as_name(enquo(row))
   column_col <- as_name(enquo(column))

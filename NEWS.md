@@ -1,3 +1,7 @@
+# audubon 0.5.1
+
+* Refactored `tokenize_mecab` and `tokenize_sudachipy`
+
 # audubon 0.5.0
 
 * Added `bind_lr` function which can calculate the 'LR' value of bigrams.

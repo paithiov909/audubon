@@ -93,7 +93,7 @@ tokenize_mecab <- function(text, split, rcpath = NULL) {
       doc_id = doc_id,
       readr::read_lines(path) %>%
         purrr::discard(~ .x == "EOS") %>%
-        I() |>
+        I() %>%
         readr::read_tsv(
           col_names = c("token", "feature"),
           progress = FALSE,
@@ -148,7 +148,7 @@ tokenize_sudachipy <- function(text, split, rcpath, mode) {
       doc_id = doc_id,
       readr::read_lines(path) %>%
         purrr::discard(~ .x == "EOS") %>%
-        I() |>
+        I() %>%
         readr::read_tsv(
           col_names = c("token", "feature", "normalized"),
           progress = FALSE,
