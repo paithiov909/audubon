@@ -1,19 +1,13 @@
-# R CMD check results
+This patch release modifies a broken test and maintains compatibility with the waldo package (v0.5.0).
 
-## Test environments
-- R-hub ubuntu-gcc-devel (r-devel)
-- R-hub windows-x86_64-release (r-release)
 
 ## R CMD check results
-❯ On ubuntu-gcc-devel (r-devel)
-  checking HTML version of manual ... NOTE
-  Skipping checking HTML validation: no command 'tidy' found
 
-❯ On windows-x86_64-release (r-release)
-  checking for detritus in the temp directory ... NOTE
+0 errors | 0 warnings | 0 notes
 
-0 errors ✔ | 0 warnings ✔ | 2 notes ✖
+## revdepcheck results
 
-# revdepcheck results
+We checked 1 reverse dependencies (0 from CRAN + 1 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
-- There are no downstream dependencies for this package.
+ * We saw 0 new problems
+ * We failed to check 0 packages
