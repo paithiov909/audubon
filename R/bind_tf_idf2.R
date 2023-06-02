@@ -5,9 +5,10 @@ cast_sparse <- function(data, row, column, value, ...) {
   if (rlang::quo_is_missing(value_col)) {
     value_col <- 1
   }
-  data <-
-    dplyr::ungroup(data) %>%
+
+  data <- dplyr::ungroup(data) %>%
     dplyr::distinct(!!sym(row_col), !!sym(column_col), .keep_all = TRUE)
+
   row_names <- dplyr::pull(data, row_col)
   col_names <- dplyr::pull(data, column_col)
   if (is.numeric(value_col)) {
@@ -42,16 +43,12 @@ cast_sparse <- function(data, row, column, value, ...) {
   ret
 }
 
-#### END ---
-
 booled_freq <- function(v) {
   as.numeric(v > 0)
 }
 
 count_nnzero <- function(sp) {
-  sapply(seq_len(ncol(sp)), function(col) {
-    Matrix::nnzero(sp[, col])
-  })
+  Matrix::colSums((sp > 0) * 1, na.rm = TRUE)
 }
 
 # inverse document frequency smooth
@@ -99,9 +96,12 @@ global_entropy <- function(sp) {
 #' * `idf4` is global entropy, not IDF in actual.
 #'
 #' @param tbl A tidy text dataset.
-#' @param term Column containing terms as string or symbol.
-#' @param document Column containing document IDs as string or symbol.
-#' @param n Column containing document-term counts as string or symbol.
+#' @param term <[`data-masked`][rlang::args_data_masking]>
+#' Column containing terms as string or symbol.
+#' @param document <[`data-masked`][rlang::args_data_masking]>
+#' Column containing document IDs as string or symbol.
+#' @param n <[`data-masked`][rlang::args_data_masking]>
+#' Column containing document-term counts as string or symbol.
 #' @param tf Method for computing term frequency.
 #' @param idf Method for computing inverse document frequency.
 #' @param norm Logical; If passed as `TRUE`, the raw term counts are normalized
@@ -129,15 +129,15 @@ bind_tf_idf2 <- function(tbl,
   tf <- rlang::arg_match(tf)
   idf <- rlang::arg_match(idf)
 
-  term <- as_name(ensym(term))
-  document <- as_name(ensym(document))
-  n_col <- as_name(ensym(n))
+  term <- enquo(term)
+  document <- enquo(document)
+  n_col <- enquo(n)
 
   tbl <- dplyr::ungroup(tbl)
 
-  terms <- as.character(dplyr::pull(tbl, term))
-  documents <- as.character(dplyr::pull(tbl, document))
-  n <- dplyr::pull(tbl, n_col)
+  terms <- as.character(dplyr::pull(tbl, {{ term }}))
+  documents <- as.character(dplyr::pull(tbl, {{ document }}))
+  n <- dplyr::pull(tbl, {{ n_col }})
 
   doc_totals <- tapply(
     n, documents,
@@ -149,6 +149,7 @@ bind_tf_idf2 <- function(tbl,
       )
     }
   )
+
   if (identical(tf, "tf")) {
     tbl <- dplyr::mutate(tbl, tf = .data$n / as.numeric(doc_totals[documents]))
   } else {
