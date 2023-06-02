@@ -4,7 +4,8 @@
 #' separating with delimiter.
 #'
 #' @param tbl A data.frame that has feature column to be prettified.
-#' @param col Column name where to be prettified.
+#' @param col <[`data-masked`][rlang::args_data_masking]>
+#' Column name where to be prettified.
 #' @param into Character vector that is used as column names of
 #' features.
 #' @param col_select Character or integer vector that will be kept
@@ -32,12 +33,15 @@ prettify <- function(tbl,
   if (rlang::is_empty(col_select)) {
     rlang::abort("Invalid columns have been selected.")
   }
+
+  col <- enquo(col)
+
   suppressWarnings({
     ## ignore warnings when there are missing columns.
     features <-
       c(
         stringi::stri_c(into, collapse = ","),
-        dplyr::pull(tbl, !!rlang::enquo(col))
+        dplyr::pull(tbl, {{ col }})
       ) %>%
       stringi::stri_c(collapse = "\n") %>%
       I() %>%

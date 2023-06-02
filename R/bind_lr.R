@@ -9,7 +9,8 @@
 #' @seealso \doi{10.5715/jnlp.10.27}
 #'
 #' @param tbl A tidy text dataset.
-#' @param term Column containing terms as string or symbol.
+#' @param term <[`data-masked`][rlang::args_data_masking]>
+#' Column containing terms as string or symbol.
 #' @param lr_mode Method for computing 'FL' and 'FR' values.
 #' `n` is equivalent to 'LN' and 'RN', and `dn` is equivalent to 'LDN' and 'RDN'.
 #' @param avg_rate Weight of the 'LR' value.

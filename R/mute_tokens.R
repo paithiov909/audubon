@@ -4,7 +4,8 @@
 #' only if they are matched to an expression.
 #'
 #' @param tbl A tidy text dataset.
-#' @param condition A logical expression.
+#' @param condition <[`data-masked`][rlang::args_data_masking]>
+#' A logical expression.
 #' @param .as String with which tokens are replaced
 #' when they are matched to condition.
 #' The default value is `NA_character`.

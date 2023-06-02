@@ -21,7 +21,8 @@
 #' @seealso \url{https://github.com/ropenscilabs/tif}
 #'
 #' @param tbl A data.frame of tokens.
-#' @param pull Column to be packed into text or ngrams body. Default value is `token`.
+#' @param pull <[`data-masked`][rlang::args_data_masking]>
+#' Column to be packed into text or ngrams body. Default value is `token`.
 #' @param n Integer internally passed to ngrams tokenizer function
 #' created of \code{audubon::ngram_tokenizer()}
 #' @param sep Character scalar internally used as the concatenator of ngrams.
@@ -31,7 +32,7 @@
 #' @examples
 #' pack(strj_tokenize(polano[1:5], format = "data.frame"))
 pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
-  pull <- rlang::enquo(pull)
+  pull <- enquo(pull)
   if (n < 2L) {
     tbl %>%
       dplyr::group_by(.data$doc_id) %>%

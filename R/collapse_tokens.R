@@ -8,7 +8,8 @@
 #' has only 'doc_id', 'sentence_id', 'token_id', and 'token' columns.
 #'
 #' @param tbl A tidy text dataset.
-#' @param condition A logical expression.
+#' @param condition <[`data-masked`][rlang::args_data_masking]>
+#' A logical expression.
 #' @param .collapse String with which tokens are concatenated.
 #' @return A data.frame.
 #' @export
