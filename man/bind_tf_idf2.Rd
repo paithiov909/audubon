@@ -54,7 +54,7 @@ which are implemented in 'RMeCab' package.
 Types of term frequency can be switched with \code{tf} argument:
 \itemize{
 \item \code{tf} is term frequency (not raw count of terms).
-\item \code{tf2} is logarithmic term frequency of which base is 10.
+\item \code{tf2} is logarithmic term frequency of which base is \code{exp(1)}.
 \item \code{tf3} is binary-weighted term frequency.
 }
 

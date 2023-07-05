@@ -85,7 +85,7 @@ global_entropy <- function(sp) {
 #' @details
 #' Types of term frequency can be switched with `tf` argument:
 #' * `tf` is term frequency (not raw count of terms).
-#' * `tf2` is logarithmic term frequency of which base is 10.
+#' * `tf2` is logarithmic term frequency of which base is `exp(1)`.
 #' * `tf3` is binary-weighted term frequency.
 #'
 #' Types of inverse document frequencies can be switched with `idf` argument:
