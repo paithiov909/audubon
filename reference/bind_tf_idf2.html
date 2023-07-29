@@ -18,7 +18,7 @@ which are implemented in 'RMeCab' package."><meta property="og:image" content="h
     
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,7 +126,7 @@ doubly affected by term frequency.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Types of term frequency can be switched with <code>tf</code> argument:</p><ul><li><p><code>tf</code> is term frequency (not raw count of terms).</p></li>
-<li><p><code>tf2</code> is logarithmic term frequency of which base is 10.</p></li>
+<li><p><code>tf2</code> is logarithmic term frequency of which base is <code>exp(1)</code>.</p></li>
 <li><p><code>tf3</code> is binary-weighted term frequency.</p></li>
 </ul><p>Types of inverse document frequencies can be switched with <code>idf</code> argument:</p><ul><li><p><code>idf</code> is inverse document frequency of which base is 2, with smoothed.
 'smoothed' here means just adding 1 to raw counts after logarithmizing.</p></li>

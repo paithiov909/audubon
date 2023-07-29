@@ -12,7 +12,7 @@ which is compatible with the Text Interchange Formats."><meta property="og:image
     
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@ created of <code><a href="ngram_tokenizer.html">audubon::ngram_tokenizer()</a></
 
 
 <dt>.collapse</dt>
-<dd><p>This argument is passed to <code><a href="https://rdrr.io/pkg/stringi/man/stri_join.html" class="external-link">stringi::stri_join()</a></code>.</p></dd>
+<dd><p>This argument is passed to <code><a href="https://rdrr.io/pkg/stringi/man/stri_join.html" class="external-link">stringi::stri_c()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -117,7 +117,7 @@ The feature columns must contain at least <code>token</code> itself.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">pack</span><span class="op">(</span><span class="fu"><a href="strj_tokenize.html">strj_tokenize</a></span><span class="op">(</span><span class="va">polano</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, format <span class="op">=</span> <span class="st">"data.frame"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   doc_id text                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1      ポラーノ の 広場                                                       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2      宮沢 賢治                                                              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 3      前 十七 等 官 レ オー ノ ・ キュー スト 誌                             </span>
