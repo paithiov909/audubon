@@ -17,7 +17,7 @@ created of \code{audubon::ngram_tokenizer()}}
 
 \item{sep}{Character scalar internally used as the concatenator of ngrams.}
 
-\item{.collapse}{This argument is passed to \code{stringi::stri_join()}.}
+\item{.collapse}{This argument is passed to \code{stringi::stri_c()}.}
 }
 \value{
 A tibble.

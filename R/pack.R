@@ -26,7 +26,7 @@
 #' @param n Integer internally passed to ngrams tokenizer function
 #' created of \code{audubon::ngram_tokenizer()}
 #' @param sep Character scalar internally used as the concatenator of ngrams.
-#' @param .collapse This argument is passed to \code{stringi::stri_join()}.
+#' @param .collapse This argument is passed to \code{stringi::stri_c()}.
 #' @return A tibble.
 #' @export
 #' @examples
@@ -35,39 +35,23 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
   pull <- enquo(pull)
   if (n < 2L) {
     tbl %>%
-      dplyr::group_by(.data$doc_id) %>%
-      dplyr::group_map(
-        function(x, y) {
-          dplyr::pull(x, {{ pull }}) %>%
-            stringi::stri_omit_empty_na() %>%
-            stringi::stri_join(collapse = .collapse) %>%
-            purrr::set_names(y$doc_id)
-        }
+      dplyr::reframe(
+        text = .data[[pull]] %>%
+          stringi::stri_omit_empty_na() %>%
+          stringi::stri_c(collapse = .collapse),
+        .by = "doc_id"
       ) %>%
-      purrr::flatten_chr() %>%
-      purrr::imap(function(x, y) {
-        data.frame(doc_id = y, text = x)
-      }) %>%
-      purrr::list_rbind() %>%
       dplyr::as_tibble()
   } else {
     make_ngram <- ngram_tokenizer(n)
     tbl %>%
-      dplyr::group_by(.data$doc_id) %>%
-      dplyr::group_map(
-        function(x, y) {
-          dplyr::pull(x, {{ pull }}) %>%
-            stringi::stri_remove_empty_na() %>%
-            make_ngram(sep = sep) %>%
-            stringi::stri_join(collapse = .collapse) %>%
-            purrr::set_names(y$doc_id)
-        }
+      dplyr::reframe(
+        text = .data[[pull]] %>%
+          stringi::stri_remove_empty_na() %>%
+          make_ngram(sep = sep) %>%
+          stringi::stri_c(collapse = .collapse),
+        .by = "doc_id"
       ) %>%
-      purrr::flatten_chr() %>%
-      purrr::imap(function(x, y) {
-        data.frame(doc_id = y, text = x)
-      }) %>%
-      purrr::list_rbind() %>%
       dplyr::as_tibble()
   }
 }
@@ -87,7 +71,7 @@ ngram_tokenizer <- function(n = 1L) {
     if (all(is.na(tokens)) || len < n) {
       character(0)
     } else {
-      sapply(1:max(1, len - n + 1), function(i) {
+      sapply(seq_len(max(1, len - n + 1)), function(i) {
         stringi::stri_join(tokens[i:min(len, i + n - 1)], collapse = sep)
       })
     }

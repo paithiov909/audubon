@@ -54,7 +54,7 @@ prettify <- function(tbl,
         show_col_types = FALSE
       )
   })
-  dplyr::bind_cols(dplyr::select(tbl, -!!rlang::enquo(col)), features)
+  dplyr::bind_cols(dplyr::select(tbl, -!!col), features)
 }
 
 #' Get dictionary's features
