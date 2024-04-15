@@ -5,16 +5,13 @@
 ^mecab$
 ^pkgdown$
 ^\.github$
-^\.yarnclean
+^\.devcontainer$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^srcjs$
 ^node_modules$
 ^package\.json$
 ^package-lock\.json$
-^yarn\.lock
-\.yarn$
-\.yarnrc\.yml$
 ^webpack\.dev\.js$
 ^webpack\.prod\.js$
 ^webpack\.common\.js$

@@ -22,7 +22,7 @@
 strj_hiraganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("audubon.japanese.hiraganize", elem)
+    ctx$call("window.audubon.japanese.hiraganize", elem)
   }, USE.NAMES = FALSE)
 }
 
@@ -50,7 +50,7 @@ strj_hiraganize <- function(text) {
 strj_katakanize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("audubon.japanese.katakanize", elem)
+    ctx$call("window.audubon.japanese.katakanize", elem)
   }, USE.NAMES = FALSE)
 }
 
@@ -92,7 +92,7 @@ strj_romanize <- function(text,
   config <- rlang::arg_match(config)
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("audubon.japanese.romanize", elem, config)
+    ctx$call("window.audubon.japanese.romanize", elem, config)
   }, USE.NAMES = FALSE)
 }
 
@@ -112,6 +112,6 @@ strj_romanize <- function(text,
 strj_transcribe_num <- function(int) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   sapply(as.integer(int), function(elem) {
-    ctx$call("audubon.japanese.transcribeNumber", elem)
+    ctx$call("window.audubon.japanese.transcribeNumber", elem)
   }, USE.NAMES = FALSE)
 }
