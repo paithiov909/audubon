@@ -1,6 +1,7 @@
 # audubon 0.5.2
 
 * Refactored `bind_tf_idf2` and `pack` for performance.
+* Corrected probabilistic IDF calculation by global_idf3.
 
 # audubon 0.5.1
 
