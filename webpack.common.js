@@ -1,14 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  target: 'web',
+  target: 'node',
   entry: './srcjs/index.js',
   output: {
-    library: 'audubon',
     filename: 'audubon.bundle.js',
     path: path.resolve(__dirname, 'inst/packer'),
-    libraryExport: "default",
-    libraryTarget: 'var'
+    library: {
+      name: 'audubon',
+      type: 'window',
+      export: 'default'
+    },
   },
   module: {
     rules: [

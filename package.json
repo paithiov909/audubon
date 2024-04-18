@@ -1,11 +1,11 @@
 {
   "name": "audubon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JS source for audubon R package",
   "main": "index.js",
   "scripts": {
-    "build": "yarn format && yarn bundle",
-    "bundle": "yarn production",
+    "build": "npm run format && npm run bundle",
+    "bundle": "npm run production",
     "format": "prettier --write srcjs/index.js",
     "development": "webpack --config webpack.dev.js",
     "production": "webpack --config webpack.prod.js"
@@ -21,12 +21,12 @@
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.3",
     "prettier": "^2.4.1",
-    "webpack": "^5.76.0",
+    "webpack": "^5.91.0",
     "webpack-cli": "^4.1.0",
     "webpack-merge": "^5.3.0"
   },
   "dependencies": {
-    "budoux": "^0.0.3",
+    "budoux": "^0.6.2",
     "japanese": "^1.2.0"
   }
 }

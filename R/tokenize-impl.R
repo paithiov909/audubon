@@ -27,7 +27,7 @@ tokenize_budoux <- function(text, split) {
         if (is.na(elem)) {
           return(NA_character_)
         }
-        ctx$call("audubon.parser.parse", elem)
+        ctx$call("window.audubon.parser.parse", elem)
       }))
     )
   }) %>%
@@ -47,7 +47,7 @@ tokenize_tinyseg <- function(text, split) {
         if (is.na(elem)) {
           return(NA_character_)
         }
-        ctx$call("audubon.tinysegmenter.segment", elem)
+        ctx$call("window.audubon.tinysegmenter.segment", elem)
       }))
     )
   }) %>%
