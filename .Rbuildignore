@@ -12,6 +12,7 @@
 ^node_modules$
 ^package\.json$
 ^package-lock\.json$
+^renovate\.json$
 ^webpack\.dev\.js$
 ^webpack\.prod\.js$
 ^webpack\.common\.js$
