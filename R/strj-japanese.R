@@ -6,7 +6,7 @@
 #' such as Japanese kana ligature (aka. goryaku-gana).
 #'
 #' @param text Character vector.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_hiraganize(
@@ -34,7 +34,7 @@ strj_hiraganize <- function(text) {
 #' such as Japanese kana ligature (aka. goryaku-gana).
 #'
 #' @param text Character vector.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_katakanize(
@@ -71,7 +71,7 @@ strj_katakanize <- function(text) {
 #' If elements are composed of except but hiragana and katakana letters,
 #' those letters are dropped from the return value.
 #' @param config Configuration used to romanize. Default is `wikipedia`.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_romanize(
@@ -105,7 +105,7 @@ strj_romanize <- function(text,
 #' In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
 #'
 #' @param int Integers.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_transcribe_num(c(10L, 31415L))

@@ -13,7 +13,7 @@
 #' @param split Logical. If passed as `TRUE`, the function splits the vector
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return A list or a data.frame.
+#' @returns A list or a data.frame.
 #' @export
 #' @examples
 #' strj_tokenize(
@@ -79,7 +79,7 @@ strj_tokenize <- function(text,
 #' @param split Logical. If passed as, the function splits the vector
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return A List or a data.frame.
+#' @returns A List or a data.frame.
 #' @export
 #' @examples
 #' strj_segment(
@@ -113,7 +113,7 @@ strj_segment <- function(text,
 #' @param split Logical. If passed as `TRUE`, the function splits vectors
 #' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
 #' before tokenizing.
-#' @return A list or a data.frame.
+#' @returns A list or a data.frame.
 #' @export
 #' @examples
 #' strj_tinyseg(

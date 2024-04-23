@@ -27,7 +27,7 @@
 #' created of \code{audubon::ngram_tokenizer()}
 #' @param sep Character scalar internally used as the concatenator of ngrams.
 #' @param .collapse This argument is passed to \code{stringi::stri_c()}.
-#' @return A tibble.
+#' @returns A tibble.
 #' @export
 #' @examples
 #' pack(strj_tokenize(polano[1:5], format = "data.frame"))
@@ -58,10 +58,10 @@ pack <- function(tbl, pull = "token", n = 1L, sep = "-", .collapse = " ") {
 
 #' Ngrams tokenizer
 #'
-#' Make an ngram tokenizer function.
+#' Makes an ngram tokenizer function.
 #'
 #' @param n Integer.
-#' @return ngram tokenizer function
+#' @returns ngram tokenizer function
 #' @export
 ngram_tokenizer <- function(n = 1L) {
   stopifnot(is.numeric(n), is.finite(n), n > 0)

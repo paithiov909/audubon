@@ -4,7 +4,7 @@
 #'
 #' @param text Character vector to be normalized.
 #' @param as List.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_rewrite_as_def(

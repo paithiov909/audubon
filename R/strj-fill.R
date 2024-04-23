@@ -4,7 +4,7 @@
 #' if the element has more than 5 characters.
 #'
 #' @param text Character vector.
-#' @return A character vector.
+#' @returns A character vector.
 #' @export
 #' @examples
 #' strj_fill_iter_mark(c(
