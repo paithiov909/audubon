@@ -1,6 +1,6 @@
 {
   "name": "audubon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JS source for audubon R package",
   "main": "index.js",
   "scripts": {
