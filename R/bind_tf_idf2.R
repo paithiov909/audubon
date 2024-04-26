@@ -120,7 +120,7 @@ global_entropy <- function(sp) {
 #' @returns A data.frame.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' df <- dplyr::count(hiroba, doc_id, token)
 #' bind_tf_idf2(df)
 #' }

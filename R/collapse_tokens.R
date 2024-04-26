@@ -14,7 +14,7 @@
 #' @returns A data.frame.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' df <- prettify(head(hiroba), col_select = "POS1")
 #' collapse_tokens(df, POS1 == "\u540d\u8a5e")
 #' }

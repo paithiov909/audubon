@@ -1,7 +1,7 @@
 #' Prettify tokenized output
 #'
 #' Turns a single character column into features
-#' separating with delimiter.
+#' while separating with delimiter.
 #'
 #' @param tbl A data.frame that has feature column to be prettified.
 #' @param col <[`data-masked`][rlang::args_data_masking]>

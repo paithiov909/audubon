@@ -28,7 +28,7 @@ The 'LR' value is the synergistic average of bigram importance
 that based on the words and their positions (left or right side).
 }
 \examples{
-\dontrun{
+\donttest{
 prettify(hiroba, col_select = "POS1") |>
   mute_tokens(POS1 != "\u540d\u8a5e") |>
   bind_lr()
