@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9005</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,8 +46,12 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.2" id="audubon-052">audubon 0.5.2<a class="anchor" aria-label="anchor" href="#audubon-052"></a></h2>
-<ul><li>Refactored <code>bind_tf_idf2</code> and <code>pack</code> for performance.</li>
-<li>Corrected probabilistic IDF calculation by global_idf3.</li>
+<ul><li>Corrected probabilistic IDF calculation by <code>global_idf3</code>.</li>
+<li>Refactored <code>bind_tf_idf2</code>.
+<ul><li>Changed behavior when <code>norm=TRUE</code>. Cosine nomalization is now performed on <code>tf_idf</code> values as in the RMeCab package.</li>
+<li>Added <code>tf="itf"</code> and <code>idf="df"</code> options.</li>
+</ul></li>
+<li>Refactored <code>pack</code> for performance.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.1" id="audubon-051">audubon 0.5.1<a class="anchor" aria-label="anchor" href="#audubon-051"></a></h2><p class="text-muted">CRAN release: 2023-05-02</p>
