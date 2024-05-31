@@ -31,7 +31,8 @@ that based on the words and their positions (left or right side).
 \donttest{
 prettify(hiroba, col_select = "POS1") |>
   mute_tokens(POS1 != "\u540d\u8a5e") |>
-  bind_lr()
+  bind_lr() |>
+  head()
 }
 }
 \seealso{

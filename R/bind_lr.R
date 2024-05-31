@@ -20,7 +20,8 @@
 #' \donttest{
 #' prettify(hiroba, col_select = "POS1") |>
 #'   mute_tokens(POS1 != "\u540d\u8a5e") |>
-#'   bind_lr()
+#'   bind_lr() |>
+#'   head()
 #' }
 bind_lr <- function(tbl,
                     term = "token",

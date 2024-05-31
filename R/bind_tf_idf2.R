@@ -122,7 +122,8 @@ global_entropy <- function(sp) {
 #' @examples
 #' \donttest{
 #' df <- dplyr::count(hiroba, doc_id, token)
-#' bind_tf_idf2(df)
+#' bind_tf_idf2(df) |>
+#'   head()
 #' }
 bind_tf_idf2 <- function(tbl,
                          term = "token",
