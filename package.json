@@ -23,7 +23,7 @@
     "prettier": "^3.0.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.0.0",
-    "webpack-merge": "^5.3.0"
+    "webpack-merge": "^6.0.0"
   },
   "dependencies": {
     "budoux": "^0.6.2",
