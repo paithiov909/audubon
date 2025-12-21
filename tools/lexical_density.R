@@ -31,10 +31,12 @@
 #'     ),
 #'     vnr = lex_density(POS1, "\u52d5\u8a5e", "\u540d\u8a5e")
 #'   )
-lex_density <- function(vec,
-                        contents_words,
-                        targets = NULL,
-                        negate = c(FALSE, FALSE)) {
+lex_density <- function(
+  vec,
+  contents_words,
+  targets = NULL,
+  negate = c(FALSE, FALSE)
+) {
   if (!rlang::has_length(negate, 2L)) {
     rlang::abort("The negate must have just 2 elements.")
   }

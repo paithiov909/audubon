@@ -42,7 +42,7 @@ label_wrap_jp <- function(labels, wrap = 16, width = 50, collapse = "\n") {
       ret <-
         as.data.frame(x) |>
         dplyr::mutate(
-          nchar = end - start + 1,
+          nchar = .data$end - .data$start + 1,
           id = consective_id_by_cumsum(nchar, wrap)
         )
       split(ret, ret[["id"]])
@@ -135,6 +135,7 @@ label_date_jp <- function(
   )
 }
 
+#' @rdname label_date_jp
 #' @export
 label_date_jp_gen <- function(
   format = enc2utf8("Gy\u5e74M\u6708d\u65e5"),

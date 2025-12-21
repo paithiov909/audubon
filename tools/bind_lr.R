@@ -23,10 +23,12 @@
 #'   bind_lr() |>
 #'   head()
 #' }
-bind_lr <- function(tbl,
-                    term = "token",
-                    lr_mode = c("n", "dn"),
-                    avg_rate = 1.0) {
+bind_lr <- function(
+  tbl,
+  term = "token",
+  lr_mode = c("n", "dn"),
+  avg_rate = 1.0
+) {
   lr_mode <- rlang::arg_match(lr_mode)
   term <- as_name(ensym(term))
 
@@ -38,7 +40,8 @@ bind_lr <- function(tbl,
       .by = "doc_id"
     )
   fl <-
-    switch(lr_mode,
+    switch(
+      lr_mode,
       n = tbl %>%
         dplyr::summarize(n = dplyr::n(), .by = "ltoken") %>%
         dplyr::pull("n", "ltoken"),
@@ -47,7 +50,8 @@ bind_lr <- function(tbl,
         dplyr::pull("dn", "ltoken")
     )
   fr <-
-    switch(lr_mode,
+    switch(
+      lr_mode,
       n = tbl %>%
         dplyr::summarize(n = dplyr::n(), .by = "rtoken") %>%
         dplyr::pull("n", "rtoken"),
@@ -56,7 +60,8 @@ bind_lr <- function(tbl,
         dplyr::pull("dn", "rtoken")
     )
 
-  dplyr::mutate(tbl,
+  dplyr::mutate(
+    tbl,
     fl = as.integer(fl[.data$ltoken] + 1),
     fr = as.integer(fr[.data$rtoken] + 1),
     fl = dplyr::if_else(is.na(.data$fl), 1, .data$fl),

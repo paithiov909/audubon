@@ -18,9 +18,7 @@
 #' df <- prettify(head(hiroba), col_select = "POS1")
 #' collapse_tokens(df, POS1 == "\u540d\u8a5e")
 #' }
-collapse_tokens <- function(tbl,
-                            condition,
-                            .collapse = "") {
+collapse_tokens <- function(tbl, condition, .collapse = "") {
   condition <- enquo(condition)
   tbl %>%
     dplyr::group_by(.data$doc_id, .data$sentence_id) %>%
