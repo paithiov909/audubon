@@ -4,7 +4,7 @@
 \alias{strj-hira-kana}
 \alias{strj_hiraganize}
 \alias{strj_katakanize}
-\title{Convert Japanese text between hiragana and katakana representations.}
+\title{Convert Japanese kana characters}
 \usage{
 strj_hiraganize(text)
 
@@ -17,6 +17,8 @@ strj_katakanize(text)
 A character vector with kana characters converted to the target script.
 }
 \description{
+Converts Japanese text between hiragana and katakana representations.
+
 These functions transform kana characters while preserving non-kana
 characters. The conversion is based on a JavaScript implementation and
 handles certain historical or contracted kana forms that are not covered
