@@ -131,6 +131,7 @@ label_date_jp <- function(
   stringi::stri_datetime_format(
     labels,
     format = format,
+    tz = tz,
     locale = "ja-u-ca-japanese"
   )
 }

@@ -42,7 +42,6 @@ NULL
 #' @rdname strj-hira-kana
 #' @export
 strj_hiraganize <- function(text) {
-
   ctx <- rlang::env_get(.pkgenv, "ctx")
   unlist(
     lapply(stringi::stri_trans_nfkc(text), function(elem) {
