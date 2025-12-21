@@ -7,10 +7,10 @@
 strj_normalize(text)
 }
 \arguments{
-\item{text}{Character vector to be normalized.}
+\item{text}{A character vector containing Japanese text.}
 }
 \value{
-A character vector.
+A character vector with normalized text.
 }
 \description{
 Converts characters into normalized style

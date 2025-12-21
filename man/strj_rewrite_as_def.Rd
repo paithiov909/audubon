@@ -2,20 +2,30 @@
 % Please edit documentation in R/strj-rewrite.R
 \name{strj_rewrite_as_def}
 \alias{strj_rewrite_as_def}
-\title{Rewrite text using rewrite.def}
+\title{Rewrite Japanese text using normalization rules}
 \usage{
 strj_rewrite_as_def(text, as = read_rewrite_def())
 }
 \arguments{
-\item{text}{Character vector to be normalized.}
+\item{text}{A character vector containing Japanese text.}
 
-\item{as}{List.}
+\item{as}{A rewrite definition object as returned by
+\code{read_rewrite_def()}.}
 }
 \value{
-A character vector.
+A character vector with rewritten and normalized text.
 }
 \description{
-Rewrites text using a 'rewrite.def' file.
+Rewrites Japanese text according to a set of normalization rules modeled
+after Sudachi dictionary definitions.
+}
+\details{
+This function applies character-level rewrite rules to normalize variant
+forms while optionally ignoring specified characters. The implementation
+is a simplified and heuristic adaptation of Sudachi-style normalization.
+
+The rewrite process is based on fixed replacement rules and does not aim
+to fully reproduce Sudachi's normalization behavior.
 }
 \examples{
 strj_rewrite_as_def(

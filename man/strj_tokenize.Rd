@@ -2,40 +2,61 @@
 % Please edit documentation in R/strj-tokenize.R
 \name{strj_tokenize}
 \alias{strj_tokenize}
-\title{Split text into tokens}
+\alias{strj_segment}
+\alias{strj_tinyseg}
+\title{Tokenize Japanese text}
 \usage{
 strj_tokenize(
   text,
   format = c("list", "data.frame"),
-  engine = c("stringi", "budoux", "tinyseg", "mecab", "sudachipy"),
-  rcpath = NULL,
-  mode = c("C", "B", "A"),
-  split = FALSE
+  engine = c("stringi", "budoux", "tinyseg"),
+  split = FALSE,
+  ...
 )
+
+strj_segment(text, format = c("list", "data.frame"), split = FALSE)
+
+strj_tinyseg(text, format = c("list", "data.frame"), split = FALSE)
 }
 \arguments{
-\item{text}{Character vector to be tokenized.}
+\item{text}{A character vector of Japanese text to tokenize.}
 
-\item{format}{Output format. Choose \code{list} or \code{data.frame}.}
+\item{format}{A string specifying the output format.}
 
-\item{engine}{Tokenizer name. Choose one of 'stringi', 'budoux',
-'tinyseg', 'mecab', or 'sudachipy'.
-Note that the specified tokenizer is installed and available when you use
-'mecab' or 'sudachipy'.}
+\item{engine}{A string specifying the tokenization engine to use.}
 
-\item{rcpath}{Path to a setting file for 'MeCab' or 'sudachipy' if any.}
+\item{split}{A logical value indicating whether \code{text} should be split
+into individual sentences before tokenization.}
 
-\item{mode}{Splitting mode for 'sudachipy'.}
-
-\item{split}{Logical. If passed as \code{TRUE}, the function splits the vector
-into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
-before tokenizing.}
+\item{...}{Additional arguments passed to the underlying engine.}
 }
 \value{
-A list or a data.frame.
+If \code{format = "list"}, a named list of character vectors, one per input
+element.
+If \code{format = "data.frame"}, a data frame containing document identifiers
+and tokenized text.
 }
 \description{
-Splits text into several tokens using specified tokenizer.
+Tokenizes Japanese character strings using a selectable segmentation
+engine and returns the result as a list or a data frame.
+
+This function provides a unified interface to multiple Japanese text
+segmentation backends. External command-based engines were removed in
+v0.6.0, and all tokenization is performed using in-process
+implementations.
+
+\code{strj_segment()} and \code{strj_tinyseg()} are aliases for \code{strj_tokenize()}
+with the \code{"budoux"} and \code{"tinyseg"} engines, respectively.
+}
+\details{
+The following engines are supported:
+\itemize{
+\item \code{"stringi"}: Uses ICU-based boundary analysis via stringi.
+\item \code{"budoux"}: Uses a rule-based Japanese phrase segmentation algorithm.
+\item \code{"tinyseg"}: Uses a TinySegmenter-compatible statistical model.
+}
+
+The legacy \code{"mecab"} and \code{"sudachipy"} engines were removed in v0.6.0.
 }
 \examples{
 strj_tokenize(

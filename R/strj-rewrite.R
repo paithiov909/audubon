@@ -1,10 +1,21 @@
-#' Rewrite text using rewrite.def
+#' Rewrite Japanese text using normalization rules
 #'
-#' Rewrites text using a 'rewrite.def' file.
+#' Rewrites Japanese text according to a set of normalization rules modeled
+#' after Sudachi dictionary definitions.
 #'
-#' @param text Character vector to be normalized.
-#' @param as List.
-#' @returns A character vector.
+#' This function applies character-level rewrite rules to normalize variant
+#' forms while optionally ignoring specified characters. The implementation
+#' is a simplified and heuristic adaptation of Sudachi-style normalization.
+#'
+#' @details
+#' The rewrite process is based on fixed replacement rules and does not aim
+#' to fully reproduce Sudachi's normalization behavior.
+#'
+#' @param text A character vector containing Japanese text.
+#' @param as A rewrite definition object as returned by
+#'  `read_rewrite_def()`.
+#' @returns
+#' A character vector with rewritten and normalized text.
 #' @export
 #' @examples
 #' strj_rewrite_as_def(
@@ -23,50 +34,69 @@
 #' )
 strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
   textloop <- stringi::stri_split_boundaries(text, type = "character")
-  pattern <- purrr::map_chr(as$replace, ~ purrr::pluck(., 1))
-  rep <- purrr::map_chr(as$replace, ~ purrr::pluck(., 2))
-  purrr::map_chr(textloop, function(chr) {
-    flags <- chr %in% as$ignore
-    purrr::reduce2(chr, flags, function(pre, nxt, is_ignored) {
-      stringi::stri_join(
-        pre,
-        ifelse(is_ignored, nxt, apply_rep_all(nxt, pattern, rep))
+  pattern <- unlist(
+    lapply(as$replace, function(x) purrr::pluck(x, 1)),
+    use.names = FALSE
+  )
+  rep <- unlist(
+    lapply(as$replace, function(x) purrr::pluck(x, 2)),
+    use.names = FALSE
+  )
+  unlist(
+    lapply(textloop, function(chr) {
+      flags <- chr %in% as$ignore
+      purrr::reduce2(
+        chr,
+        flags,
+        function(pre, nxt, is_ignored) {
+          # NOTE: This should not be `paste0`
+          stringi::stri_c(
+            pre,
+            ifelse(is_ignored, nxt, apply_rep_all(nxt, pattern, rep))
+          )
+        },
+        .init = ""
       )
-    }, .init = "")
-  })
+    }),
+    use.names = FALSE
+  )
 }
 
-#' Read a rewrite.def file
+#' Read rewrite definition file
 #'
-#' @param def_path Character scalar; path to the rewriting definition file.
-#' @return A list.
+#' @description
+#' Reads a rewrite definition file used for Japanese text normalization.
+#'
+#' This function parses a tab-delimited definition file and returns a list
+#' of rewrite rules and ignored characters suitable for use with
+#' `strj_rewrite_as_def()`.
+#'
+#' @param def_path A file path to a rewrite definition file.
+#' @returns
+#' A list containing rewrite rules and ignored characters.
 #' @export
 #' @examples
 #' str(read_rewrite_def())
-read_rewrite_def <- function(def_path = system.file("def/rewrite.def", package = "audubon")) {
-  res <-
-    rlang::env_get(.pkgenv, "read_def", default = read_rewrite_def_impl())(def_path)
-  return(res)
-}
-
-#' @noRd
-read_rewrite_def_impl <- function() {
-  function(def_path) {
-    cols <- def_path %>%
-      readr::read_lines() %>%
-      purrr::discard(~ stringi::stri_detect_fixed(., "#")) %>%
-      stringi::stri_split_fixed("\t")
-    return(
-      list(
-        ignore = purrr::discard(cols, ~ length(.) > 1),
-        replace = purrr::discard(cols, ~ length(.) < 2)
-      )
-    )
-  }
+read_rewrite_def <- function(
+  def_path = system.file("def/rewrite.def", package = "audubon")
+) {
+  lines <- def_path |>
+    readr::read_lines() |>
+    purrr::discard(~ stringi::stri_detect_fixed(., "#")) |>
+    stringi::stri_split_fixed("\t")
+  list(
+    ignore = purrr::discard(lines, ~ length(.) > 1),
+    replace = purrr::discard(lines, ~ length(.) < 2)
+  )
 }
 
 #' @noRd
 apply_rep_all <- function(text, pattern, rep) {
-  res <- stringi::stri_replace_all_fixed(text, pattern = pattern, replacement = rep, vectorise_all = FALSE)
+  res <- stringi::stri_replace_all_fixed(
+    text,
+    pattern = pattern,
+    replacement = rep,
+    vectorise_all = FALSE
+  )
   stringi::stri_trans_nfkc(res)
 }

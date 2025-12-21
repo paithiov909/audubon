@@ -1,19 +1,37 @@
-#' Split text into tokens
+#' Tokenize Japanese text
 #'
-#' Splits text into several tokens using specified tokenizer.
+#' @description
+#' Tokenizes Japanese character strings using a selectable segmentation
+#' engine and returns the result as a list or a data frame.
 #'
-#' @param text Character vector to be tokenized.
-#' @param format Output format. Choose `list` or `data.frame`.
-#' @param engine Tokenizer name. Choose one of 'stringi', 'budoux',
-#' 'tinyseg', 'mecab', or 'sudachipy'.
-#' Note that the specified tokenizer is installed and available when you use
-#' 'mecab' or 'sudachipy'.
-#' @param rcpath Path to a setting file for 'MeCab' or 'sudachipy' if any.
-#' @param mode Splitting mode for 'sudachipy'.
-#' @param split Logical. If passed as `TRUE`, the function splits the vector
-#' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
-#' before tokenizing.
-#' @returns A list or a data.frame.
+#' This function provides a unified interface to multiple Japanese text
+#' segmentation backends. External command-based engines were removed in
+#' v0.6.0, and all tokenization is performed using in-process
+#' implementations.
+#'
+#' `strj_segment()` and `strj_tinyseg()` are aliases for `strj_tokenize()`
+#' with the `"budoux"` and `"tinyseg"` engines, respectively.
+#'
+#' @details
+#' The following engines are supported:
+#'
+#' - `"stringi"`: Uses ICU-based boundary analysis via stringi.
+#' - `"budoux"`: Uses a rule-based Japanese phrase segmentation algorithm.
+#' - `"tinyseg"`: Uses a TinySegmenter-compatible statistical model.
+#'
+#' The legacy `"mecab"` and `"sudachipy"` engines were removed in v0.6.0.
+#'
+#' @param text A character vector of Japanese text to tokenize.
+#' @param format A string specifying the output format.
+#' @param engine A string specifying the tokenization engine to use.
+#' @param split A logical value indicating whether `text` should be split
+#'  into individual sentences before tokenization.
+#' @param ... Additional arguments passed to the underlying engine.
+#' @returns
+#' If `format = "list"`, a named list of character vectors, one per input
+#' element.
+#' If `format = "data.frame"`, a data frame containing document identifiers
+#' and tokenized text.
 #' @export
 #' @examples
 #' strj_tokenize(
@@ -31,109 +49,65 @@
 #'   ),
 #'   format = "data.frame"
 #' )
-strj_tokenize <- function(text,
-                          format = c("list", "data.frame"),
-                          engine = c("stringi", "budoux", "tinyseg", "mecab", "sudachipy"),
-                          rcpath = NULL,
-                          mode = c("C", "B", "A"),
-                          split = FALSE) {
-  stopifnot(is.character(text))
+strj_tokenize <- function(
+  text,
+  format = c("list", "data.frame"),
+  engine = c("stringi", "budoux", "tinyseg"),
+  split = FALSE,
+  ...
+) {
+  if (any(engine %in% c("mecab", "sudachipy"))) {
+    rlang::abort(
+      "The `mecab` and `sudachipy` engines were removed in v0.6.0."
+    )
+  }
   format <- rlang::arg_match(format)
   engine <- rlang::arg_match(
     engine,
-    c("stringi", "budoux", "tinyseg", "mecab", "sudachipy")
+    c("stringi", "budoux", "tinyseg")
   )
-  mode <- rlang::arg_match(mode, c("C", "B", "A"))
 
-  # keep names
   nm <- names(text)
-  if (identical(nm, NULL)) {
+  if (is.null(nm)) {
     nm <- seq_along(text)
   }
-  text <- stringi::stri_enc_toutf8(text) %>%
-    purrr::set_names(nm)
+  text <- stringi::stri_enc_toutf8(text) |>
+    rlang::set_names(nm)
 
   res <-
-    switch(engine,
+    switch(
+      engine,
       stringi = tokenize_stringi(text, split),
       budoux = tokenize_budoux(text, split),
-      tinyseg = tokenize_tinyseg(text, split),
-      mecab = tokenize_mecab(text, split, rcpath),
-      sudachipy = tokenize_sudachipy(text, split, rcpath, mode)
+      tinyseg = tokenize_tinyseg(text, split)
     )
 
   if (identical(format, "data.frame")) {
     return(res)
   }
-  dplyr::group_by(res, .data$doc_id) %>%
-    dplyr::group_map(~ .x$token) %>%
-    purrr::set_names(nm)
+  dplyr::group_by(res, .data$doc_id) |>
+    dplyr::group_map(~ .x$token) |>
+    rlang::set_names(nm)
 }
 
-#' Segment text into tokens
-#'
-#' An alias of `strj_tokenize(engine = "budoux")`.
-#'
-#' @param text Character vector to be tokenized.
-#' @param format Output format. Choose `list` or `data.frame`.
-#' @param split Logical. If passed as, the function splits the vector
-#' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
-#' before tokenizing.
-#' @returns A List or a data.frame.
+#' @rdname strj_tokenize
 #' @export
-#' @examples
-#' strj_segment(
-#'   paste0(
-#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-#'     "\u3068\u304a\u3063\u305f\u98a8"
-#'   )
-#' )
-#' strj_segment(
-#'   paste0(
-#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-#'     "\u3068\u304a\u3063\u305f\u98a8"
-#'   ),
-#'   format = "data.frame"
-#' )
-strj_segment <- function(text,
-                         format = c("list", "data.frame"),
-                         split = FALSE) {
+strj_segment <- function(
+  text,
+  format = c("list", "data.frame"),
+  split = FALSE
+) {
   format <- rlang::arg_match(format)
   strj_tokenize(text, format, engine = "budoux", split)
 }
 
-#' Segment text into phrases
-#'
-#' An alias of `strj_tokenize(engine = "tinyseg")`.
-#'
-#' @param text Character vector to be tokenized.
-#' @param format Output format. Choose `list` or `data.frame`.
-#' @param split Logical. If passed as `TRUE`, the function splits vectors
-#' into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
-#' before tokenizing.
-#' @returns A list or a data.frame.
+#' @rdname strj_tokenize
 #' @export
-#' @examples
-#' strj_tinyseg(
-#'   paste0(
-#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-#'     "\u3068\u304a\u3063\u305f\u98a8"
-#'   )
-#' )
-#' strj_tinyseg(
-#'   paste0(
-#'     "\u3042\u306e\u30a4\u30fc\u30cf\u30c8",
-#'     "\u30fc\u30f4\u30a9\u306e\u3059\u304d",
-#'     "\u3068\u304a\u3063\u305f\u98a8"
-#'   ),
-#'   format = "data.frame"
-#' )
-strj_tinyseg <- function(text,
-                         format = c("list", "data.frame"),
-                         split = FALSE) {
+strj_tinyseg <- function(
+  text,
+  format = c("list", "data.frame"),
+  split = FALSE
+) {
   format <- rlang::arg_match(format)
   strj_tokenize(text, format, engine = "tinyseg", split)
 }

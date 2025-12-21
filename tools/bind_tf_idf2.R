@@ -36,8 +36,11 @@ cast_sparse <- function(data, row, column, value, ...) {
   }
 
   ret <- Matrix::sparseMatrix(
-    i = i, j = j, x = values,
-    dimnames = list(row_u, col_u), ...
+    i = i,
+    j = j,
+    x = values,
+    dimnames = list(row_u, col_u),
+    ...
   )
 
   ret
@@ -125,14 +128,16 @@ global_entropy <- function(sp) {
 #' bind_tf_idf2(df) |>
 #'   head()
 #' }
-bind_tf_idf2 <- function(tbl,
-                         term = "token",
-                         document = "doc_id",
-                         n = "n",
-                         tf = c("tf", "tf2", "tf3", "itf"),
-                         idf = c("idf", "idf2", "idf3", "idf4", "df"),
-                         norm = FALSE,
-                         rmecab_compat = TRUE) {
+bind_tf_idf2 <- function(
+  tbl,
+  term = "token",
+  document = "doc_id",
+  n = "n",
+  tf = c("tf", "tf2", "tf3", "itf"),
+  idf = c("idf", "idf2", "idf3", "idf4", "df"),
+  norm = FALSE,
+  rmecab_compat = TRUE
+) {
   tf <- rlang::arg_match(tf)
   idf <- rlang::arg_match(idf)
 
@@ -147,9 +152,11 @@ bind_tf_idf2 <- function(tbl,
   n <- dplyr::pull(tbl, {{ n_col }})
 
   doc_totals <- tapply(
-    n, documents,
+    n,
+    documents,
     function(x) {
-      switch(tf,
+      switch(
+        tf,
         tf = sum(x),
         tf2 = log(x + 1),
         tf3 = booled_freq(x),
@@ -173,14 +180,16 @@ bind_tf_idf2 <- function(tbl,
     sp <- cast_sparse(tbl, !!document, !!term, !!n_col)
   }
 
-  idf <- switch(idf,
+  idf <- switch(
+    idf,
     idf = global_idf(sp),
     idf2 = global_idf2(sp),
     idf3 = global_idf3(sp),
     idf4 = global_entropy(sp),
     df = global_df(sp)
   )
-  tbl <- dplyr::mutate(tbl,
+  tbl <- dplyr::mutate(
+    tbl,
     idf = as.numeric(idf[terms]),
     tf_idf = .data$tf * .data$idf
   )
@@ -188,7 +197,8 @@ bind_tf_idf2 <- function(tbl,
   if (!isTRUE(norm)) {
     return(tbl)
   }
-  dplyr::mutate(tbl,
+  dplyr::mutate(
+    tbl,
     tf_idf = .data$tf_idf / norm(.data$tf_idf, type = "2"),
     .by = as_name(document)
   )

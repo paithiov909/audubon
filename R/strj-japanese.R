@@ -1,13 +1,19 @@
-#' Hiraganize Japanese characters
+#' Convert Japanese text between hiragana and katakana representations.
 #'
-#' Converts Japanese katakana to hiragana.
-#' It is almost similar to \code{stringi::stri_trans_general(text, "kana-hira")},
-#' however, this implementation can also handle some additional symbols
-#' such as Japanese kana ligature (aka. goryaku-gana).
+#' @description
+#' These functions transform kana characters while preserving non-kana
+#' characters. The conversion is based on a JavaScript implementation and
+#' handles certain historical or contracted kana forms that are not covered
+#' by standard Unicode transliteration alone.
 #'
-#' @param text Character vector.
-#' @returns A character vector.
-#' @export
+#' @details
+#' The conversion behavior is largely compatible with ICU-based
+#' transliteration, with additional support for selected combined or
+#' historical kana characters.
+#'
+#' @param text A character vector containing Japanese text.
+#' @returns
+#' A character vector with kana characters converted to the target script.
 #' @examples
 #' strj_hiraganize(
 #'   c(
@@ -19,24 +25,6 @@
 #'     "\u677f\u57a3\u6b7b\u30b9\U0002a708"
 #'   )
 #' )
-strj_hiraganize <- function(text) {
-  ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.hiraganize", elem)
-  }, USE.NAMES = FALSE)
-}
-
-#' Katakanize Japanese characters
-#'
-#' Converts Japanese hiragana to katakana.
-#' It is almost similar to \code{stringi::stri_trans_general(text, "hira-kana")},
-#' however, this implementation can also handle some additional symbols
-#' such as Japanese kana ligature (aka. goryaku-gana).
-#'
-#' @param text Character vector.
-#' @returns A character vector.
-#' @export
-#' @examples
 #' strj_katakanize(
 #'   c(
 #'     paste0(
@@ -47,31 +35,52 @@ strj_hiraganize <- function(text) {
 #'     "\u672c\u65e5\u309f\u304b\u304d\u6c37\u89e3\u7981"
 #'   )
 #' )
-strj_katakanize <- function(text) {
+#' @rdname strj-hira-kana
+#' @name strj-hira-kana
+NULL
+
+#' @rdname strj-hira-kana
+#' @export
+strj_hiraganize <- function(text) {
+
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.katakanize", elem)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.hiraganize", elem)
+    }),
+    use.names = FALSE
+  )
 }
 
-#' Romanize Japanese Hiragana and Katakana
+#' @rdname strj-hira-kana
+#' @export
+strj_katakanize <- function(text) {
+  ctx <- rlang::env_get(.pkgenv, "ctx")
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.katakanize", elem)
+    }),
+    use.names = FALSE
+  )
+}
+
+#' Romanize Japanese text
+#'
+#' @description
+#' Converts Japanese kana text to Latin script using a selectable romanization
+#' system.
+#'
+#' This function transliterates Japanese text into romaji according to the
+#' specified convention. Non-kana characters are omitted from the output.
 #'
 #' @details
-#' There are several ways to romanize Japanese.
-#' Using this implementation, you can convert hiragana and katakana as 5 different styles;
-#' the `wikipedia` style, the `traditional hepburn` style, the `modified hepburn` style,
-#' the `kunrei` style, and the `nihon` style.
+#' Supported romanization systems include variants of Hepburn as well as
+#' Kunrei-shiki and Nihon-shiki conventions.
 #'
-#' Note that all of these styles return a slightly different form of
-#' \code{stringi::stri_trans_general(text, "Any-latn")}.
-#'
-#' @seealso \url{https://github.com/hakatashi/japanese.js#japaneseromanizetext-config}
-#'
-#' @param text Character vector.
-#' If elements are composed of except but hiragana and katakana letters,
-#' those letters are dropped from the return value.
-#' @param config Configuration used to romanize. Default is `wikipedia`.
-#' @returns A character vector.
+#' @param text A character vector containing Japanese text.
+#' @param config A string specifying the romanization system to use.
+#' @returns
+#' A character vector containing romanized text.
 #' @export
 #' @examples
 #' strj_romanize(
@@ -81,37 +90,47 @@ strj_katakanize <- function(text) {
 #'     "\u3068\u304a\u3063\u305f\u98a8"
 #'   )
 #' )
-strj_romanize <- function(text,
-                          config = c(
-                            "wikipedia",
-                            "traditional hepburn",
-                            "modified hepburn",
-                            "kunrei",
-                            "nihon"
-                          )) {
+strj_romanize <- function(
+  text,
+  config = c(
+    "wikipedia",
+    "traditional hepburn",
+    "modified hepburn",
+    "kunrei",
+    "nihon"
+  )
+) {
   config <- rlang::arg_match(config)
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.romanize", elem, config)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.romanize", elem, config)
+    }),
+    use.names = FALSE
+  )
 }
 
-#' Transcribe Arabic to Kansuji
+#' Transcribe integers into Japanese kanji numerals
 #'
-#' Transcribes Arabic integers to Kansuji with auxiliary numerals.
+#' @description
+#' Converts integer values to their Japanese kanji numeral representations.
 #'
-#' As its implementation is limited, this function can only transcribe
-#' numbers up to trillions.
-#' In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
+#' This function transcribes integers up to the trillions place into kanji
+#' numerals. For larger numbers or more comprehensive numeral support, consider
+#' using the CRAN package arabic2kansuji.
 #'
-#' @param int Integers.
-#' @returns A character vector.
+#' @param int An integer vector to transcribe.
+#' @returns
+#' A character vector containing kanji numeral representations.
 #' @export
 #' @examples
 #' strj_transcribe_num(c(10L, 31415L))
 strj_transcribe_num <- function(int) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(as.integer(int), function(elem) {
-    ctx$call("window.audubon.japanese.transcribeNumber", elem)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(as.integer(int), function(elem) {
+      ctx$call("window.audubon.japanese.transcribeNumber", elem)
+    }),
+    use.names = FALSE
+  )
 }

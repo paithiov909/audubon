@@ -14,9 +14,7 @@
 #' @examples
 #' df <- prettify(head(hiroba), col_select = "POS1")
 #' mute_tokens(df, POS1 %in% c("\u52a9\u8a5e", "\u52a9\u52d5\u8a5e"))
-mute_tokens <- function(tbl,
-                        condition,
-                        .as = NA_character_) {
+mute_tokens <- function(tbl, condition, .as = NA_character_) {
   condition <- enquo(condition)
   dplyr::mutate(tbl, token = dplyr::if_else(!!condition, .as, .data$token))
 }

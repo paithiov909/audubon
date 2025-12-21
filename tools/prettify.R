@@ -20,11 +20,13 @@
 #'   into = c("a", "b"),
 #'   col_select = "b"
 #' )
-prettify <- function(tbl,
-                     col = "feature",
-                     into = get_dict_features("ipa"),
-                     col_select = seq_along(into),
-                     delim = ",") {
+prettify <- function(
+  tbl,
+  col = "feature",
+  into = get_dict_features("ipa"),
+  col_select = seq_along(into),
+  delim = ","
+) {
   if (is.numeric(col_select) && max(col_select) <= length(into)) {
     col_select <- which(seq_along(into) %in% col_select, arr.ind = TRUE)
   } else {
@@ -72,50 +74,153 @@ prettify <- function(tbl,
 #' @export
 #' @examples
 #' get_dict_features("ipa")
-get_dict_features <- function(dict = c(
-                                "ipa",
-                                "unidic17",
-                                "unidic26",
-                                "unidic29",
-                                "cc-cedict",
-                                "ko-dic",
-                                "naist11",
-                                "sudachi"
-                              )) {
+get_dict_features <- function(
+  dict = c(
+    "ipa",
+    "unidic17",
+    "unidic26",
+    "unidic29",
+    "cc-cedict",
+    "ko-dic",
+    "naist11",
+    "sudachi"
+  )
+) {
   dict <- rlang::arg_match(dict)
   feat <- dplyr::case_when(
     dict == "unidic17" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "cType", "cForm", "lForm",
-      "lemma", "orth", "pron",
-      "orthBase", "pronBase", "goshu", "iType", "iForm", "fType", "fForm"
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "cType",
+      "cForm",
+      "lForm",
+      "lemma",
+      "orth",
+      "pron",
+      "orthBase",
+      "pronBase",
+      "goshu",
+      "iType",
+      "iForm",
+      "fType",
+      "fForm"
     )),
     dict == "unidic26" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "cType", "cForm", "lForm", "lemma", "orth", "pron",
-      "orthBase", "pronBase", "goshu", "iType", "iForm", "fType", "fForm",
-      "kana", "kanaBase", "form", "formBase", "iConType", "fConType", "aType",
-      "aConType", "aModeType"
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "cType",
+      "cForm",
+      "lForm",
+      "lemma",
+      "orth",
+      "pron",
+      "orthBase",
+      "pronBase",
+      "goshu",
+      "iType",
+      "iForm",
+      "fType",
+      "fForm",
+      "kana",
+      "kanaBase",
+      "form",
+      "formBase",
+      "iConType",
+      "fConType",
+      "aType",
+      "aConType",
+      "aModeType"
     )),
     dict == "unidic29" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "cType",
-      "cForm", "lForm", "lemma", "orth", "pron", "orthBase", "pronBase", "goshu", "iType", "iForm", "fType",
-      "fForm", "iConType", "fConType", "type", "kana", "kanaBase", "form", "formBase", "aType", "aConType",
-      "aModType", "lid", "lemma_id"
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "cType",
+      "cForm",
+      "lForm",
+      "lemma",
+      "orth",
+      "pron",
+      "orthBase",
+      "pronBase",
+      "goshu",
+      "iType",
+      "iForm",
+      "fType",
+      "fForm",
+      "iConType",
+      "fConType",
+      "type",
+      "kana",
+      "kanaBase",
+      "form",
+      "formBase",
+      "aType",
+      "aConType",
+      "aModType",
+      "lid",
+      "lemma_id"
     )),
     dict == "cc-cedict" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4",
-      "pinyin_pron", "traditional_char_form", "simplified_char_form",
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "pinyin_pron",
+      "traditional_char_form",
+      "simplified_char_form",
       "definition"
     )),
     dict == "ko-dic" ~ list(c(
-      "POS", "meaning", "presence", "reading", "type", "first_pos", "last_pos", "expression"
+      "POS",
+      "meaning",
+      "presence",
+      "reading",
+      "type",
+      "first_pos",
+      "last_pos",
+      "expression"
     )),
     dict == "naist11" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "X5StageUse1", "X5StageUse2", "Original", "Yomi1", "Yomi2", "Info", "Misc"
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "X5StageUse1",
+      "X5StageUse2",
+      "Original",
+      "Yomi1",
+      "Yomi2",
+      "Info",
+      "Misc"
     )),
     dict == "sudachi" ~ list(c(
-      "POS1", "POS2", "POS3", "POS4", "cType", "cForm", "dictionary_form", "normalized_form", "reading_form"
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "cType",
+      "cForm",
+      "dictionary_form",
+      "normalized_form",
+      "reading_form"
     )),
-    TRUE ~ list(c("POS1", "POS2", "POS3", "POS4", "X5StageUse1", "X5StageUse2", "Original", "Yomi1", "Yomi2"))
+    TRUE ~ list(c(
+      "POS1",
+      "POS2",
+      "POS3",
+      "POS4",
+      "X5StageUse1",
+      "X5StageUse2",
+      "Original",
+      "Yomi1",
+      "Yomi2"
+    ))
   )
   unlist(feat)
 }

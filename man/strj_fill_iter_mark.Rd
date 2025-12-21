@@ -7,14 +7,24 @@
 strj_fill_iter_mark(text)
 }
 \arguments{
-\item{text}{Character vector.}
+\item{text}{A character vector containing Japanese text.}
 }
 \value{
-A character vector.
+A character vector in which iteration marks are replaced with the inferred
+repeated characters.
 }
 \description{
-Fills Japanese iteration marks (Odori-ji) with their previous characters
-if the element has more than 5 characters.
+Replaces Japanese iteration marks in character strings with the
+corresponding repeated characters.
+
+This function scans each input string and expands iteration marks such as
+odoriji by inferring the characters to be repeated from the surrounding
+context. The implementation is heuristic and intended for practical text
+normalization rather than complete linguistic accuracy.
+}
+\details{
+The restoration is based on local character context and may be incomplete
+for iteration marks that refer to longer or more complex spans.
 }
 \examples{
 strj_fill_iter_mark(c(
