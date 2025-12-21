@@ -7,10 +7,9 @@
 strj_tokenize(
   text,
   format = c("list", "data.frame"),
-  engine = c("stringi", "budoux", "tinyseg", "mecab", "sudachipy"),
-  rcpath = NULL,
-  mode = c("C", "B", "A"),
-  split = FALSE
+  engine = c("stringi", "budoux", "tinyseg"),
+  split = FALSE,
+  ...
 )
 }
 \arguments{
@@ -18,18 +17,9 @@ strj_tokenize(
 
 \item{format}{Output format. Choose \code{list} or \code{data.frame}.}
 
-\item{engine}{Tokenizer name. Choose one of 'stringi', 'budoux',
-'tinyseg', 'mecab', or 'sudachipy'.
-Note that the specified tokenizer is installed and available when you use
-'mecab' or 'sudachipy'.}
+\item{engine}{Tokenizer name. One of "stringi", "budoux", "tinyseg".}
 
-\item{rcpath}{Path to a setting file for 'MeCab' or 'sudachipy' if any.}
-
-\item{mode}{Splitting mode for 'sudachipy'.}
-
-\item{split}{Logical. If passed as \code{TRUE}, the function splits the vector
-into some sentences using \code{stringi::stri_split_boundaries(type = "sentence")}
-before tokenizing.}
+\item{split}{Logical. If \code{TRUE}, the function splits vectors}
 }
 \value{
 A list or a data.frame.

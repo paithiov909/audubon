@@ -13,7 +13,9 @@ test_that("strj_rewrite works", {
 ### strj_normalize
 test_that("strj_noramalize works", {
   expect_equal(
-    strj_normalize("\uff5e\uff5e\uff5e\u30b9\u30fc\u30d1\u30fc\u30fc\u30fc\u30fc"),
+    strj_normalize(
+      "\uff5e\uff5e\uff5e\u30b9\u30fc\u30d1\u30fc\u30fc\u30fc\u30fc"
+    ),
     "\u30b9\u30fc\u30d1\u30fc"
   )
   expect_equal(

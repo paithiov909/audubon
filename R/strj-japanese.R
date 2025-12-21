@@ -21,9 +21,12 @@
 #' )
 strj_hiraganize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.hiraganize", elem)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.hiraganize", elem)
+    }),
+    use.names = FALSE
+  )
 }
 
 #' Katakanize Japanese characters
@@ -49,9 +52,12 @@ strj_hiraganize <- function(text) {
 #' )
 strj_katakanize <- function(text) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.katakanize", elem)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.katakanize", elem)
+    }),
+    use.names = FALSE
+  )
 }
 
 #' Romanize Japanese Hiragana and Katakana
@@ -81,19 +87,24 @@ strj_katakanize <- function(text) {
 #'     "\u3068\u304a\u3063\u305f\u98a8"
 #'   )
 #' )
-strj_romanize <- function(text,
-                          config = c(
-                            "wikipedia",
-                            "traditional hepburn",
-                            "modified hepburn",
-                            "kunrei",
-                            "nihon"
-                          )) {
+strj_romanize <- function(
+  text,
+  config = c(
+    "wikipedia",
+    "traditional hepburn",
+    "modified hepburn",
+    "kunrei",
+    "nihon"
+  )
+) {
   config <- rlang::arg_match(config)
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(stringi::stri_trans_nfkc(text), function(elem) {
-    ctx$call("window.audubon.japanese.romanize", elem, config)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(stringi::stri_trans_nfkc(text), function(elem) {
+      ctx$call("window.audubon.japanese.romanize", elem, config)
+    }),
+    use.names = FALSE
+  )
 }
 
 #' Transcribe Arabic to Kansuji
@@ -111,7 +122,10 @@ strj_romanize <- function(text,
 #' strj_transcribe_num(c(10L, 31415L))
 strj_transcribe_num <- function(int) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
-  sapply(as.integer(int), function(elem) {
-    ctx$call("window.audubon.japanese.transcribeNumber", elem)
-  }, USE.NAMES = FALSE)
+  unlist(
+    lapply(as.integer(int), function(elem) {
+      ctx$call("window.audubon.japanese.transcribeNumber", elem)
+    }),
+    use.names = FALSE
+  )
 }
