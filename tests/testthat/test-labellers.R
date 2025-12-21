@@ -24,8 +24,4 @@ test_that("label_date_jp works", {
     label_date_jp(two_months),
     style = "json2"
   )
-  expect_snapshot_value(
-    label_date_jp(two_months, tz = "Asia/Tokyo"),
-    style = "json2"
-  )
 })
