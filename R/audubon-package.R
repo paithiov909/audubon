@@ -26,3 +26,21 @@
 #' @examples
 #' head(hiroba)
 "hiroba"
+
+#' Default Japanese date format
+#'
+#' @description
+#' Returns the default date format string used for Japanese calendar
+#' date parsing and formatting.
+#'
+#' This helper function exists to provide a UTF-8 encoded format string
+#' without embedding non-ASCII characters directly in function defaults.
+#'
+#' @returns
+#' A character string representing a Japanese calendar date format.
+#' @export
+#' @examples
+#' default_format()
+default_format <- function() {
+  enc2utf8("Gy\u5e74M\u6708d\u65e5")
+}

@@ -1,4 +1,4 @@
-# audubon 0.6.0
+# audubon 0.6.1
 
 This release includes internal refactoring, removal of deprecated features,
 and the addition of small user-facing utilities for Japanese text handling.

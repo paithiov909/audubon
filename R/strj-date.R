@@ -21,7 +21,7 @@
 #' strj_parse_date("\u4ee4\u548c2\u5e747\u67086\u65e5")
 strj_parse_date <- function(
   date,
-  format = enc2utf8("Gy\u5e74M\u6708d\u65e5"),
+  format = default_format(),
   tz = NULL
 ) {
   stringi::stri_datetime_parse(

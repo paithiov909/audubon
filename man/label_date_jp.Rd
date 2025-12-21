@@ -5,9 +5,9 @@
 \alias{label_date_jp_gen}
 \title{Japanese date labeller for ggplot2}
 \usage{
-label_date_jp(labels, format = enc2utf8("Gy年M月d日"), tz = NULL)
+label_date_jp(labels, format = default_format(), tz = NULL)
 
-label_date_jp_gen(format = enc2utf8("Gy年M月d日"), tz = NULL)
+label_date_jp_gen(format = default_format(), tz = NULL)
 }
 \arguments{
 \item{labels}{A vector of values coercible to Date objects.}

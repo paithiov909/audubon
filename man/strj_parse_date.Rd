@@ -4,7 +4,7 @@
 \alias{strj_parse_date}
 \title{Parse Japanese calendar dates}
 \usage{
-strj_parse_date(date, format = enc2utf8("Gy年M月d日"), tz = NULL)
+strj_parse_date(date, format = default_format(), tz = NULL)
 }
 \arguments{
 \item{date}{A character vector containing Japanese calendar date strings.}

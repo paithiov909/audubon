@@ -124,7 +124,7 @@ label_wrap_jp_gen <- function(wrap = 16, width = 50, collapse = "\n") {
 #' }
 label_date_jp <- function(
   labels,
-  format = enc2utf8("Gy\u5e74M\u6708d\u65e5"),
+  format = default_format(),
   tz = NULL
 ) {
   labels <- as.Date(labels, tz = if (is.null(tz)) "UTC" else tz)
@@ -139,7 +139,7 @@ label_date_jp <- function(
 #' @rdname label_date_jp
 #' @export
 label_date_jp_gen <- function(
-  format = enc2utf8("Gy\u5e74M\u6708d\u65e5"),
+  format = default_format(),
   tz = NULL
 ) {
   date_jp_labeller <- function(labels) {
