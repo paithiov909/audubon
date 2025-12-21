@@ -1,6 +1,6 @@
 # Changelog
 
-## audubon 0.6.0
+## audubon 0.6.1
 
 ### New features
 

@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`default_format()`](https://paithiov909.github.io/audubon/reference/default_format.md)
+  : Default Japanese date format
 - [`hiroba`](https://paithiov909.github.io/audubon/reference/hiroba.md)
   : Whole tokens of 'Porano no Hiroba' written by Miyazawa Kenji from
   Aozora Bunko

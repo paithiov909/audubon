@@ -6,9 +6,9 @@ labels suitable for use with ggplot2 scales.
 ## Usage
 
 ``` r
-label_date_jp(labels, format = enc2utf8("Gy年M月d日"), tz = NULL)
+label_date_jp(labels, format = default_format(), tz = NULL)
 
-label_date_jp_gen(format = enc2utf8("Gy年M月d日"), tz = NULL)
+label_date_jp_gen(format = default_format(), tz = NULL)
 ```
 
 ## Arguments

@@ -9,7 +9,7 @@ parsing.
 ## Usage
 
 ``` r
-strj_parse_date(date, format = enc2utf8("Gy年M月d日"), tz = NULL)
+strj_parse_date(date, format = default_format(), tz = NULL)
 ```
 
 ## Arguments
