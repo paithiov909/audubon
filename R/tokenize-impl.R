@@ -7,7 +7,10 @@ tokenize_stringi <- function(text, split) {
     }
     data.frame(
       doc_id = doc_id,
-      token = unlist(stringi::stri_split_boundaries(vec, type = "word"), use.names = FALSE)
+      token = unlist(
+        stringi::stri_split_boundaries(vec, type = "word"),
+        use.names = FALSE
+      )
     )
   }) |>
     dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
@@ -23,12 +26,15 @@ tokenize_budoux <- function(text, split) {
     }
     data.frame(
       doc_id = doc_id,
-      token = unlist(lapply(vec, function(elem) {
-        if (is.na(elem)) {
-          return(NA_character_)
-        }
-        ctx$call("window.audubon.parser.parse", elem)
-      }), use.names = FALSE)
+      token = unlist(
+        lapply(vec, function(elem) {
+          if (is.na(elem)) {
+            return(NA_character_)
+          }
+          ctx$call("window.audubon.parser.parse", elem)
+        }),
+        use.names = FALSE
+      )
     )
   }) |>
     dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
