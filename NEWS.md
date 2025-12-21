@@ -1,3 +1,20 @@
+# audubon 0.6.0
+
+## New features
+
+* Added `label_wrap_jp()` and `label_wrap_jp_gen()` for Japanese word wrapping in ggplot2 labellers.
+* Added `label_date_jp()` and `label_date_jp_gen()` for Japanese calendar date labels in ggplot2.
+* Added `strj_parse_jdate()` to parse Japanese calendar date strings into POSIXct values.
+
+## Changes
+
+* Removed `mecab` and `sudachipy` engines and related arguments from `strj_tokenize()`.
+* Removed functions overlapping with those provided by the gibasa package. Users requiring morphological analysis or related features should use gibasa.
+
+## Other
+
+* Performed internal refactoring and maintenance improvements.
+
 # audubon 0.5.2
 
 * Corrected probabilistic IDF calculation by `global_idf3`.
