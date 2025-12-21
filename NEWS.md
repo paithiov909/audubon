@@ -4,7 +4,7 @@
 
 * Added `label_wrap_jp()` and `label_wrap_jp_gen()` for Japanese word wrapping in ggplot2 labellers.
 * Added `label_date_jp()` and `label_date_jp_gen()` for Japanese calendar date labels in ggplot2.
-* Added `strj_parse_jdate()` to parse Japanese calendar date strings into POSIXct values.
+* Added `strj_parse_date()` to parse Japanese calendar date strings into POSIXct values.
 
 ## Changes
 
