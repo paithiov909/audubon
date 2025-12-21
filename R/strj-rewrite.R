@@ -1,10 +1,21 @@
-#' Rewrite text using rewrite.def
+#' Rewrite Japanese text using normalization rules
 #'
-#' Rewrites text using a 'rewrite.def' file.
+#' Rewrites Japanese text according to a set of normalization rules modeled
+#' after Sudachi dictionary definitions.
 #'
-#' @param text Character vector to be normalized.
-#' @param as List.
-#' @returns A character vector.
+#' This function applies character-level rewrite rules to normalize variant
+#' forms while optionally ignoring specified characters. The implementation
+#' is a simplified and heuristic adaptation of Sudachi-style normalization.
+#'
+#' @details
+#' The rewrite process is based on fixed replacement rules and does not aim
+#' to fully reproduce Sudachi's normalization behavior.
+#'
+#' @param text A character vector containing Japanese text.
+#' @param as A rewrite definition object as returned by
+#'  `read_rewrite_def()`.
+#' @returns
+#' A character vector with rewritten and normalized text.
 #' @export
 #' @examples
 #' strj_rewrite_as_def(
@@ -51,23 +62,31 @@ strj_rewrite_as_def <- function(text, as = read_rewrite_def()) {
   )
 }
 
-#' Read a rewrite.def file
+#' Read rewrite definition file
 #'
-#' @param def_path Character scalar; path to the rewriting definition file.
-#' @return A list.
+#' @description
+#' Reads a rewrite definition file used for Japanese text normalization.
+#'
+#' This function parses a tab-delimited definition file and returns a list
+#' of rewrite rules and ignored characters suitable for use with
+#' `strj_rewrite_as_def()`.
+#'
+#' @param def_path A file path to a rewrite definition file.
+#' @returns
+#' A list containing rewrite rules and ignored characters.
 #' @export
 #' @examples
 #' str(read_rewrite_def())
 read_rewrite_def <- function(
   def_path = system.file("def/rewrite.def", package = "audubon")
 ) {
-  cols <- def_path |>
+  lines <- def_path |>
     readr::read_lines() |>
     purrr::discard(~ stringi::stri_detect_fixed(., "#")) |>
     stringi::stri_split_fixed("\t")
   list(
-    ignore = purrr::discard(cols, ~ length(.) > 1),
-    replace = purrr::discard(cols, ~ length(.) < 2)
+    ignore = purrr::discard(lines, ~ length(.) > 1),
+    replace = purrr::discard(lines, ~ length(.) < 2)
   )
 }
 

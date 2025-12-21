@@ -15,19 +15,14 @@ badge](https://cranlogs.r-pkg.org/badges/audubon)](https://cran.r-project.org/pa
 
 audubon is Japanese text processing tools for:
 
-- filling Japanese iteration marks
-- hiraganization, katakanization and romanization using
+- hiraganization, katakanization and romanization with
   [hakatashi/japanese.js](https://github.com/hakatashi/japanese.js)
-- segmentation by phrase using
+- segmentation by phrase with
   [google/budoux](https://github.com/google/budoux) and
   ‘TinySegmenter.js’
 - text normalization which is based on rules for the ‘Sudachi’
   morphological analyzer and the ‘NEologd’ (Neologism dictionary for
-  ‘MeCab’).
-
-Some features above are not implemented in ‘ICU’ (i.e., the stringi
-package), and the goal of the audubon package is to provide these
-additional features.
+  ‘MeCab’)
 
 ## Installation
 
@@ -36,52 +31,6 @@ remotes::install_github("paithiov909/audubon")
 ```
 
 ## Usage
-
-### Fill Japanese iteration marks (Odori-ji)
-
-`strj_fill_iter_mark` repeats the previous character and replaces the
-iteration marks if the element has more than 5 characters. You can use
-this feature with `strj_normalize` or `strj_rewrite_as_def`.
-
-``` r
-strj_fill_iter_mark(c(
-  "あいうゝ〃かき",
-  "金子みすゞ",
-  "のたり〳〵かな",
-  "しろ／″＼とした"
-))
-#> [1] "あいうううかき"  "金子みすすﾞ"     "のたりたりかな"  "しろしﾞろとした"
-
-strj_fill_iter_mark("いすゞエルフトラック") |>
-  strj_normalize()
-#> [1] "いすずエルフトラック"
-```
-
-### Character class conversion
-
-Character class conversion uses
-[hakatashi/japanese.js](https://github.com/hakatashi/japanese.js).
-
-``` r
-strj_hiraganize("あのイーハトーヴォのすきとおった風")
-#> [1] "あのいーはとーゔぉのすきとおった風"
-strj_katakanize("あのイーハトーヴォのすきとおった風")
-#> [1] "アノイーハトーヴォノスキトオッタ風"
-strj_romanize("あのイーハトーヴォのすきとおった風")
-#> [1] "anoīhatōvonosukitōtta"
-```
-
-### Segmentation by phrase
-
-`strj_tokenize` splits Japanese text into some phrases using
-[google/budoux](https://github.com/google/budoux), TinySegmenter, or
-other tokenizers.
-
-``` r
-strj_tokenize("あのイーハトーヴォのすきとおった風", engine = "budoux")
-#> $`1`
-#> [1] "あの"             "イーハトーヴォの" "すきとおった"     "風"
-```
 
 ### Japanese text normalization
 
@@ -127,9 +76,50 @@ strj_rewrite_as_def("惡と假面のルール", read_rewrite_def(system.file("de
 #> [1] "悪と仮面のルール"
 ```
 
+### Japanese label helpers for ggplot2
+
+audubon provides small helper functions designed to work with ggplot2
+labellers, making it easier to format Japanese text and dates in plots.
+These labellers are intended for cases where default wrapping or
+formatting is insufficient for Japanese text, and where ICU-based locale
+handling can be leveraged without manual preprocessing.
+
+#### Japanese word wrapping
+
+`label_wrap_jp()` and `label_wrap_jp_gen()` wrap labels at natural
+Japanese phrase boundaries rather than fixed character widths. This is
+useful for discrete scales with long Japanese labels, such as titles,
+phrases, or excerpts.
+
+``` r
+scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
+#> scale_x_discrete(labels = label_wrap_jp_gen())
+```
+
+<img src="man/figures/README-demo_wrap-1.png" width="100%" />
+
+#### Japanese date labels
+
+`label_date_jp()` and `label_date_jp_gen()` format date labels using the
+Japanese calendar system, including era-based representations. They can
+be used with date or datetime scales to produce locale-aware Japanese
+date labels without manual formatting.
+
+``` r
+date_range <- function(start, days) {
+  start <- as.POSIXct(start)
+  c(start, start + days * 24 * 60 * 60)
+}
+two_months <- date_range("2025-12-31", 60)
+scales::demo_datetime(two_months, labels = label_date_jp_gen())
+#> scale_x_datetime(labels = label_date_jp_gen())
+```
+
+<img src="man/figures/README-demo_date-1.png" width="100%" />
+
 ## License
 
-© 2024 Akiru Kato
+© 2025 Akiru Kato
 
 Licensed under the [Apache License, Version
 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).

@@ -4,8 +4,8 @@
 #' following the rule that is recommended by the Neologism dictionary for 'MeCab'.
 #'
 #' @seealso \url{https://github.com/neologd/mecab-ipadic-neologd/wiki/Regexp.ja}
-#' @param text Character vector to be normalized.
-#' @returns A character vector.
+#' @param text A character vector containing Japanese text.
+#' @returns A character vector with normalized text.
 #' @export
 #' @examples
 #' strj_normalize(

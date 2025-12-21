@@ -1,10 +1,22 @@
 #' Fill Japanese iteration marks
 #'
-#' Fills Japanese iteration marks (Odori-ji) with their previous characters
-#' if the element has more than 5 characters.
+#' @description
+#' Replaces Japanese iteration marks in character strings with the
+#' corresponding repeated characters.
 #'
-#' @param text Character vector.
-#' @returns A character vector.
+#' This function scans each input string and expands iteration marks such as
+#' odoriji by inferring the characters to be repeated from the surrounding
+#' context. The implementation is heuristic and intended for practical text
+#' normalization rather than complete linguistic accuracy.
+#'
+#' @details
+#' The restoration is based on local character context and may be incomplete
+#' for iteration marks that refer to longer or more complex spans.
+#'
+#' @param text A character vector containing Japanese text.
+#' @returns
+#' A character vector in which iteration marks are replaced with the inferred
+#' repeated characters.
 #' @export
 #' @examples
 #' strj_fill_iter_mark(c(

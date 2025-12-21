@@ -2,7 +2,7 @@
 % Please edit documentation in R/strj-japanese.R
 \name{strj_romanize}
 \alias{strj_romanize}
-\title{Romanize Japanese Hiragana and Katakana}
+\title{Romanize Japanese text}
 \usage{
 strj_romanize(
   text,
@@ -10,26 +10,23 @@ strj_romanize(
 )
 }
 \arguments{
-\item{text}{Character vector.
-If elements are composed of except but hiragana and katakana letters,
-those letters are dropped from the return value.}
+\item{text}{A character vector containing Japanese text.}
 
-\item{config}{Configuration used to romanize. Default is \code{wikipedia}.}
+\item{config}{A string specifying the romanization system to use.}
 }
 \value{
-A character vector.
+A character vector containing romanized text.
 }
 \description{
-Romanize Japanese Hiragana and Katakana
+Converts Japanese kana text to Latin script using a selectable romanization
+system.
+
+This function transliterates Japanese text into romaji according to the
+specified convention. Non-kana characters are omitted from the output.
 }
 \details{
-There are several ways to romanize Japanese.
-Using this implementation, you can convert hiragana and katakana as 5 different styles;
-the \code{wikipedia} style, the \verb{traditional hepburn} style, the \verb{modified hepburn} style,
-the \code{kunrei} style, and the \code{nihon} style.
-
-Note that all of these styles return a slightly different form of
-\code{stringi::stri_trans_general(text, "Any-latn")}.
+Supported romanization systems include variants of Hepburn as well as
+Kunrei-shiki and Nihon-shiki conventions.
 }
 \examples{
 strj_romanize(
@@ -39,7 +36,4 @@ strj_romanize(
     "\u3068\u304a\u3063\u305f\u98a8"
   )
 )
-}
-\seealso{
-\url{https://github.com/hakatashi/japanese.js#japaneseromanizetext-config}
 }

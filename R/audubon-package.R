@@ -1,5 +1,3 @@
-#' audubon: Japanese Text Processing Tools
-#' @importFrom magrittr %>%
 #' @importFrom rlang enquo enquos ensym sym .data := as_name as_label
 #' @importFrom stats embed
 #' @keywords internal

@@ -2,23 +2,22 @@
 % Please edit documentation in R/strj-japanese.R
 \name{strj_transcribe_num}
 \alias{strj_transcribe_num}
-\title{Transcribe Arabic to Kansuji}
+\title{Transcribe integers into Japanese kanji numerals}
 \usage{
 strj_transcribe_num(int)
 }
 \arguments{
-\item{int}{Integers.}
+\item{int}{An integer vector to transcribe.}
 }
 \value{
-A character vector.
+A character vector containing kanji numeral representations.
 }
 \description{
-Transcribes Arabic integers to Kansuji with auxiliary numerals.
-}
-\details{
-As its implementation is limited, this function can only transcribe
-numbers up to trillions.
-In case you convert much bigger numbers, try to use the 'arabic2kansuji' package.
+Converts integer values to their Japanese kanji numeral representations.
+
+This function transcribes integers up to the trillions place into kanji
+numerals. For larger numbers or more comprehensive numeral support, consider
+using the CRAN package arabic2kansuji.
 }
 \examples{
 strj_transcribe_num(c(10L, 31415L))

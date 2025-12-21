@@ -2,20 +2,24 @@
 % Please edit documentation in R/strj-rewrite.R
 \name{read_rewrite_def}
 \alias{read_rewrite_def}
-\title{Read a rewrite.def file}
+\title{Read rewrite definition file}
 \usage{
 read_rewrite_def(
   def_path = system.file("def/rewrite.def", package = "audubon")
 )
 }
 \arguments{
-\item{def_path}{Character scalar; path to the rewriting definition file.}
+\item{def_path}{A file path to a rewrite definition file.}
 }
 \value{
-A list.
+A list containing rewrite rules and ignored characters.
 }
 \description{
-Read a rewrite.def file
+Reads a rewrite definition file used for Japanese text normalization.
+
+This function parses a tab-delimited definition file and returns a list
+of rewrite rules and ignored characters suitable for use with
+\code{strj_rewrite_as_def()}.
 }
 \examples{
 str(read_rewrite_def())
