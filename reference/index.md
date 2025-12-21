@@ -23,6 +23,8 @@
   : Fill Japanese iteration marks
 - [`strj_normalize()`](https://paithiov909.github.io/audubon/reference/strj_normalize.md)
   : Convert text following the rules of 'NEologd'
+- [`strj_parse_date()`](https://paithiov909.github.io/audubon/reference/strj_parse_date.md)
+  : Parse Japanese calendar dates
 - [`strj_rewrite_as_def()`](https://paithiov909.github.io/audubon/reference/strj_rewrite_as_def.md)
   : Rewrite Japanese text using normalization rules
 - [`strj_romanize()`](https://paithiov909.github.io/audubon/reference/strj_romanize.md)
