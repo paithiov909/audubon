@@ -1,5 +1,34 @@
 # Changelog
 
+## audubon 0.6.0
+
+### New features
+
+- Added
+  [`label_wrap_jp()`](https://paithiov909.github.io/audubon/reference/label_wrap_jp.md)
+  and
+  [`label_wrap_jp_gen()`](https://paithiov909.github.io/audubon/reference/label_wrap_jp.md)
+  for Japanese word wrapping in ggplot2 labellers.
+- Added
+  [`label_date_jp()`](https://paithiov909.github.io/audubon/reference/label_date_jp.md)
+  and
+  [`label_date_jp_gen()`](https://paithiov909.github.io/audubon/reference/label_date_jp.md)
+  for Japanese calendar date labels in ggplot2.
+- Added `strj_parse_jdate()` to parse Japanese calendar date strings
+  into POSIXct values.
+
+### Changes
+
+- Removed `mecab` and `sudachipy` engines and related arguments from
+  [`strj_tokenize()`](https://paithiov909.github.io/audubon/reference/strj_tokenize.md).
+- Removed functions overlapping with those provided by the gibasa
+  package. Users requiring morphological analysis or related features
+  should use gibasa.
+
+### Other
+
+- Performed internal refactoring and maintenance improvements.
+
 ## audubon 0.5.2
 
 CRAN release: 2024-04-27

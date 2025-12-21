@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +31,24 @@
       <small>Source: <a href="https://github.com/paithiov909/audubon/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.0" id="audubon-060">audubon 0.6.0<a class="anchor" aria-label="anchor" href="#audubon-060"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-6-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-6-0"></a></h3>
+<ul><li>Added <code><a href="../reference/label_wrap_jp.html">label_wrap_jp()</a></code> and <code><a href="../reference/label_wrap_jp.html">label_wrap_jp_gen()</a></code> for Japanese word wrapping in ggplot2 labellers.</li>
+<li>Added <code><a href="../reference/label_date_jp.html">label_date_jp()</a></code> and <code><a href="../reference/label_date_jp.html">label_date_jp_gen()</a></code> for Japanese calendar date labels in ggplot2.</li>
+<li>Added <code>strj_parse_jdate()</code> to parse Japanese calendar date strings into POSIXct values.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changes-0-6-0">Changes<a class="anchor" aria-label="anchor" href="#changes-0-6-0"></a></h3>
+<ul><li>Removed <code>mecab</code> and <code>sudachipy</code> engines and related arguments from <code><a href="../reference/strj_tokenize.html">strj_tokenize()</a></code>.</li>
+<li>Removed functions overlapping with those provided by the gibasa package. Users requiring morphological analysis or related features should use gibasa.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-0-6-0">Other<a class="anchor" aria-label="anchor" href="#other-0-6-0"></a></h3>
+<ul><li>Performed internal refactoring and maintenance improvements.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.2" id="audubon-052">audubon 0.5.2<a class="anchor" aria-label="anchor" href="#audubon-052"></a></h2><p class="text-muted">CRAN release: 2024-04-27</p>
 <ul><li>Corrected probabilistic IDF calculation by <code>global_idf3</code>.</li>
