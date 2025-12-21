@@ -14,8 +14,9 @@
   and
   [`label_date_jp_gen()`](https://paithiov909.github.io/audubon/reference/label_date_jp.md)
   for Japanese calendar date labels in ggplot2.
-- Added `strj_parse_jdate()` to parse Japanese calendar date strings
-  into POSIXct values.
+- Added
+  [`strj_parse_date()`](https://paithiov909.github.io/audubon/reference/strj_parse_date.md)
+  to parse Japanese calendar date strings into POSIXct values.
 
 ### Changes
 

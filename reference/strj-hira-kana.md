@@ -1,4 +1,6 @@
-# Convert Japanese text between hiragana and katakana representations.
+# Convert Japanese kana characters
+
+Converts Japanese text between hiragana and katakana representations.
 
 These functions transform kana characters while preserving non-kana
 characters. The conversion is based on a JavaScript implementation and

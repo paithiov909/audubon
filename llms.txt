@@ -141,7 +141,7 @@ Icons made by iconixar from flaticon.
   : Read rewrite definition file
 - [`strj_hiraganize()`](https://paithiov909.github.io/audubon/reference/strj-hira-kana.md)
   [`strj_katakanize()`](https://paithiov909.github.io/audubon/reference/strj-hira-kana.md)
-  : Convert Japanese text between hiragana and katakana representations.
+  : Convert Japanese kana characters
 - [`strj_fill_iter_mark()`](https://paithiov909.github.io/audubon/reference/strj_fill_iter_mark.md)
   : Fill Japanese iteration marks
 - [`strj_normalize()`](https://paithiov909.github.io/audubon/reference/strj_normalize.md)
