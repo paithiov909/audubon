@@ -2,6 +2,8 @@
 
 ## audubon 0.6.1
 
+CRAN release: 2025-12-21
+
 ### New features
 
 - Added

@@ -9,7 +9,7 @@ labels suitable for use with ggplot2 scales."><meta property="og:image" content=
 
     <a class="navbar-brand me-2" href="../index.html">audubon</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@ labels suitable for use with ggplot2 scales."><meta property="og:image" content=
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Japanese date labeller for ggplot2</h1>
-      <small class="dont-index">Source: <a href="https://github.com/paithiov909/audubon/blob/v0.6.1/R/labellers.R" class="external-link"><code>R/labellers.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paithiov909/audubon/blob/master/R/labellers.R" class="external-link"><code>R/labellers.R</code></a></small>
       <div class="d-none name"><code>label_date_jp.Rd</code></div>
     </div>
 
@@ -85,11 +85,11 @@ The output is intended for discrete or continuous date scales in ggplot2.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">label_date_jp</span><span class="op">(</span><span class="va">two_months</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "令和7年12月31日" "令和8年3月1日"  </span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"scales"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/demo_continuous.html" class="external-link">demo_datetime</a></span><span class="op">(</span><span class="va">two_months</span>, labels <span class="op">=</span> <span class="fu">label_date_jp_gen</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> scale_x_datetime(labels = label_date_jp_gen())</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Skipping; <span style="color: #0000BB;">ggplot2</span> not installed</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

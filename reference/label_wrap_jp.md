@@ -49,9 +49,9 @@ label_wrap_jp(polano[4:6], width = 32)
 #> [1] "宮沢賢治訳述"                                                 
 #> [2] "そのころわたくしは、モリーオ市の\n博物局に勤めて居りました"   
 #> [3] "十八等官でしたから役所のなかでも、\nずうっと下の方でしたし..."
+if (FALSE) { # \dontrun{
 if (requireNamespace("scales", quietly = TRUE)) {
   scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
 }
-#> scale_x_discrete(labels = label_wrap_jp_gen())
-#> Skipping; ggplot2 not installed
+} # }
 ```
