@@ -1,3 +1,7 @@
+# audubon 0.6.2
+
+* Modified some examples to address addtional issues on CRAN. There are no user-facing changes.
+
 # audubon 0.6.1
 
 ## New features
