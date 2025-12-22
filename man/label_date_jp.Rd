@@ -39,7 +39,9 @@ date_range <- function(start, days) {
 two_months <- date_range("2025-12-31", 60)
 
 label_date_jp(two_months)
+\dontrun{
 if (requireNamespace("scales", quietly = TRUE)) {
   scales::demo_datetime(two_months, labels = label_date_jp_gen())
+}
 }
 }

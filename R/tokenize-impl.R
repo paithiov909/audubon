@@ -1,4 +1,4 @@
-#' @keywords internal
+#' @noRd
 tokenize_stringi <- function(text, split) {
   purrr::imap_dfr(text, function(vec, doc_id) {
     if (split) {
@@ -16,7 +16,7 @@ tokenize_stringi <- function(text, split) {
     dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
 }
 
-#' @keywords internal
+#' @noRd
 tokenize_budoux <- function(text, split) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   purrr::imap_dfr(text, function(vec, doc_id) {
@@ -40,6 +40,7 @@ tokenize_budoux <- function(text, split) {
     dplyr::mutate(doc_id = factor(.data$doc_id, unique(.data$doc_id)))
 }
 
+#' @noRd
 tokenize_tinyseg <- function(text, split) {
   ctx <- rlang::env_get(.pkgenv, "ctx")
   purrr::imap_dfr(text, function(vec, doc_id) {

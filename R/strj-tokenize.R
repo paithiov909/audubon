@@ -15,9 +15,9 @@
 #' @details
 #' The following engines are supported:
 #'
-#' - `"stringi"`: Uses ICU-based boundary analysis via stringi.
-#' - `"budoux"`: Uses a rule-based Japanese phrase segmentation algorithm.
-#' - `"tinyseg"`: Uses a TinySegmenter-compatible statistical model.
+#' * `"stringi"`: Uses ICU-based boundary analysis via stringi.
+#' * `"budoux"`: Uses a rule-based Japanese phrase segmentation algorithm.
+#' * `"tinyseg"`: Uses a TinySegmenter-compatible statistical model.
 #'
 #' The legacy `"mecab"` and `"sudachipy"` engines were removed in v0.6.0.
 #'

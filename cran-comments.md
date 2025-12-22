@@ -1,6 +1,4 @@
-# audubon 0.6.1
+# audubon 0.6.2
 
-This release includes internal refactoring, removal of deprecated features,
-and the addition of small user-facing utilities for Japanese text handling.
-
+This is a patch release to address addtional issues on CRAN.
 There are currently no downstream dependencies for this package.

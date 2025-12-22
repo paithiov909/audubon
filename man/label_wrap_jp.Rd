@@ -35,7 +35,9 @@ truncated to a fixed display width with an ellipsis.
 }
 \examples{
 label_wrap_jp(polano[4:6], width = 32)
+\dontrun{
 if (requireNamespace("scales", quietly = TRUE)) {
   scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
+}
 }
 }

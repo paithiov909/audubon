@@ -28,8 +28,10 @@ consective_id_by_cumsum <- function(x, threshold) {
 #' @export
 #' @examples
 #' label_wrap_jp(polano[4:6], width = 32)
+#' \dontrun{
 #' if (requireNamespace("scales", quietly = TRUE)) {
 #'   scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
+#' }
 #' }
 label_wrap_jp <- function(labels, wrap = 16, width = 50, collapse = "\n") {
   labels <- as.character(labels)
@@ -119,8 +121,10 @@ label_wrap_jp_gen <- function(wrap = 16, width = 50, collapse = "\n") {
 #' two_months <- date_range("2025-12-31", 60)
 #'
 #' label_date_jp(two_months)
+#' \dontrun{
 #' if (requireNamespace("scales", quietly = TRUE)) {
 #'   scales::demo_datetime(two_months, labels = label_date_jp_gen())
+#' }
 #' }
 label_date_jp <- function(
   labels,
