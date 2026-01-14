@@ -2,6 +2,8 @@
 
 ## audubon 0.6.2
 
+CRAN release: 2026-01-09
+
 - Modified some examples to address addtional issues on CRAN. There are
   no user-facing changes.
 
