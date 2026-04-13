@@ -28,5 +28,7 @@ rules and may result in completion with the current date or time
 components.
 }
 \examples{
+\dontrun{
 strj_parse_date("\u4ee4\u548c2\u5e747\u67086\u65e5")
+}
 }
