@@ -1,6 +1,6 @@
 {
   "name": "audubon",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "JS source for audubon R package",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "webpack-merge": "^6.0.0"
   },
   "dependencies": {
-    "budoux": "^0.7.0",
+    "budoux": "^0.8.1",
     "japanese": "^1.1.0"
   }
 }

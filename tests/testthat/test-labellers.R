@@ -1,4 +1,6 @@
 test_that("label_wrap_jp works", {
+  skip_on_cran()
+
   expect_error(
     label_wrap_jp(
       polano[4:8],

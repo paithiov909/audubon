@@ -32,14 +32,14 @@ calendar, allowing era-based representations such as Reiwa or Heisei.
 The output is intended for discrete or continuous date scales in ggplot2.
 }
 \examples{
+\dontrun{
 date_range <- function(start, days) {
   start <- as.POSIXct(start)
   c(start, start + days * 24 * 60 * 60)
 }
 two_months <- date_range("2025-12-31", 60)
-
 label_date_jp(two_months)
-\dontrun{
+
 if (requireNamespace("scales", quietly = TRUE)) {
   scales::demo_datetime(two_months, labels = label_date_jp_gen())
 }

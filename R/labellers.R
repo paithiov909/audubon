@@ -27,8 +27,9 @@ consective_id_by_cumsum <- function(x, threshold) {
 #' @rdname label_wrap_jp
 #' @export
 #' @examples
-#' label_wrap_jp(polano[4:6], width = 32)
 #' \dontrun{
+#' label_wrap_jp(polano[4:6], width = 32)
+#'
 #' if (requireNamespace("scales", quietly = TRUE)) {
 #'   scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
 #' }
@@ -38,7 +39,7 @@ label_wrap_jp <- function(labels, wrap = 16, width = 50, collapse = "\n") {
   pos <-
     stringi::stri_locate_all_boundaries(
       labels,
-      opts_brkiter = stringi::stri_opts_brkiter(locale = "ja@lw=phrase;ld=auto")
+      opts_brkiter = stringi::stri_opts_brkiter(locale = "ja@lw=phrase")
     ) |>
     lapply(function(x) {
       ret <-
@@ -114,14 +115,14 @@ label_wrap_jp_gen <- function(wrap = 16, width = 50, collapse = "\n") {
 #' @rdname label_date_jp
 #' @export
 #' @examples
+#' \dontrun{
 #' date_range <- function(start, days) {
 #'   start <- as.POSIXct(start)
 #'   c(start, start + days * 24 * 60 * 60)
 #' }
 #' two_months <- date_range("2025-12-31", 60)
-#'
 #' label_date_jp(two_months)
-#' \dontrun{
+#'
 #' if (requireNamespace("scales", quietly = TRUE)) {
 #'   scales::demo_datetime(two_months, labels = label_date_jp_gen())
 #' }

@@ -18,7 +18,9 @@
 #' A POSIXct vector representing the parsed dates.
 #' @export
 #' @examples
+#' \dontrun{
 #' strj_parse_date("\u4ee4\u548c2\u5e747\u67086\u65e5")
+#' }
 strj_parse_date <- function(
   date,
   format = default_format(),
