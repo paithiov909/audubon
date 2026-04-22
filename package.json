@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "budoux": "^0.8.1",
-    "japanese": "1.1.0"
+    "japanese": "1.2.0"
   }
 }
