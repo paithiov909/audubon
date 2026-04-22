@@ -1,5 +1,11 @@
 # Changelog
 
+## audubon 0.6.3
+
+- Modified some examples and tests to address addtional issues on CRAN.
+  - Japanese locale-dependent examples are no longer run on CRAN.
+  - Simplified phrase-based wrapping locale.
+
 ## audubon 0.6.2
 
 CRAN release: 2026-01-09

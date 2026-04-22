@@ -39,6 +39,7 @@ components.
 ## Examples
 
 ``` r
+if (FALSE) { # \dontrun{
 strj_parse_date("\u4ee4\u548c2\u5e747\u67086\u65e5")
-#> [1] "2020-07-06 UTC"
+} # }
 ```

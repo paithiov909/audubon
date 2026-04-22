@@ -16,15 +16,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/paithiov909/audubon/blob/v0.6.2/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/paithiov909/audubon/blob/master/DESCRIPTION)
 
 Kato A (2026). *audubon: Japanese Text Processing Tools*. R package
-version 0.6.2, <https://github.com/paithiov909/audubon>.
+version 0.6.3, <https://github.com/paithiov909/audubon>.
 
     @Manual{,
       title = {audubon: Japanese Text Processing Tools},
       author = {Akiru Kato},
       year = {2026},
-      note = {R package version 0.6.2},
+      note = {R package version 0.6.3},
       url = {https://github.com/paithiov909/audubon},
     }

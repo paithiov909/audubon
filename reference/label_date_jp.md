@@ -42,15 +42,14 @@ ggplot2.
 ## Examples
 
 ``` r
+if (FALSE) { # \dontrun{
 date_range <- function(start, days) {
   start <- as.POSIXct(start)
   c(start, start + days * 24 * 60 * 60)
 }
 two_months <- date_range("2025-12-31", 60)
-
 label_date_jp(two_months)
-#> [1] "令和7年12月31日" "令和8年3月1日"  
-if (FALSE) { # \dontrun{
+
 if (requireNamespace("scales", quietly = TRUE)) {
   scales::demo_datetime(two_months, labels = label_date_jp_gen())
 }
