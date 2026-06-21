@@ -14,6 +14,7 @@ audubon is Japanese text processing tools for:
 ## Installation
 
 ``` r
+
 remotes::install_github("paithiov909/audubon")
 ```
 
@@ -26,6 +27,7 @@ remotes::install_github("paithiov909/audubon")
 style.
 
 ``` r
+
 strj_normalize("――南アルプスの　天然水-　Ｓｐａｒｋｉｎｇ*　Ｌｅｍｏｎ+　レモン一絞り")
 #> [1] "ー南アルプスの天然水-Sparking* Lemon+レモン一絞り"
 ```
@@ -57,6 +59,7 @@ this function can be used to convert *kyuji-tai* characters to
 *shinji-tai* characters.
 
 ``` r
+
 stringi::stri_trans_nfkc("Ⅹⅳ")
 #> [1] "Xiv"
 strj_rewrite_as_def("Ⅹⅳ")
@@ -83,6 +86,7 @@ character widths. This is useful for discrete scales with long Japanese
 labels, such as titles, phrases, or excerpts.
 
 ``` r
+
 scales::demo_discrete(polano[4:6], labels = label_wrap_jp_gen())
 #> scale_x_discrete(labels = label_wrap_jp_gen())
 ```
@@ -99,6 +103,7 @@ era-based representations. They can be used with date or datetime scales
 to produce locale-aware Japanese date labels without manual formatting.
 
 ``` r
+
 date_range <- function(start, days) {
   start <- as.POSIXct(start)
   c(start, start + days * 24 * 60 * 60)
