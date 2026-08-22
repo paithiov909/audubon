@@ -17,12 +17,14 @@ export(strj_segment)
 export(strj_tinyseg)
 export(strj_tokenize)
 export(strj_transcribe_num)
-importFrom(rlang,":=")
-importFrom(rlang,.data)
-importFrom(rlang,as_label)
-importFrom(rlang,as_name)
-importFrom(rlang,enquo)
-importFrom(rlang,enquos)
-importFrom(rlang,ensym)
-importFrom(rlang,sym)
+importFrom(rlang,
+  ":=",
+  .data,
+  as_label,
+  as_name,
+  enquo,
+  enquos,
+  ensym,
+  sym
+)
 importFrom(stats,embed)
