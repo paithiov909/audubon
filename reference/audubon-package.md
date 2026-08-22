@@ -21,6 +21,10 @@ Useful links:
 
 **Maintainer**: Akiru Kato <paithiov909@gmail.com>
 
+Authors:
+
+- Akiru Kato <paithiov909@gmail.com>
+
 Other contributors:
 
 - Koki Takahashi (Author of japanese.js) \[copyright holder\]
