@@ -17,8 +17,8 @@
     "url": "https://github.com/paithiov909/audubon/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
+    "@babel/core": "^8.0.0",
+    "@babel/preset-env": "^8.0.0",
     "babel-loader": "^10.0.0",
     "prettier": "^3.0.0",
     "webpack": "^5.91.0",
